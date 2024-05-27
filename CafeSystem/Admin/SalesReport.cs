@@ -194,9 +194,6 @@ namespace CafeSystem.Admin
 
                 DateTime end = currentDate.AddHours(23).AddMinutes(59).AddSeconds(59);
 
-      
-                Debug.WriteLine(start.ToString());
-                Debug.WriteLine(end.ToString());
                 Boolean hasrecord = false;
 
 
@@ -380,10 +377,28 @@ namespace CafeSystem.Admin
 
         private void btnGenerateReport_Click(object sender, EventArgs e)
         {
+            DateTime currentDate = DateTime.Now.Date;
+
+            DateTime start = currentDate.AddDays(-6);
+
+            DateTime end = currentDate.AddHours(23).AddMinutes(59).AddSeconds(59);
             ReportsRDLC rdlc = new ReportsRDLC(this, land) ;
+
             if (filterBySold.SelectedIndex == 0)
             {
-                rdlc.loadSalesReport("select c.transacno, c.ItemName, c.price, c.qty, c.sdate, c.customerName, c.OrderType, c.status, c.total * (1 - COALESCE(d.discountPercent, 0) / 100) as discounted_total FROM tblCart as c LEFT JOIN tblDiscountCart as d ON c.transacno = d.transacno where c.status = 'Sold' and sdate between @start and @end", "From: " + startDate.Value.ToString("yyyy/MM/dd ") + "|" + " To: " + endDate.Value.ToString("yyyy/MM/dd"));
+                rdlc.loadSalesReport("select c.transacno, c.ItemName, c.price, c.qty, c.sdate, c.customerName, c.OrderType, c.status, c.total * (1 - COALESCE(d.discountPercent, 0) / 100) as discounted_total FROM tblCart as c LEFT JOIN tblDiscountCart as d ON c.transacno = d.transacno where c.status = 'Sold' and sdate between @start and @end", "From: " + startDate.Value.ToString("yyyy/MM/dd ") + "|" + " To: " + endDate.Value.ToString("yyyy/MM/dd"), "CUSTOM DATE");
+            }
+            else if (filterBySold.SelectedIndex == 1)
+            {
+                rdlc.loadSalesReport("select c.transacno, c.ItemName, c.price, c.qty, c.sdate, c.customerName, c.OrderType, c.status, c.total * (1 - COALESCE(d.discountPercent, 0) / 100) as discounted_total FROM tblCart as c LEFT JOIN tblDiscountCart as d ON c.transacno = d.transacno where c.status = 'Sold' and sdate between @start and @end", "From: " + start.ToString("yyyy/MM/dd ") + "|" + " To: " + end.ToString("yyyy/MM/dd"), "WEEKLY SALES");
+            }
+            else if (filterBySold.SelectedIndex == 2)
+            {
+                rdlc.loadSalesReport("select c.transacno, c.ItemName, c.price, c.qty, c.sdate, c.customerName, c.OrderType, c.status, c.total * (1 - COALESCE(d.discountPercent, 0) / 100) as discounted_total FROM tblCart as c LEFT JOIN tblDiscountCart as d ON c.transacno = d.transacno where c.status = 'Sold' and sdate between @start and @end", "From: " + startDate.Value.ToString("yyyy/MM ") + "|" + " To: " + endDate.Value.ToString("yyyy/MM"), "MONTHLY SALES");
+            }
+            else
+            {
+                rdlc.loadSalesReport("select c.transacno, c.ItemName, c.price, c.qty, c.sdate, c.customerName, c.OrderType, c.status, c.total * (1 - COALESCE(d.discountPercent, 0) / 100) as discounted_total FROM tblCart as c LEFT JOIN tblDiscountCart as d ON c.transacno = d.transacno where c.status = 'Sold' and sdate between @start and @end", "From: " + startDate.Value.ToString("yyyy ") + "|" + " To: " + endDate.Value.ToString("yyyy"), "ANNUAL SALES");
             }
             rdlc.ShowDialog();
            
