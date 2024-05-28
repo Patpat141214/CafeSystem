@@ -753,7 +753,7 @@ namespace CafeSystem.SystemReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public dtSalesReportRow AdddtSalesReportRow(string transacno, string ItemName, decimal price, string qty, decimal discounted_total, string sdate, string customerName, string OrderType) {
+            public dtSalesReportRow AdddtSalesReportRow(string transacno, string ItemName, decimal price, int qty, decimal discounted_total, string sdate, string customerName, string OrderType) {
                 dtSalesReportRow rowdtSalesReportRow = ((dtSalesReportRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         transacno,
@@ -805,7 +805,7 @@ namespace CafeSystem.SystemReports {
                 base.Columns.Add(this.columnItemName);
                 this.columnprice = new global::System.Data.DataColumn("price", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnprice);
-                this.columnqty = new global::System.Data.DataColumn("qty", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnqty = new global::System.Data.DataColumn("qty", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnqty);
                 this.columndiscounted_total = new global::System.Data.DataColumn("discounted_total", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndiscounted_total);
@@ -1132,10 +1132,10 @@ namespace CafeSystem.SystemReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string qty {
+            public int qty {
                 get {
                     try {
-                        return ((string)(this[this.tabledtSalesReport.qtyColumn]));
+                        return ((int)(this[this.tabledtSalesReport.qtyColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'qty\' in table \'dtSalesReport\' is DBNull.", e);
