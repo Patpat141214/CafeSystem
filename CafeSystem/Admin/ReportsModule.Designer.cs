@@ -30,6 +30,7 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnShowSoldReport = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.btnInventoryReport = new Guna.UI.WinForms.GunaAdvenceButton();
             this.SuspendLayout();
             // 
             // panel1
@@ -75,11 +76,47 @@
             this.btnShowSoldReport.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnShowSoldReport.Click += new System.EventHandler(this.btnShowSoldReport_Click);
             // 
+            // btnInventoryReport
+            // 
+            this.btnInventoryReport.AnimationHoverSpeed = 0.07F;
+            this.btnInventoryReport.AnimationSpeed = 0.03F;
+            this.btnInventoryReport.BackColor = System.Drawing.Color.Transparent;
+            this.btnInventoryReport.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(158)))), ((int)(((byte)(135)))));
+            this.btnInventoryReport.BorderColor = System.Drawing.Color.Black;
+            this.btnInventoryReport.CheckedBaseColor = System.Drawing.Color.Gray;
+            this.btnInventoryReport.CheckedBorderColor = System.Drawing.Color.Black;
+            this.btnInventoryReport.CheckedForeColor = System.Drawing.Color.White;
+            this.btnInventoryReport.CheckedImage = null;
+            this.btnInventoryReport.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.btnInventoryReport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnInventoryReport.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnInventoryReport.FocusedColor = System.Drawing.Color.Empty;
+            this.btnInventoryReport.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInventoryReport.ForeColor = System.Drawing.Color.White;
+            this.btnInventoryReport.Image = null;
+            this.btnInventoryReport.ImageOffsetX = 1;
+            this.btnInventoryReport.ImageSize = new System.Drawing.Size(24, 24);
+            this.btnInventoryReport.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(158)))), ((int)(((byte)(135)))));
+            this.btnInventoryReport.Location = new System.Drawing.Point(191, 29);
+            this.btnInventoryReport.Name = "btnInventoryReport";
+            this.btnInventoryReport.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(183)))), ((int)(((byte)(165)))));
+            this.btnInventoryReport.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.btnInventoryReport.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnInventoryReport.OnHoverImage = null;
+            this.btnInventoryReport.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(158)))), ((int)(((byte)(135)))));
+            this.btnInventoryReport.OnPressedColor = System.Drawing.Color.Black;
+            this.btnInventoryReport.Size = new System.Drawing.Size(185, 50);
+            this.btnInventoryReport.TabIndex = 21;
+            this.btnInventoryReport.Text = "Inventory Report";
+            this.btnInventoryReport.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnInventoryReport.Click += new System.EventHandler(this.btnInventoryReport_Click);
+            // 
             // ReportsModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1631, 1061);
+            this.Controls.Add(this.btnInventoryReport);
             this.Controls.Add(this.btnShowSoldReport);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -97,5 +134,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private Guna.UI.WinForms.GunaAdvenceButton btnShowSoldReport;
+        private Guna.UI.WinForms.GunaAdvenceButton btnInventoryReport;
     }
 }

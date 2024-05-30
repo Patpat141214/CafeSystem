@@ -29,5 +29,15 @@ namespace CafeSystem.Admin
             sales.Show();
             
         }
+
+        private void btnInventoryReport_Click(object sender, EventArgs e)
+        {
+            InventoryReport inv = new InventoryReport();
+            inv.TopLevel = false;
+            panel1.Controls.Add(inv);
+            inv.BringToFront();
+            inv.LoadProducts();
+            inv.Show();
+        }
     }
 }

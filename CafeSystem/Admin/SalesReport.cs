@@ -15,7 +15,7 @@ namespace CafeSystem.Admin
 {
     public partial class SalesReport : Form
     {
-        private readonly string search = "search transaction#";
+    
         SqlConnection conn = new SqlConnection();
         SqlCommand cm = new SqlCommand();
         DBConnection dbcon = new DBConnection();
@@ -25,7 +25,7 @@ namespace CafeSystem.Admin
         {
             InitializeComponent();
             conn = new SqlConnection(dbcon.myConnection());
-            txtSearch.Text = "search transaction#";
+
             dataGridSoldReport.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             startDate.MaxDate = DateTime.Now;
             endDate.MaxDate = DateTime.Now;
@@ -36,52 +36,17 @@ namespace CafeSystem.Admin
 
         private void txtSearch_Leave(object sender, EventArgs e)
         {
-            txtSearch.Text = search;
-            txtSearch.ForeColor = Color.Black;
+           
         }
 
         private void txtSearch_Enter(object sender, EventArgs e)
         {
-            if (txtSearch.Text == search)
-            {
-                txtSearch.Text = "";
-                txtSearch.ForeColor = Color.Black;
-            }
+       
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            if (txtSearch.Text.Equals(string.Empty))
-            {
-                dataGridTransactNoSold.ClearSelection();
-            }
-            else
-            {
-                bool found = false;
-                foreach (DataGridViewRow row in dataGridTransactNoSold.Rows)
-                {
-                    foreach (DataGridViewCell cell in row.Cells)
-                    {
-                        if (cell.Visible && (cell.Value ?? "N/A").ToString().ToLower().Contains(txtSearch.Text.ToLower()))
-                        {
-                            dataGridTransactNoSold.CurrentCell = cell;
-                            dataGridTransactNoSold.Rows[cell.RowIndex].Selected = true;
-                            found = true;
-                            break; // Break out of inner loop once a match is found
-                        }
-                    }
-
-                    if (found)
-                    {
-                        break; // Break out of outer loop if a match is found
-                    }
-                }
-
-                if (!found)
-                {
-                    dataGridTransactNoSold.ClearSelection();
-                }
-            }
+           
         }
         public void loadTransactGroup()
         {
