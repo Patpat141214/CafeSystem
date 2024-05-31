@@ -18,11 +18,15 @@ namespace CafeSystem.Admin
         SqlCommand cm = new SqlCommand();
         DBConnection dbcon = new DBConnection();
         SqlDataReader dr;
-        public InventoryReport()
+        LandingPage land;
+
+        public InventoryReport( LandingPage land1)
         {
             InitializeComponent();        
             conn = new SqlConnection(dbcon.myConnection());
             filterBySold.SelectedIndex = 0;
+            land = land1;
+           
         }
 
         public void LoadProducts()
@@ -33,7 +37,7 @@ namespace CafeSystem.Admin
                 dataGridProducts.Rows.Clear();
                 int i = 0;
                 conn.Open();
-                cm = new SqlCommand("select p.id, p.price, p.status, p.AvailOrNot, p.image, p.description, p.status, c.category FROM tblProduct AS p INNER JOIN tblCategory as c on p.catid = c.id", conn);
+                cm = new SqlCommand("select p.id, p.price, p.status, p.AvailOrNot, p.image, p.description, c.category FROM tblProduct AS p INNER JOIN tblCategory as c on p.catid = c.id", conn);
                 dr = cm.ExecuteReader();
                 while (dr.Read())
                 {
@@ -77,7 +81,7 @@ namespace CafeSystem.Admin
                 dataGridProducts.Rows.Clear();
                 int i = 0;
                 conn.Open();
-                cm = new SqlCommand("select p.id, p.price, p.status, p.AvailOrNot, p.image, p.description, p.status, c.category FROM tblProduct AS p INNER JOIN tblCategory as c on p.catid = c.id where p.status = 'Active'", conn);
+                cm = new SqlCommand("select p.id, p.price, p.status, p.AvailOrNot, p.image, p.description, c.category FROM tblProduct AS p INNER JOIN tblCategory as c on p.catid = c.id where p.status = 'Active'", conn);
                 dr = cm.ExecuteReader();
                 while (dr.Read())
                 {
@@ -125,7 +129,7 @@ namespace CafeSystem.Admin
                 dataGridProducts.Rows.Clear();
                 int i = 0;
                 conn.Open();
-                cm = new SqlCommand("select p.id, p.price, p.status, p.AvailOrNot, p.image, p.description, p.status, c.category FROM tblProduct AS p INNER JOIN tblCategory as c on p.catid = c.id where p.status = 'Archived'", conn);
+                cm = new SqlCommand("select p.id, p.price, p.status, p.AvailOrNot, p.image, p.description, c.category FROM tblProduct AS p INNER JOIN tblCategory as c on p.catid = c.id where p.status = 'Archived'", conn);
                 dr = cm.ExecuteReader();
                 while (dr.Read())
                 {
@@ -171,7 +175,7 @@ namespace CafeSystem.Admin
                 dataGridProducts.Rows.Clear();
                 int i = 0;
                 conn.Open();
-                cm = new SqlCommand("select p.id, p.price, p.status, p.AvailOrNot, p.image, p.description, p.status, c.category FROM tblProduct AS p INNER JOIN tblCategory as c on p.catid = c.id where p.AvailOrNot = 'Available'", conn);
+                cm = new SqlCommand("select p.id, p.price, p.status, p.AvailOrNot, p.image, p.description, c.category FROM tblProduct AS p INNER JOIN tblCategory as c on p.catid = c.id where p.AvailOrNot = 'Available'", conn);
                 dr = cm.ExecuteReader();
                 while (dr.Read())
                 {
@@ -219,7 +223,7 @@ namespace CafeSystem.Admin
                 dataGridProducts.Rows.Clear();
                 int i = 0;
                 conn.Open();
-                cm = new SqlCommand("select p.id, p.price, p.status, p.AvailOrNot, p.image, p.description, p.status, c.category FROM tblProduct AS p INNER JOIN tblCategory as c on p.catid = c.id where p.AvailOrNot = 'Not Available'", conn);
+                cm = new SqlCommand("select p.id, p.price, p.status, p.AvailOrNot, p.image, p.description, c.category FROM tblProduct AS p INNER JOIN tblCategory as c on p.catid = c.id where p.AvailOrNot = 'Not Available'", conn);
                 dr = cm.ExecuteReader();
                 while (dr.Read())
                 {
@@ -284,6 +288,34 @@ namespace CafeSystem.Admin
         {
             filterBySold.SelectedIndex = 0;
             LoadProducts();
+        }
+
+        private void btnGenerateReport_Click(object sender, EventArgs e)
+        {
+            ReportsRDLC rdlc = new ReportsRDLC(null, land);
+            if (filterBySold.SelectedIndex == 0)
+            {
+                rdlc.loadInventoryReport("select p.id, p.price, p.status, p.AvailOrNot, p.image, p.description, c.category FROM tblProduct AS p INNER JOIN tblCategory as c on p.catid = c.id", "ALL ITEMS");
+            }
+            else if (filterBySold.SelectedIndex == 1)
+            {
+                rdlc.loadInventoryReport("select p.id, p.price, p.status, p.AvailOrNot, p.image, p.description, c.category FROM tblProduct AS p INNER JOIN tblCategory as c on p.catid = c.id where p.status = 'Active'", "ACTIVE ITEMS");
+            }
+            else if (filterBySold.SelectedIndex == 2)
+            {
+                rdlc.loadInventoryReport("select p.id, p.price, p.status, p.AvailOrNot, p.image, p.description, c.category FROM tblProduct AS p INNER JOIN tblCategory as c on p.catid = c.id where p.status = 'Archived'", "ARCHIVED ITEMS");
+            }
+            else if (filterBySold.SelectedIndex == 3)
+            {
+                rdlc.loadInventoryReport("select p.id, p.price, p.status, p.AvailOrNot, p.image, p.description, c.category FROM tblProduct AS p INNER JOIN tblCategory as c on p.catid = c.id where p.AvailOrNot = 'Available'", "AVAILABLE ITEMS");
+            }
+            else
+            {
+                rdlc.loadInventoryReport("select p.id, p.price, p.status, p.AvailOrNot, p.image, p.description, c.category FROM tblProduct AS p INNER JOIN tblCategory as c on p.catid = c.id where p.AvailOrNot = 'Not Available'", "UNAVAILABLE ITEMS");
+            }
+            rdlc.lblHeader.Text = "Inventory Report";
+            rdlc.ShowDialog();
+
         }
     }
 }

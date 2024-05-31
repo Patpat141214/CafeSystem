@@ -724,7 +724,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1276,7 +1275,7 @@
               <rd:DefaultName>pGeneratedBy</rd:DefaultName>
               <Top>0.06944in</Top>
               <Left>6.77132in</Left>
-              <Height>0.25in</Height>
+              <Height>0.27778in</Height>
               <Width>4.0191in</Width>
               <ZIndex>1</ZIndex>
               <Style>

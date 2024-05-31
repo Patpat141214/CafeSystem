@@ -125,8 +125,8 @@
         #endregion
 
         private Guna.UI.WinForms.GunaPanel gunaPanel1;
-        private Guna.UI.WinForms.GunaLabel lblHeader;
         private Guna.UI.WinForms.GunaAdvenceButton btnCloseForm;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        public Guna.UI.WinForms.GunaLabel lblHeader;
     }
 }

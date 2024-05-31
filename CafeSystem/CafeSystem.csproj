@@ -331,6 +331,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SystemReports\InventoryReport.rdlc" />
     <EmbeddedResource Include="SystemReports\ReceiptPaymentReport.rdlc" />
     <EmbeddedResource Include="SystemReports\SalesReport.rdlc" />
     <None Include="packages.config" />
