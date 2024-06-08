@@ -52,6 +52,7 @@ namespace CafeSystem.Admin
         {
             try
             {
+                
                 startDate.Enabled = true;
                 endDate.Enabled = true;
                 startDate.Format = DateTimePickerFormat.Custom;
@@ -59,15 +60,15 @@ namespace CafeSystem.Admin
                 startDate.CustomFormat = "yyyy/MM/dd";
                 endDate.CustomFormat = "yyyy/MM/dd";
                 Boolean hasrecord = false;
-                DateTime start = startDate.Value;
-                DateTime end = endDate.Value;
+                DateTime start = new DateTime(startDate.Value.Year, startDate.Value.Month, startDate.Value.Day, 00,00,00); ;
+                DateTime end = new DateTime(endDate.Value.Year, endDate.Value.Month, endDate.Value.Day, 23, 59, 59);
                 startDate.ShowUpDown = false;
                 endDate.ShowUpDown = false;
                 dataGridSoldReport.Rows.Clear();
                 dataGridTransactNoSold.Rows.Clear();
                 int i = 0;
                 conn.Open();
-                cm = new SqlCommand("select transacno from tblCart where status = 'Sold' and sdate between @startdate and @endate group by transacno", conn);
+                cm = new SqlCommand("select transacno from tblCart where status = 'Sold' and sdate between @startdate and @endate group by transacno order by transacno desc", conn);
                 cm.Parameters.AddWithValue("@startdate", start);
                 cm.Parameters.AddWithValue("@endate", end);
                 dr = cm.ExecuteReader();
@@ -116,7 +117,7 @@ namespace CafeSystem.Admin
                 dataGridTransactNoSold.Rows.Clear();
                 int i = 0;
                 conn.Open();
-                cm = new SqlCommand("select transacno from tblCart where status = 'Sold' and sdate between @startdate and @endate group by transacno", conn);
+                cm = new SqlCommand("select transacno from tblCart where status = 'Sold' and sdate between @startdate and @endate group by transacno order by transacno desc", conn);
                 cm.Parameters.AddWithValue("@startdate", start);
                 cm.Parameters.AddWithValue("@endate", end);
                 dr = cm.ExecuteReader();
@@ -167,7 +168,7 @@ namespace CafeSystem.Admin
                 int i = 0;
 
                 conn.Open();
-                cm = new SqlCommand("SELECT transacno FROM tblCart WHERE status = 'Sold' AND sdate BETWEEN @startdate AND @enddate GROUP BY transacno", conn);
+                cm = new SqlCommand("SELECT transacno FROM tblCart WHERE status = 'Sold' AND sdate BETWEEN @startdate AND @enddate GROUP BY transacno order by transacno desc", conn);
                 cm.Parameters.AddWithValue("@startdate", start);
                 cm.Parameters.AddWithValue("@enddate", end);
                 dr = cm.ExecuteReader();
@@ -213,13 +214,13 @@ namespace CafeSystem.Admin
                 startDate.ShowUpDown = true;
                 endDate.ShowUpDown = true;
                 Boolean hasrecord = false;
-                DateTime start = new DateTime(startDate.Value.Year, 1, 1, 12,00,00);
+                DateTime start = new DateTime(startDate.Value.Year, 1, 1, 00,00,00);
                 DateTime end = new DateTime(endDate.Value.Year, 12, DateTime.DaysInMonth(endDate.Value.Year, 12), 23, 59, 59);
                 dataGridSoldReport.Rows.Clear();
                 dataGridTransactNoSold.Rows.Clear();
                 int i = 0;
                 conn.Open();
-                cm = new SqlCommand("select transacno from tblCart where status = 'Sold' and sdate between @startdate and @endate group by transacno", conn);
+                cm = new SqlCommand("select transacno from tblCart where status = 'Sold' and sdate between @startdate and @endate group by transacno order by transacno desc", conn);
                 cm.Parameters.AddWithValue("@startdate", start);
                 cm.Parameters.AddWithValue("@endate", end);
                 dr = cm.ExecuteReader();
@@ -351,19 +352,19 @@ namespace CafeSystem.Admin
 
             if (filterBySold.SelectedIndex == 0)
             {
-                rdlc.loadSalesReport("select c.transacno, c.ItemName, c.price, c.qty, c.sdate, c.customerName, c.OrderType, c.status, c.total * (1 - COALESCE(d.discountPercent, 0) / 100) as discounted_total FROM tblCart as c LEFT JOIN tblDiscountCart as d ON c.transacno = d.transacno where c.status = 'Sold' and sdate between @start and @end", "From: " + startDate.Value.ToString("yyyy/MM/dd ") + "|" + " To: " + endDate.Value.ToString("yyyy/MM/dd"), "CUSTOM DATE");
+                rdlc.loadSalesReport("select c.transacno, c.ItemName, c.price, c.qty, c.sdate, c.customerName, c.OrderType, c.status, c.total * (1 - COALESCE(d.discountPercent, 0) / 100) as discounted_total FROM tblCart as c LEFT JOIN tblDiscountCart as d ON c.transacno = d.transacno where c.status = 'Sold' and sdate between @start and @end order by transacno desc", "From: " + startDate.Value.ToString("yyyy/MM/dd ") + "|" + " To: " + endDate.Value.ToString("yyyy/MM/dd"), "CUSTOM DATE");
             }
             else if (filterBySold.SelectedIndex == 1)
             {
-                rdlc.loadSalesReport("select c.transacno, c.ItemName, c.price, c.qty, c.sdate, c.customerName, c.OrderType, c.status, c.total * (1 - COALESCE(d.discountPercent, 0) / 100) as discounted_total FROM tblCart as c LEFT JOIN tblDiscountCart as d ON c.transacno = d.transacno where c.status = 'Sold' and sdate between @start and @end", "From: " + start.ToString("yyyy/MM/dd ") + "|" + " To: " + end.ToString("yyyy/MM/dd"), "WEEKLY SALES");
+                rdlc.loadSalesReport("select c.transacno, c.ItemName, c.price, c.qty, c.sdate, c.customerName, c.OrderType, c.status, c.total * (1 - COALESCE(d.discountPercent, 0) / 100) as discounted_total FROM tblCart as c LEFT JOIN tblDiscountCart as d ON c.transacno = d.transacno where c.status = 'Sold' and sdate between @start and @end order by transacno desc", "From: " + start.ToString("yyyy/MM/dd ") + "|" + " To: " + end.ToString("yyyy/MM/dd"), "WEEKLY SALES");
             }
             else if (filterBySold.SelectedIndex == 2)
             {
-                rdlc.loadSalesReport("select c.transacno, c.ItemName, c.price, c.qty, c.sdate, c.customerName, c.OrderType, c.status, c.total * (1 - COALESCE(d.discountPercent, 0) / 100) as discounted_total FROM tblCart as c LEFT JOIN tblDiscountCart as d ON c.transacno = d.transacno where c.status = 'Sold' and sdate between @start and @end", "From: " + startDate.Value.ToString("yyyy/MM ") + "|" + " To: " + endDate.Value.ToString("yyyy/MM"), "MONTHLY SALES");
+                rdlc.loadSalesReport("select c.transacno, c.ItemName, c.price, c.qty, c.sdate, c.customerName, c.OrderType, c.status, c.total * (1 - COALESCE(d.discountPercent, 0) / 100) as discounted_total FROM tblCart as c LEFT JOIN tblDiscountCart as d ON c.transacno = d.transacno where c.status = 'Sold' and sdate between @start and @end order by transacno desc", "From: " + startDate.Value.ToString("yyyy/MM ") + "|" + " To: " + endDate.Value.ToString("yyyy/MM"), "MONTHLY SALES");
             }
             else
             {
-                rdlc.loadSalesReport("select c.transacno, c.ItemName, c.price, c.qty, c.sdate, c.customerName, c.OrderType, c.status, c.total * (1 - COALESCE(d.discountPercent, 0) / 100) as discounted_total FROM tblCart as c LEFT JOIN tblDiscountCart as d ON c.transacno = d.transacno where c.status = 'Sold' and sdate between @start and @end", "From: " + startDate.Value.ToString("yyyy ") + "|" + " To: " + endDate.Value.ToString("yyyy"), "ANNUAL SALES");
+                rdlc.loadSalesReport("select c.transacno, c.ItemName, c.price, c.qty, c.sdate, c.customerName, c.OrderType, c.status, c.total * (1 - COALESCE(d.discountPercent, 0) / 100) as discounted_total FROM tblCart as c LEFT JOIN tblDiscountCart as d ON c.transacno = d.transacno where c.status = 'Sold' and sdate between @start and @end order by transacno desc", "From: " + startDate.Value.ToString("yyyy ") + "|" + " To: " + endDate.Value.ToString("yyyy"), "ANNUAL SALES");
             }
             rdlc.ShowDialog();
            
@@ -395,16 +396,8 @@ namespace CafeSystem.Admin
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            startDate.Format = DateTimePickerFormat.Custom;
-            endDate.Format = DateTimePickerFormat.Custom;
-            startDate.CustomFormat = "yyyy/MM/dd";
-            endDate.CustomFormat = "yyyy/MM/dd";
-            startDate.ShowUpDown = false;
-            endDate.ShowUpDown = false;
-            startDate.MaxDate = DateTime.Now;
-            endDate.MaxDate = DateTime.Now;
+
             filterBySold.SelectedIndex = 0;
-           
             loadTransactGroup();
 
         }

@@ -31,14 +31,17 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnShowSoldReport = new Guna.UI.WinForms.GunaAdvenceButton();
             this.btnInventoryReport = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.gunaPanel1 = new Guna.UI.WinForms.GunaPanel();
+            this.gunaLabel4 = new Guna.UI.WinForms.GunaLabel();
+            this.gunaPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Location = new System.Drawing.Point(2, 79);
+            this.panel1.Location = new System.Drawing.Point(2, 133);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1625, 998);
+            this.panel1.Size = new System.Drawing.Size(1625, 944);
             this.panel1.TabIndex = 0;
             // 
             // btnShowSoldReport
@@ -62,7 +65,7 @@
             this.btnShowSoldReport.ImageOffsetX = 1;
             this.btnShowSoldReport.ImageSize = new System.Drawing.Size(24, 24);
             this.btnShowSoldReport.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(158)))), ((int)(((byte)(135)))));
-            this.btnShowSoldReport.Location = new System.Drawing.Point(2, 29);
+            this.btnShowSoldReport.Location = new System.Drawing.Point(2, 82);
             this.btnShowSoldReport.Name = "btnShowSoldReport";
             this.btnShowSoldReport.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(183)))), ((int)(((byte)(165)))));
             this.btnShowSoldReport.OnHoverBorderColor = System.Drawing.Color.Transparent;
@@ -97,7 +100,7 @@
             this.btnInventoryReport.ImageOffsetX = 1;
             this.btnInventoryReport.ImageSize = new System.Drawing.Size(24, 24);
             this.btnInventoryReport.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(158)))), ((int)(((byte)(135)))));
-            this.btnInventoryReport.Location = new System.Drawing.Point(191, 29);
+            this.btnInventoryReport.Location = new System.Drawing.Point(191, 82);
             this.btnInventoryReport.Name = "btnInventoryReport";
             this.btnInventoryReport.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(183)))), ((int)(((byte)(165)))));
             this.btnInventoryReport.OnHoverBorderColor = System.Drawing.Color.Transparent;
@@ -111,11 +114,33 @@
             this.btnInventoryReport.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnInventoryReport.Click += new System.EventHandler(this.btnInventoryReport_Click);
             // 
+            // gunaPanel1
+            // 
+            this.gunaPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(158)))), ((int)(((byte)(135)))));
+            this.gunaPanel1.Controls.Add(this.gunaLabel4);
+            this.gunaPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gunaPanel1.Location = new System.Drawing.Point(0, 0);
+            this.gunaPanel1.Name = "gunaPanel1";
+            this.gunaPanel1.Size = new System.Drawing.Size(1631, 71);
+            this.gunaPanel1.TabIndex = 40;
+            // 
+            // gunaLabel4
+            // 
+            this.gunaLabel4.AutoSize = true;
+            this.gunaLabel4.Font = new System.Drawing.Font("Consolas", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(109)))), ((int)(((byte)(118)))));
+            this.gunaLabel4.Location = new System.Drawing.Point(3, 7);
+            this.gunaLabel4.Name = "gunaLabel4";
+            this.gunaLabel4.Size = new System.Drawing.Size(206, 56);
+            this.gunaLabel4.TabIndex = 14;
+            this.gunaLabel4.Text = "Reports";
+            // 
             // ReportsModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1631, 1061);
+            this.Controls.Add(this.gunaPanel1);
             this.Controls.Add(this.btnInventoryReport);
             this.Controls.Add(this.btnShowSoldReport);
             this.Controls.Add(this.panel1);
@@ -126,6 +151,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "ReportsModule";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.gunaPanel1.ResumeLayout(false);
+            this.gunaPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -135,5 +162,7 @@
         private System.Windows.Forms.Panel panel1;
         private Guna.UI.WinForms.GunaAdvenceButton btnShowSoldReport;
         private Guna.UI.WinForms.GunaAdvenceButton btnInventoryReport;
+        private Guna.UI.WinForms.GunaPanel gunaPanel1;
+        private Guna.UI.WinForms.GunaLabel gunaLabel4;
     }
 }

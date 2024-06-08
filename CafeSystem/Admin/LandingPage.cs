@@ -174,5 +174,15 @@ namespace CafeSystem
             report.BringToFront();
             report.Show();
         }
+
+        private void btnSalesHistory_Click(object sender, EventArgs e)
+        {
+            TransactionHistory tran = new TransactionHistory();
+            tran.TopLevel = false;
+            panel1.Controls.Add(tran);
+            tran.BringToFront();
+            tran.loadCashier();
+            tran.Show();
+        }
     }
 }

@@ -196,7 +196,7 @@
             this.btnClearAll.AnimationHoverSpeed = 0.07F;
             this.btnClearAll.AnimationSpeed = 0.03F;
             this.btnClearAll.BackColor = System.Drawing.Color.Transparent;
-            this.btnClearAll.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(158)))), ((int)(((byte)(135)))));
+            this.btnClearAll.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
             this.btnClearAll.BorderColor = System.Drawing.Color.Black;
             this.btnClearAll.CheckedBaseColor = System.Drawing.Color.Gray;
             this.btnClearAll.CheckedBorderColor = System.Drawing.Color.Black;
@@ -231,7 +231,7 @@
             this.btnProceed.AnimationHoverSpeed = 0.07F;
             this.btnProceed.AnimationSpeed = 0.03F;
             this.btnProceed.BackColor = System.Drawing.Color.Transparent;
-            this.btnProceed.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(158)))), ((int)(((byte)(135)))));
+            this.btnProceed.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(195)))), ((int)(((byte)(152)))));
             this.btnProceed.BorderColor = System.Drawing.Color.Black;
             this.btnProceed.CheckedBaseColor = System.Drawing.Color.Gray;
             this.btnProceed.CheckedBorderColor = System.Drawing.Color.Black;

@@ -39,16 +39,18 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.btnAdd = new Guna.UI.WinForms.GunaAdvenceButton();
             this.gunaPanel1 = new Guna.UI.WinForms.GunaPanel();
             this.gunaLabel4 = new Guna.UI.WinForms.GunaLabel();
-            this.btnCloseForm = new Guna.UI.WinForms.GunaAdvenceButton();
             this.txtSearch = new Guna.UI.WinForms.GunaLineTextBox();
             this.comboFilterCat = new Guna.UI.WinForms.GunaComboBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.btnRefresh = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.btnCloseForm = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCategories)).BeginInit();
             this.gunaPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -89,7 +91,7 @@
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.ControlLight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridCategories.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridCategories.EnableHeadersVisualStyles = false;
             this.dataGridCategories.GridColor = System.Drawing.Color.White;
@@ -171,32 +173,12 @@
             this.Column2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Column2.Width = 76;
             // 
-            // Edit
-            // 
-            this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Edit.HeaderText = "";
-            this.Edit.Image = ((System.Drawing.Image)(resources.GetObject("Edit.Image")));
-            this.Edit.Name = "Edit";
-            this.Edit.ReadOnly = true;
-            this.Edit.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Edit.Width = 5;
-            // 
-            // Delete
-            // 
-            this.Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Delete.HeaderText = "";
-            this.Delete.Image = ((System.Drawing.Image)(resources.GetObject("Delete.Image")));
-            this.Delete.Name = "Delete";
-            this.Delete.ReadOnly = true;
-            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Delete.Width = 5;
-            // 
             // btnAdd
             // 
             this.btnAdd.AnimationHoverSpeed = 0.07F;
             this.btnAdd.AnimationSpeed = 0.03F;
             this.btnAdd.BackColor = System.Drawing.Color.Transparent;
-            this.btnAdd.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(158)))), ((int)(((byte)(135)))));
+            this.btnAdd.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(195)))), ((int)(((byte)(152)))));
             this.btnAdd.BorderColor = System.Drawing.Color.Black;
             this.btnAdd.CheckedBaseColor = System.Drawing.Color.Gray;
             this.btnAdd.CheckedBorderColor = System.Drawing.Color.Black;
@@ -247,41 +229,6 @@
             this.gunaLabel4.Size = new System.Drawing.Size(99, 19);
             this.gunaLabel4.TabIndex = 14;
             this.gunaLabel4.Text = "Categories";
-            // 
-            // btnCloseForm
-            // 
-            this.btnCloseForm.AnimationHoverSpeed = 0.07F;
-            this.btnCloseForm.AnimationSpeed = 0.03F;
-            this.btnCloseForm.BackColor = System.Drawing.Color.Transparent;
-            this.btnCloseForm.BaseColor = System.Drawing.Color.Transparent;
-            this.btnCloseForm.BorderColor = System.Drawing.Color.Black;
-            this.btnCloseForm.ButtonType = Guna.UI.WinForms.AdvenceButtonType.RadioButton;
-            this.btnCloseForm.CheckedBaseColor = System.Drawing.Color.Gray;
-            this.btnCloseForm.CheckedBorderColor = System.Drawing.Color.Black;
-            this.btnCloseForm.CheckedForeColor = System.Drawing.Color.White;
-            this.btnCloseForm.CheckedImage = null;
-            this.btnCloseForm.CheckedLineColor = System.Drawing.Color.DimGray;
-            this.btnCloseForm.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCloseForm.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnCloseForm.FocusedColor = System.Drawing.Color.Empty;
-            this.btnCloseForm.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCloseForm.ForeColor = System.Drawing.Color.White;
-            this.btnCloseForm.Image = ((System.Drawing.Image)(resources.GetObject("btnCloseForm.Image")));
-            this.btnCloseForm.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnCloseForm.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(158)))), ((int)(((byte)(135)))));
-            this.btnCloseForm.Location = new System.Drawing.Point(856, 3);
-            this.btnCloseForm.Name = "btnCloseForm";
-            this.btnCloseForm.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(183)))), ((int)(((byte)(165)))));
-            this.btnCloseForm.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.btnCloseForm.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnCloseForm.OnHoverImage = null;
-            this.btnCloseForm.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(158)))), ((int)(((byte)(135)))));
-            this.btnCloseForm.OnPressedColor = System.Drawing.Color.Black;
-            this.btnCloseForm.Radius = 8;
-            this.btnCloseForm.Size = new System.Drawing.Size(39, 32);
-            this.btnCloseForm.TabIndex = 13;
-            this.btnCloseForm.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btnCloseForm.Click += new System.EventHandler(this.btnCloseForm_Click);
             // 
             // txtSearch
             // 
@@ -334,6 +281,24 @@
             this.label8.TabIndex = 34;
             this.label8.Text = "Filter By";
             // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewImageColumn1.HeaderText = "";
+            this.dataGridViewImageColumn1.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn1.Image")));
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewImageColumn1.Width = 5;
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewImageColumn2.HeaderText = "";
+            this.dataGridViewImageColumn2.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn2.Image")));
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewImageColumn2.Width = 5;
+            // 
             // btnRefresh
             // 
             this.btnRefresh.AnimationHoverSpeed = 0.07F;
@@ -369,6 +334,61 @@
             this.btnRefresh.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnRefresh.TextOffsetX = 24;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // btnCloseForm
+            // 
+            this.btnCloseForm.AnimationHoverSpeed = 0.07F;
+            this.btnCloseForm.AnimationSpeed = 0.03F;
+            this.btnCloseForm.BackColor = System.Drawing.Color.Transparent;
+            this.btnCloseForm.BaseColor = System.Drawing.Color.Transparent;
+            this.btnCloseForm.BorderColor = System.Drawing.Color.Black;
+            this.btnCloseForm.ButtonType = Guna.UI.WinForms.AdvenceButtonType.RadioButton;
+            this.btnCloseForm.CheckedBaseColor = System.Drawing.Color.Gray;
+            this.btnCloseForm.CheckedBorderColor = System.Drawing.Color.Black;
+            this.btnCloseForm.CheckedForeColor = System.Drawing.Color.White;
+            this.btnCloseForm.CheckedImage = null;
+            this.btnCloseForm.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.btnCloseForm.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCloseForm.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnCloseForm.FocusedColor = System.Drawing.Color.Empty;
+            this.btnCloseForm.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCloseForm.ForeColor = System.Drawing.Color.White;
+            this.btnCloseForm.Image = ((System.Drawing.Image)(resources.GetObject("btnCloseForm.Image")));
+            this.btnCloseForm.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnCloseForm.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(158)))), ((int)(((byte)(135)))));
+            this.btnCloseForm.Location = new System.Drawing.Point(856, 3);
+            this.btnCloseForm.Name = "btnCloseForm";
+            this.btnCloseForm.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(183)))), ((int)(((byte)(165)))));
+            this.btnCloseForm.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.btnCloseForm.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnCloseForm.OnHoverImage = null;
+            this.btnCloseForm.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(158)))), ((int)(((byte)(135)))));
+            this.btnCloseForm.OnPressedColor = System.Drawing.Color.Black;
+            this.btnCloseForm.Radius = 8;
+            this.btnCloseForm.Size = new System.Drawing.Size(39, 32);
+            this.btnCloseForm.TabIndex = 13;
+            this.btnCloseForm.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnCloseForm.Click += new System.EventHandler(this.btnCloseForm_Click);
+            // 
+            // Edit
+            // 
+            this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Edit.HeaderText = "";
+            this.Edit.Image = ((System.Drawing.Image)(resources.GetObject("Edit.Image")));
+            this.Edit.Name = "Edit";
+            this.Edit.ReadOnly = true;
+            this.Edit.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Edit.Width = 5;
+            // 
+            // Delete
+            // 
+            this.Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Delete.HeaderText = "";
+            this.Delete.Image = ((System.Drawing.Image)(resources.GetObject("Delete.Image")));
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Delete.Width = 5;
             // 
             // CategoriesList
             // 
@@ -414,5 +434,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewImageColumn Edit;
         private System.Windows.Forms.DataGridViewImageColumn Delete;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
     }
 }

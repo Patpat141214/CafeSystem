@@ -168,10 +168,29 @@
         RU5ErkJggg==
 </value>
   </data>
+  <data name="dataGridViewImageColumn1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
+        cAAAAHABznhikwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACMSURBVDhP5ZJB
+        CoMwEEWz0YVHKC56ol7AQ/YC1XMIlXoKd4X2PTAoUkiarQ/eJuTPTMKEAlrsccabB/9geMLP6guzueA+
+        rA/MosIGB4xhizlREi+N2KFF7Or7r5jE8BPt+MZYxOckOX6YOkmNSfado0VjnyX8a8Oyl0TuWByWBYvD
+        YtAiTpK1YRshfAHUMUKb8GNqaQAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="dataGridViewImageColumn2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
+        bQAAAG0BjlwfygAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACuSURBVDhPpZLR
+        DcIwDET9yRwI6Eps0CEYgD/YANZBrEELY4S74Ao3dloqTnpVcr7zR1tJKf1FaC4hNOeA1uAK9mFgCmgD
+        OsBLH4ZqQFtTJocwGAGx3GuRHNWXFWjKggXaAVfWmdzUPNmSCVTLOpe7Dsi5GDbgqTMyKmsmv9UHGEJ5
+        CTRbzrn88Ev4jV/mHpbJ9+CXDFTLZHzxSybLxBuf3/QC2nIWEZpLCM3fSfIG06BRFkJcMgUAAAAASUVO
+        RK5CYII=
+</value>
+  </data>
   <data name="btnRefresh.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAMPSURBVFhH7VdL
+        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAMPSURBVFhH7VdL
         axNRFI6Piiiia0EFF64EwYULn4iPjagI4raK4kYQF258gLNo7ty0GzE+iMzcW7szIBREwWc3lcxMAkW0
         P0AXKupCkJpqWuN3klM7uZmYmWndiB980N7zzXdmes895zbzH0nxcmhguadz+wLXPu5redFX9iVPiROe
         a++vFKxlLJtf1Ov1BUhyFMkegFWw3oFVX9uPPCUP0zP8+NwQOHKnr0Q5IlkXyrHyoNjGNungKfs0zGrt
@@ -191,7 +210,7 @@
   <data name="btnRefresh.OnHoverImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAMQSURBVFhH7VdN
+        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAMQSURBVFhH7VdN
         aBNBGI2/iCJ6FlTw4EkQPHjwF6l6ERVBvFZRvAjiwYs/YG6CXkSrElECyc5GF8RKzf40ai6CiAERbbu7
         sRQ9VFEPgmiqNsb3bb+0u5MN2d3Wi/jgQTvfmzczO998M0n9R1y8tHKLXEvd4RrioGOK066unnFN9VBV
         V3aO9mUWsmxm0Wg0Ztm6st8xRBGsgY02rNmGsGxT7KU+3H16cItiC4yfSwN1pileYNIb2SYZ8JmPwuxX

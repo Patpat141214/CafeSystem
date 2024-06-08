@@ -37,12 +37,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductsForm));
             this.dataGridProducts = new Guna.UI.WinForms.GunaDataGridView();
-            this.txtSearch = new Guna.UI.WinForms.GunaLineTextBox();
-            this.btnAdd = new Guna.UI.WinForms.GunaAdvenceButton();
-            this.btnCategory = new Guna.UI.WinForms.GunaAdvenceButton();
-            this.comboFilterProduct = new Guna.UI.WinForms.GunaComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.btnRefresh = new Guna.UI.WinForms.GunaAdvenceButton();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,9 +45,20 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.txtSearch = new Guna.UI.WinForms.GunaLineTextBox();
+            this.btnAdd = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.btnCategory = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.comboFilterProduct = new Guna.UI.WinForms.GunaComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.gunaLabel4 = new Guna.UI.WinForms.GunaLabel();
+            this.gunaPanel1 = new Guna.UI.WinForms.GunaPanel();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.btnRefresh = new Guna.UI.WinForms.GunaAdvenceButton();
             this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProducts)).BeginInit();
+            this.gunaPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridProducts
@@ -100,7 +105,7 @@
             this.dataGridProducts.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridProducts.EnableHeadersVisualStyles = false;
             this.dataGridProducts.GridColor = System.Drawing.Color.White;
-            this.dataGridProducts.Location = new System.Drawing.Point(-1, 50);
+            this.dataGridProducts.Location = new System.Drawing.Point(-1, 127);
             this.dataGridProducts.MultiSelect = false;
             this.dataGridProducts.Name = "dataGridProducts";
             this.dataGridProducts.ReadOnly = true;
@@ -114,7 +119,7 @@
             this.dataGridProducts.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridProducts.RowHeadersVisible = false;
             this.dataGridProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridProducts.Size = new System.Drawing.Size(1633, 1029);
+            this.dataGridProducts.Size = new System.Drawing.Size(1633, 952);
             this.dataGridProducts.TabIndex = 0;
             this.dataGridProducts.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.Guna;
             this.dataGridProducts.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -139,167 +144,6 @@
             this.dataGridProducts.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.SystemColors.ControlLight;
             this.dataGridProducts.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dataGridProducts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridProducts_CellContentClick);
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.BackColor = System.Drawing.Color.White;
-            this.txtSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtSearch.FocusedLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(57)))));
-            this.txtSearch.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(57)))));
-            this.txtSearch.Location = new System.Drawing.Point(8, 11);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.PasswordChar = '\0';
-            this.txtSearch.SelectedText = "";
-            this.txtSearch.Size = new System.Drawing.Size(472, 32);
-            this.txtSearch.TabIndex = 20;
-            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
-            this.txtSearch.Enter += new System.EventHandler(this.txtSearch_Enter);
-            this.txtSearch.Leave += new System.EventHandler(this.txtSearch_Leave);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.AnimationHoverSpeed = 0.07F;
-            this.btnAdd.AnimationSpeed = 0.03F;
-            this.btnAdd.BackColor = System.Drawing.Color.Transparent;
-            this.btnAdd.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(158)))), ((int)(((byte)(135)))));
-            this.btnAdd.BorderColor = System.Drawing.Color.Black;
-            this.btnAdd.CheckedBaseColor = System.Drawing.Color.Gray;
-            this.btnAdd.CheckedBorderColor = System.Drawing.Color.Black;
-            this.btnAdd.CheckedForeColor = System.Drawing.Color.White;
-            this.btnAdd.CheckedImage = null;
-            this.btnAdd.CheckedLineColor = System.Drawing.Color.DimGray;
-            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAdd.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnAdd.FocusedColor = System.Drawing.Color.Empty;
-            this.btnAdd.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Image = null;
-            this.btnAdd.ImageOffsetX = 1;
-            this.btnAdd.ImageSize = new System.Drawing.Size(24, 24);
-            this.btnAdd.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(158)))), ((int)(((byte)(135)))));
-            this.btnAdd.Location = new System.Drawing.Point(1467, 7);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(183)))), ((int)(((byte)(165)))));
-            this.btnAdd.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.btnAdd.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnAdd.OnHoverImage = null;
-            this.btnAdd.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(158)))), ((int)(((byte)(135)))));
-            this.btnAdd.OnPressedColor = System.Drawing.Color.Black;
-            this.btnAdd.Size = new System.Drawing.Size(157, 36);
-            this.btnAdd.TabIndex = 23;
-            this.btnAdd.Text = "Add Product";
-            this.btnAdd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btnAdd.TextOffsetX = 13;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click_1);
-            // 
-            // btnCategory
-            // 
-            this.btnCategory.AnimationHoverSpeed = 0.07F;
-            this.btnCategory.AnimationSpeed = 0.03F;
-            this.btnCategory.BackColor = System.Drawing.Color.Transparent;
-            this.btnCategory.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(158)))), ((int)(((byte)(135)))));
-            this.btnCategory.BorderColor = System.Drawing.Color.Black;
-            this.btnCategory.CheckedBaseColor = System.Drawing.Color.Gray;
-            this.btnCategory.CheckedBorderColor = System.Drawing.Color.Black;
-            this.btnCategory.CheckedForeColor = System.Drawing.Color.White;
-            this.btnCategory.CheckedImage = null;
-            this.btnCategory.CheckedLineColor = System.Drawing.Color.DimGray;
-            this.btnCategory.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCategory.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnCategory.FocusedColor = System.Drawing.Color.Empty;
-            this.btnCategory.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCategory.ForeColor = System.Drawing.Color.White;
-            this.btnCategory.Image = null;
-            this.btnCategory.ImageOffsetX = 1;
-            this.btnCategory.ImageSize = new System.Drawing.Size(24, 24);
-            this.btnCategory.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(158)))), ((int)(((byte)(135)))));
-            this.btnCategory.Location = new System.Drawing.Point(1299, 7);
-            this.btnCategory.Name = "btnCategory";
-            this.btnCategory.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(183)))), ((int)(((byte)(165)))));
-            this.btnCategory.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.btnCategory.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnCategory.OnHoverImage = null;
-            this.btnCategory.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(158)))), ((int)(((byte)(135)))));
-            this.btnCategory.OnPressedColor = System.Drawing.Color.Black;
-            this.btnCategory.Size = new System.Drawing.Size(157, 36);
-            this.btnCategory.TabIndex = 22;
-            this.btnCategory.Text = "Categories";
-            this.btnCategory.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btnCategory.TextOffsetX = 20;
-            this.btnCategory.Click += new System.EventHandler(this.btnCategory_Click_1);
-            // 
-            // comboFilterProduct
-            // 
-            this.comboFilterProduct.BackColor = System.Drawing.Color.Transparent;
-            this.comboFilterProduct.BaseColor = System.Drawing.Color.White;
-            this.comboFilterProduct.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(158)))), ((int)(((byte)(135)))));
-            this.comboFilterProduct.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboFilterProduct.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboFilterProduct.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboFilterProduct.FocusedColor = System.Drawing.Color.Empty;
-            this.comboFilterProduct.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboFilterProduct.ForeColor = System.Drawing.Color.Black;
-            this.comboFilterProduct.FormattingEnabled = true;
-            this.comboFilterProduct.Items.AddRange(new object[] {
-            "All",
-            "Active",
-            "Archived",
-            "Available",
-            "Not Available"});
-            this.comboFilterProduct.Location = new System.Drawing.Point(995, 12);
-            this.comboFilterProduct.Name = "comboFilterProduct";
-            this.comboFilterProduct.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(158)))), ((int)(((byte)(135)))));
-            this.comboFilterProduct.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.comboFilterProduct.Size = new System.Drawing.Size(189, 27);
-            this.comboFilterProduct.TabIndex = 37;
-            this.comboFilterProduct.SelectedIndexChanged += new System.EventHandler(this.comboFilterProduct_SelectedIndexChanged);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(903, 15);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(90, 19);
-            this.label8.TabIndex = 36;
-            this.label8.Text = "Filter By";
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.AnimationHoverSpeed = 0.07F;
-            this.btnRefresh.AnimationSpeed = 0.03F;
-            this.btnRefresh.BackColor = System.Drawing.Color.Transparent;
-            this.btnRefresh.BaseColor = System.Drawing.Color.Transparent;
-            this.btnRefresh.BorderColor = System.Drawing.Color.Black;
-            this.btnRefresh.CheckedBaseColor = System.Drawing.Color.Transparent;
-            this.btnRefresh.CheckedBorderColor = System.Drawing.Color.Transparent;
-            this.btnRefresh.CheckedForeColor = System.Drawing.Color.Transparent;
-            this.btnRefresh.CheckedImage = null;
-            this.btnRefresh.CheckedLineColor = System.Drawing.Color.Transparent;
-            this.btnRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRefresh.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnRefresh.FocusedColor = System.Drawing.Color.Empty;
-            this.btnRefresh.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefresh.ForeColor = System.Drawing.Color.White;
-            this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
-            this.btnRefresh.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.btnRefresh.ImageOffsetX = -2;
-            this.btnRefresh.ImageSize = new System.Drawing.Size(24, 24);
-            this.btnRefresh.LineColor = System.Drawing.Color.Transparent;
-            this.btnRefresh.Location = new System.Drawing.Point(1247, 7);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.OnHoverBaseColor = System.Drawing.Color.Transparent;
-            this.btnRefresh.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.btnRefresh.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnRefresh.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("btnRefresh.OnHoverImage")));
-            this.btnRefresh.OnHoverLineColor = System.Drawing.Color.Transparent;
-            this.btnRefresh.OnPressedColor = System.Drawing.Color.Transparent;
-            this.btnRefresh.Size = new System.Drawing.Size(42, 39);
-            this.btnRefresh.TabIndex = 38;
-            this.btnRefresh.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.btnRefresh.TextOffsetX = 24;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // Column7
             // 
@@ -377,6 +221,206 @@
             this.Column5.ReadOnly = true;
             this.Column5.Width = 394;
             // 
+            // txtSearch
+            // 
+            this.txtSearch.BackColor = System.Drawing.Color.White;
+            this.txtSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSearch.FocusedLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(57)))));
+            this.txtSearch.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(56)))), ((int)(((byte)(57)))));
+            this.txtSearch.Location = new System.Drawing.Point(4, 86);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.PasswordChar = '\0';
+            this.txtSearch.SelectedText = "";
+            this.txtSearch.Size = new System.Drawing.Size(472, 32);
+            this.txtSearch.TabIndex = 20;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            this.txtSearch.Enter += new System.EventHandler(this.txtSearch_Enter);
+            this.txtSearch.Leave += new System.EventHandler(this.txtSearch_Leave);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.AnimationHoverSpeed = 0.07F;
+            this.btnAdd.AnimationSpeed = 0.03F;
+            this.btnAdd.BackColor = System.Drawing.Color.Transparent;
+            this.btnAdd.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(195)))), ((int)(((byte)(152)))));
+            this.btnAdd.BorderColor = System.Drawing.Color.Black;
+            this.btnAdd.CheckedBaseColor = System.Drawing.Color.Gray;
+            this.btnAdd.CheckedBorderColor = System.Drawing.Color.Black;
+            this.btnAdd.CheckedForeColor = System.Drawing.Color.White;
+            this.btnAdd.CheckedImage = null;
+            this.btnAdd.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdd.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnAdd.FocusedColor = System.Drawing.Color.Empty;
+            this.btnAdd.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.Image = null;
+            this.btnAdd.ImageOffsetX = 1;
+            this.btnAdd.ImageSize = new System.Drawing.Size(24, 24);
+            this.btnAdd.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(158)))), ((int)(((byte)(135)))));
+            this.btnAdd.Location = new System.Drawing.Point(1466, 81);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(183)))), ((int)(((byte)(165)))));
+            this.btnAdd.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.btnAdd.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnAdd.OnHoverImage = null;
+            this.btnAdd.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(158)))), ((int)(((byte)(135)))));
+            this.btnAdd.OnPressedColor = System.Drawing.Color.Black;
+            this.btnAdd.Size = new System.Drawing.Size(157, 36);
+            this.btnAdd.TabIndex = 23;
+            this.btnAdd.Text = "Add Product";
+            this.btnAdd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnAdd.TextOffsetX = 13;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click_1);
+            // 
+            // btnCategory
+            // 
+            this.btnCategory.AnimationHoverSpeed = 0.07F;
+            this.btnCategory.AnimationSpeed = 0.03F;
+            this.btnCategory.BackColor = System.Drawing.Color.Transparent;
+            this.btnCategory.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(195)))), ((int)(((byte)(152)))));
+            this.btnCategory.BorderColor = System.Drawing.Color.Black;
+            this.btnCategory.CheckedBaseColor = System.Drawing.Color.Gray;
+            this.btnCategory.CheckedBorderColor = System.Drawing.Color.Black;
+            this.btnCategory.CheckedForeColor = System.Drawing.Color.White;
+            this.btnCategory.CheckedImage = null;
+            this.btnCategory.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.btnCategory.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCategory.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnCategory.FocusedColor = System.Drawing.Color.Empty;
+            this.btnCategory.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCategory.ForeColor = System.Drawing.Color.White;
+            this.btnCategory.Image = null;
+            this.btnCategory.ImageOffsetX = 1;
+            this.btnCategory.ImageSize = new System.Drawing.Size(24, 24);
+            this.btnCategory.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(158)))), ((int)(((byte)(135)))));
+            this.btnCategory.Location = new System.Drawing.Point(1298, 81);
+            this.btnCategory.Name = "btnCategory";
+            this.btnCategory.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(183)))), ((int)(((byte)(165)))));
+            this.btnCategory.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.btnCategory.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnCategory.OnHoverImage = null;
+            this.btnCategory.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(158)))), ((int)(((byte)(135)))));
+            this.btnCategory.OnPressedColor = System.Drawing.Color.Black;
+            this.btnCategory.Size = new System.Drawing.Size(157, 36);
+            this.btnCategory.TabIndex = 22;
+            this.btnCategory.Text = "Categories";
+            this.btnCategory.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnCategory.TextOffsetX = 20;
+            this.btnCategory.Click += new System.EventHandler(this.btnCategory_Click_1);
+            // 
+            // comboFilterProduct
+            // 
+            this.comboFilterProduct.BackColor = System.Drawing.Color.Transparent;
+            this.comboFilterProduct.BaseColor = System.Drawing.Color.White;
+            this.comboFilterProduct.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(158)))), ((int)(((byte)(135)))));
+            this.comboFilterProduct.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboFilterProduct.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboFilterProduct.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboFilterProduct.FocusedColor = System.Drawing.Color.Empty;
+            this.comboFilterProduct.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboFilterProduct.ForeColor = System.Drawing.Color.Black;
+            this.comboFilterProduct.FormattingEnabled = true;
+            this.comboFilterProduct.Items.AddRange(new object[] {
+            "All",
+            "Active",
+            "Archived",
+            "Available",
+            "Not Available"});
+            this.comboFilterProduct.Location = new System.Drawing.Point(994, 86);
+            this.comboFilterProduct.Name = "comboFilterProduct";
+            this.comboFilterProduct.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(158)))), ((int)(((byte)(135)))));
+            this.comboFilterProduct.OnHoverItemForeColor = System.Drawing.Color.White;
+            this.comboFilterProduct.Size = new System.Drawing.Size(189, 27);
+            this.comboFilterProduct.TabIndex = 37;
+            this.comboFilterProduct.SelectedIndexChanged += new System.EventHandler(this.comboFilterProduct_SelectedIndexChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(902, 89);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(90, 19);
+            this.label8.TabIndex = 36;
+            this.label8.Text = "Filter By";
+            // 
+            // gunaLabel4
+            // 
+            this.gunaLabel4.AutoSize = true;
+            this.gunaLabel4.Font = new System.Drawing.Font("Consolas", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(109)))), ((int)(((byte)(118)))));
+            this.gunaLabel4.Location = new System.Drawing.Point(3, 7);
+            this.gunaLabel4.Name = "gunaLabel4";
+            this.gunaLabel4.Size = new System.Drawing.Size(232, 56);
+            this.gunaLabel4.TabIndex = 14;
+            this.gunaLabel4.Text = "Products";
+            // 
+            // gunaPanel1
+            // 
+            this.gunaPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(158)))), ((int)(((byte)(135)))));
+            this.gunaPanel1.Controls.Add(this.gunaLabel4);
+            this.gunaPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gunaPanel1.Location = new System.Drawing.Point(0, 0);
+            this.gunaPanel1.Name = "gunaPanel1";
+            this.gunaPanel1.Size = new System.Drawing.Size(1631, 71);
+            this.gunaPanel1.TabIndex = 39;
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewImageColumn1.HeaderText = "";
+            this.dataGridViewImageColumn1.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn1.Image")));
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewImageColumn1.Width = 5;
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewImageColumn2.HeaderText = "";
+            this.dataGridViewImageColumn2.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn2.Image")));
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewImageColumn2.Width = 5;
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.AnimationHoverSpeed = 0.07F;
+            this.btnRefresh.AnimationSpeed = 0.03F;
+            this.btnRefresh.BackColor = System.Drawing.Color.Transparent;
+            this.btnRefresh.BaseColor = System.Drawing.Color.Transparent;
+            this.btnRefresh.BorderColor = System.Drawing.Color.Black;
+            this.btnRefresh.CheckedBaseColor = System.Drawing.Color.Transparent;
+            this.btnRefresh.CheckedBorderColor = System.Drawing.Color.Transparent;
+            this.btnRefresh.CheckedForeColor = System.Drawing.Color.Transparent;
+            this.btnRefresh.CheckedImage = null;
+            this.btnRefresh.CheckedLineColor = System.Drawing.Color.Transparent;
+            this.btnRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRefresh.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnRefresh.FocusedColor = System.Drawing.Color.Empty;
+            this.btnRefresh.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.ForeColor = System.Drawing.Color.White;
+            this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
+            this.btnRefresh.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnRefresh.ImageOffsetX = -2;
+            this.btnRefresh.ImageSize = new System.Drawing.Size(24, 24);
+            this.btnRefresh.LineColor = System.Drawing.Color.Transparent;
+            this.btnRefresh.Location = new System.Drawing.Point(1248, 79);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.OnHoverBaseColor = System.Drawing.Color.Transparent;
+            this.btnRefresh.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.btnRefresh.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnRefresh.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("btnRefresh.OnHoverImage")));
+            this.btnRefresh.OnHoverLineColor = System.Drawing.Color.Transparent;
+            this.btnRefresh.OnPressedColor = System.Drawing.Color.Transparent;
+            this.btnRefresh.Size = new System.Drawing.Size(42, 39);
+            this.btnRefresh.TabIndex = 38;
+            this.btnRefresh.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnRefresh.TextOffsetX = 24;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // Edit
             // 
             this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -404,6 +448,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1631, 1080);
             this.ControlBox = false;
+            this.Controls.Add(this.gunaPanel1);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.comboFilterProduct);
             this.Controls.Add(this.label8);
@@ -419,6 +464,8 @@
             this.Text = "ProductsForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProducts)).EndInit();
+            this.gunaPanel1.ResumeLayout(false);
+            this.gunaPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -442,5 +489,9 @@
         private System.Windows.Forms.DataGridViewImageColumn Column5;
         private System.Windows.Forms.DataGridViewImageColumn Edit;
         private System.Windows.Forms.DataGridViewImageColumn Delete;
+        private Guna.UI.WinForms.GunaLabel gunaLabel4;
+        private Guna.UI.WinForms.GunaPanel gunaPanel1;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
     }
 }

@@ -179,6 +179,12 @@
     <Compile Include="Admin\StoreSettings.Designer.cs">
       <DependentUpon>StoreSettings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\TransactionHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\TransactionHistory.Designer.cs">
+      <DependentUpon>TransactionHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="CashierLevel\AddToCart.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -293,6 +299,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\StoreSettings.resx">
       <DependentUpon>StoreSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\TransactionHistory.resx">
+      <DependentUpon>TransactionHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CashierLevel\AddToCart.resx">
       <DependentUpon>AddToCart.cs</DependentUpon>

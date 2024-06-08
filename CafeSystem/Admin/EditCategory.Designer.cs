@@ -102,7 +102,7 @@
             this.btnUpdate.AnimationHoverSpeed = 0.07F;
             this.btnUpdate.AnimationSpeed = 0.03F;
             this.btnUpdate.BackColor = System.Drawing.Color.Transparent;
-            this.btnUpdate.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(158)))), ((int)(((byte)(135)))));
+            this.btnUpdate.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(195)))), ((int)(((byte)(152)))));
             this.btnUpdate.BorderColor = System.Drawing.Color.Black;
             this.btnUpdate.CheckedBaseColor = System.Drawing.Color.Gray;
             this.btnUpdate.CheckedBorderColor = System.Drawing.Color.Black;
@@ -165,7 +165,7 @@
             this.txtClear.AnimationHoverSpeed = 0.07F;
             this.txtClear.AnimationSpeed = 0.03F;
             this.txtClear.BackColor = System.Drawing.Color.Transparent;
-            this.txtClear.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(158)))), ((int)(((byte)(135)))));
+            this.txtClear.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
             this.txtClear.BorderColor = System.Drawing.Color.Black;
             this.txtClear.CheckedBaseColor = System.Drawing.Color.Gray;
             this.txtClear.CheckedBorderColor = System.Drawing.Color.Black;

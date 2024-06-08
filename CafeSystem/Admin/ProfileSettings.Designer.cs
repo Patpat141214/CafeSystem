@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProfileSettings));
             this.gunaPanel1 = new Guna.UI.WinForms.GunaPanel();
             this.gunaLabel4 = new Guna.UI.WinForms.GunaLabel();
-            this.btnCloseForm = new Guna.UI.WinForms.GunaAdvenceButton();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.txtUser = new Guna.UI.WinForms.GunaTextBox();
             this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
@@ -41,6 +40,7 @@
             this.btnClearAll = new Guna.UI.WinForms.GunaAdvenceButton();
             this.btnAdd = new Guna.UI.WinForms.GunaAdvenceButton();
             this.btnVisible = new System.Windows.Forms.PictureBox();
+            this.btnCloseForm = new Guna.UI.WinForms.GunaAdvenceButton();
             this.gunaPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnVisible)).BeginInit();
             this.SuspendLayout();
@@ -66,41 +66,6 @@
             this.gunaLabel4.Size = new System.Drawing.Size(153, 19);
             this.gunaLabel4.TabIndex = 14;
             this.gunaLabel4.Text = "Edit Information";
-            // 
-            // btnCloseForm
-            // 
-            this.btnCloseForm.AnimationHoverSpeed = 0.07F;
-            this.btnCloseForm.AnimationSpeed = 0.03F;
-            this.btnCloseForm.BackColor = System.Drawing.Color.Transparent;
-            this.btnCloseForm.BaseColor = System.Drawing.Color.Transparent;
-            this.btnCloseForm.BorderColor = System.Drawing.Color.Black;
-            this.btnCloseForm.ButtonType = Guna.UI.WinForms.AdvenceButtonType.RadioButton;
-            this.btnCloseForm.CheckedBaseColor = System.Drawing.Color.Gray;
-            this.btnCloseForm.CheckedBorderColor = System.Drawing.Color.Black;
-            this.btnCloseForm.CheckedForeColor = System.Drawing.Color.White;
-            this.btnCloseForm.CheckedImage = null;
-            this.btnCloseForm.CheckedLineColor = System.Drawing.Color.DimGray;
-            this.btnCloseForm.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCloseForm.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnCloseForm.FocusedColor = System.Drawing.Color.Empty;
-            this.btnCloseForm.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCloseForm.ForeColor = System.Drawing.Color.White;
-            this.btnCloseForm.Image = ((System.Drawing.Image)(resources.GetObject("btnCloseForm.Image")));
-            this.btnCloseForm.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnCloseForm.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(158)))), ((int)(((byte)(135)))));
-            this.btnCloseForm.Location = new System.Drawing.Point(375, 3);
-            this.btnCloseForm.Name = "btnCloseForm";
-            this.btnCloseForm.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(183)))), ((int)(((byte)(165)))));
-            this.btnCloseForm.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.btnCloseForm.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnCloseForm.OnHoverImage = null;
-            this.btnCloseForm.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(158)))), ((int)(((byte)(135)))));
-            this.btnCloseForm.OnPressedColor = System.Drawing.Color.Black;
-            this.btnCloseForm.Radius = 8;
-            this.btnCloseForm.Size = new System.Drawing.Size(39, 32);
-            this.btnCloseForm.TabIndex = 13;
-            this.btnCloseForm.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btnCloseForm.Click += new System.EventHandler(this.btnCloseForm_Click);
             // 
             // gunaLabel1
             // 
@@ -188,7 +153,7 @@
             this.btnClearAll.AnimationHoverSpeed = 0.07F;
             this.btnClearAll.AnimationSpeed = 0.03F;
             this.btnClearAll.BackColor = System.Drawing.Color.Transparent;
-            this.btnClearAll.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(158)))), ((int)(((byte)(135)))));
+            this.btnClearAll.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
             this.btnClearAll.BorderColor = System.Drawing.Color.Black;
             this.btnClearAll.CheckedBaseColor = System.Drawing.Color.Gray;
             this.btnClearAll.CheckedBorderColor = System.Drawing.Color.Black;
@@ -223,7 +188,7 @@
             this.btnAdd.AnimationHoverSpeed = 0.07F;
             this.btnAdd.AnimationSpeed = 0.03F;
             this.btnAdd.BackColor = System.Drawing.Color.Transparent;
-            this.btnAdd.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(158)))), ((int)(((byte)(135)))));
+            this.btnAdd.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(195)))), ((int)(((byte)(152)))));
             this.btnAdd.BorderColor = System.Drawing.Color.Black;
             this.btnAdd.CheckedBaseColor = System.Drawing.Color.Gray;
             this.btnAdd.CheckedBorderColor = System.Drawing.Color.Black;
@@ -264,6 +229,41 @@
             this.btnVisible.TabIndex = 32;
             this.btnVisible.TabStop = false;
             this.btnVisible.Click += new System.EventHandler(this.btnVisible_Click);
+            // 
+            // btnCloseForm
+            // 
+            this.btnCloseForm.AnimationHoverSpeed = 0.07F;
+            this.btnCloseForm.AnimationSpeed = 0.03F;
+            this.btnCloseForm.BackColor = System.Drawing.Color.Transparent;
+            this.btnCloseForm.BaseColor = System.Drawing.Color.Transparent;
+            this.btnCloseForm.BorderColor = System.Drawing.Color.Black;
+            this.btnCloseForm.ButtonType = Guna.UI.WinForms.AdvenceButtonType.RadioButton;
+            this.btnCloseForm.CheckedBaseColor = System.Drawing.Color.Gray;
+            this.btnCloseForm.CheckedBorderColor = System.Drawing.Color.Black;
+            this.btnCloseForm.CheckedForeColor = System.Drawing.Color.White;
+            this.btnCloseForm.CheckedImage = null;
+            this.btnCloseForm.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.btnCloseForm.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCloseForm.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnCloseForm.FocusedColor = System.Drawing.Color.Empty;
+            this.btnCloseForm.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCloseForm.ForeColor = System.Drawing.Color.White;
+            this.btnCloseForm.Image = ((System.Drawing.Image)(resources.GetObject("btnCloseForm.Image")));
+            this.btnCloseForm.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnCloseForm.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(158)))), ((int)(((byte)(135)))));
+            this.btnCloseForm.Location = new System.Drawing.Point(375, 3);
+            this.btnCloseForm.Name = "btnCloseForm";
+            this.btnCloseForm.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(183)))), ((int)(((byte)(165)))));
+            this.btnCloseForm.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.btnCloseForm.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnCloseForm.OnHoverImage = null;
+            this.btnCloseForm.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(158)))), ((int)(((byte)(135)))));
+            this.btnCloseForm.OnPressedColor = System.Drawing.Color.Black;
+            this.btnCloseForm.Radius = 8;
+            this.btnCloseForm.Size = new System.Drawing.Size(39, 32);
+            this.btnCloseForm.TabIndex = 13;
+            this.btnCloseForm.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnCloseForm.Click += new System.EventHandler(this.btnCloseForm_Click);
             // 
             // ProfileSettings
             // 

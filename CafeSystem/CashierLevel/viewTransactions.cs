@@ -118,6 +118,7 @@ namespace CafeSystem.CashierLevel
             {
                 return;
             }
+
             try
             {
                 decimal totalSold = 0;
