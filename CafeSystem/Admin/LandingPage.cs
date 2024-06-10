@@ -184,5 +184,27 @@ namespace CafeSystem
             tran.loadCashier();
             tran.Show();
         }
+
+        private void btnDiscount_Click(object sender, EventArgs e)
+        {
+           
+            conn.Open();
+            decimal discountPercen = 0;
+            string status = "";
+            cm = new SqlCommand("select _discountPercent, _status from tblDiscount where id = 1", conn);
+            dr = cm.ExecuteReader();
+            while (dr.Read())
+            {
+                discountPercen = Convert.ToDecimal(dr["_discountPercent"]);
+                status = dr["_status"].ToString();
+            }
+            dr.Close();
+            conn.Close();
+            ManageDiscount manage = new ManageDiscount(discountPercen);
+            manage.txtPercentage.Text = discountPercen.ToString() + "%";
+            manage.txtCurrentStatus.Text = "Current Status: " + status; 
+            manage.ShowDialog();
+
+        }
     }
 }

@@ -30,10 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LandingPage));
             this.gunaPanel1 = new Guna.UI.WinForms.GunaPanel();
-            this.txtUser = new Guna.UI.WinForms.GunaLabel();
-            this.txtLevel = new Guna.UI.WinForms.GunaLabel();
-            this.txtName = new Guna.UI.WinForms.GunaLabel();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.btnLogActivity = new Guna.UI.WinForms.GunaAdvenceButton();
             this.btnDiscount = new Guna.UI.WinForms.GunaAdvenceButton();
             this.btnDashboard = new Guna.UI.WinForms.GunaAdvenceButton();
@@ -41,9 +37,13 @@
             this.btnReports = new Guna.UI.WinForms.GunaAdvenceButton();
             this.btnSetting = new Guna.UI.WinForms.GunaAdvenceButton();
             this.storePic = new System.Windows.Forms.PictureBox();
+            this.txtUser = new Guna.UI.WinForms.GunaLabel();
             this.btnSalesHistory = new Guna.UI.WinForms.GunaAdvenceButton();
             this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             this.btnManageProducts = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.txtLevel = new Guna.UI.WinForms.GunaLabel();
+            this.txtName = new Guna.UI.WinForms.GunaLabel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.gunaPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.storePic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
@@ -70,48 +70,6 @@
             this.gunaPanel1.Name = "gunaPanel1";
             this.gunaPanel1.Size = new System.Drawing.Size(289, 1080);
             this.gunaPanel1.TabIndex = 0;
-            // 
-            // txtUser
-            // 
-            this.txtUser.AutoSize = true;
-            this.txtUser.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(247)))), ((int)(((byte)(252)))));
-            this.txtUser.Location = new System.Drawing.Point(8, 486);
-            this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(0, 14);
-            this.txtUser.TabIndex = 4;
-            this.txtUser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.txtUser.Visible = false;
-            // 
-            // txtLevel
-            // 
-            this.txtLevel.AutoSize = true;
-            this.txtLevel.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLevel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(247)))), ((int)(((byte)(252)))));
-            this.txtLevel.Location = new System.Drawing.Point(118, 243);
-            this.txtLevel.Name = "txtLevel";
-            this.txtLevel.Size = new System.Drawing.Size(0, 14);
-            this.txtLevel.TabIndex = 2;
-            this.txtLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // txtName
-            // 
-            this.txtName.AutoSize = true;
-            this.txtName.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(247)))), ((int)(((byte)(252)))));
-            this.txtName.Location = new System.Drawing.Point(118, 214);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(0, 15);
-            this.txtName.TabIndex = 1;
-            this.txtName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel1
-            // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(289, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1631, 1080);
-            this.panel1.TabIndex = 1;
             // 
             // btnLogActivity
             // 
@@ -182,6 +140,7 @@
             this.btnDiscount.TabIndex = 12;
             this.btnDiscount.Text = "Manage Discount";
             this.btnDiscount.TextOffsetX = 14;
+            this.btnDiscount.Click += new System.EventHandler(this.btnDiscount_Click);
             // 
             // btnDashboard
             // 
@@ -336,6 +295,18 @@
             this.storePic.TabIndex = 6;
             this.storePic.TabStop = false;
             // 
+            // txtUser
+            // 
+            this.txtUser.AutoSize = true;
+            this.txtUser.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(247)))), ((int)(((byte)(252)))));
+            this.txtUser.Location = new System.Drawing.Point(8, 486);
+            this.txtUser.Name = "txtUser";
+            this.txtUser.Size = new System.Drawing.Size(0, 14);
+            this.txtUser.TabIndex = 4;
+            this.txtUser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.txtUser.Visible = false;
+            // 
             // btnSalesHistory
             // 
             this.btnSalesHistory.AnimationHoverSpeed = 0.07F;
@@ -419,6 +390,36 @@
             this.btnManageProducts.TextOffsetX = 14;
             this.btnManageProducts.Click += new System.EventHandler(this.btnManageProducts_Click);
             this.btnManageProducts.MouseHover += new System.EventHandler(this.btnManageProducts_MouseHover);
+            // 
+            // txtLevel
+            // 
+            this.txtLevel.AutoSize = true;
+            this.txtLevel.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLevel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(247)))), ((int)(((byte)(252)))));
+            this.txtLevel.Location = new System.Drawing.Point(118, 243);
+            this.txtLevel.Name = "txtLevel";
+            this.txtLevel.Size = new System.Drawing.Size(0, 14);
+            this.txtLevel.TabIndex = 2;
+            this.txtLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtName
+            // 
+            this.txtName.AutoSize = true;
+            this.txtName.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(247)))), ((int)(((byte)(252)))));
+            this.txtName.Location = new System.Drawing.Point(118, 214);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(0, 15);
+            this.txtName.TabIndex = 1;
+            this.txtName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel1
+            // 
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(289, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1631, 1080);
+            this.panel1.TabIndex = 1;
             // 
             // LandingPage
             // 

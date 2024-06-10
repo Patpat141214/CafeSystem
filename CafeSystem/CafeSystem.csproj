@@ -143,6 +143,12 @@
     <Compile Include="Admin\InventoryReport.Designer.cs">
       <DependentUpon>InventoryReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\ManageDiscount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\ManageDiscount.Designer.cs">
+      <DependentUpon>ManageDiscount.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\ProductsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -281,6 +287,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\LandingPage.resx">
       <DependentUpon>LandingPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\ManageDiscount.resx">
+      <DependentUpon>ManageDiscount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\ProductsForm.resx">
       <DependentUpon>ProductsForm.cs</DependentUpon>

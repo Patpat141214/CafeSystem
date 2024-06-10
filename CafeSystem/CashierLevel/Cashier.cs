@@ -687,6 +687,22 @@ namespace CafeSystem
                 MessageBox.Show("Add product to the cart first!", "Add Product", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            string status = "";
+            conn.Open();
+            cm = new SqlCommand("select _status from tblDiscount where id = 1", conn);
+            dr = cm.ExecuteReader();
+            while (dr.Read())
+            {              
+                status = dr["_status"].ToString();
+            }
+            conn.Close();
+            dr.Close();
+
+            if (status == "Deactivated")
+            {
+                MessageBox.Show("The discount is deactivated. You can't apply it.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             if (lblDiscountPercent.Visible == false)
             {
@@ -694,12 +710,13 @@ namespace CafeSystem
                 {
                     decimal discountAmount = 0;
                     decimal discountPercentage = 0;
+
                     conn.Open();
                     cm = new SqlCommand("select _discountPercent from tblDiscount where _status = 'Active' and id = 1", conn);
                     dr = cm.ExecuteReader();
                     while (dr.Read())
                     {
-                        discountPercentage = Convert.ToDecimal(dr["_discountPercent"]);
+                        discountPercentage = Convert.ToDecimal(dr["_discountPercent"]);                  
                     }
                     conn.Close();
                     dr.Close();
