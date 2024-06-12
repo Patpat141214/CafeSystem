@@ -70,7 +70,18 @@ namespace CafeSystem
 
                 if (found == true && status != "Deactivated")
                 {
-
+                    conn.Open();
+                    cm = new SqlCommand("Insert into tblActivityLogs (username, name, action, add_data, update_data, delete_data, role, sdate)values(@username, @name, @action, @add_data, @update_data, @delete_data, @role, @sdate)", conn);
+                    cm.Parameters.AddWithValue("@username", txtUser.Text);
+                    cm.Parameters.AddWithValue("@name", name);
+                    cm.Parameters.AddWithValue("@action", "Log In");
+                    cm.Parameters.AddWithValue("@add_data", DBNull.Value);
+                    cm.Parameters.AddWithValue("@update_data", DBNull.Value);
+                    cm.Parameters.AddWithValue("@delete_data", DBNull.Value);
+                    cm.Parameters.AddWithValue("@role", role);
+                    cm.Parameters.AddWithValue("@sdate", DateTime.Now);
+                    cm.ExecuteNonQuery();
+                    conn.Close();
 
 
                     if (role == "Cashier")

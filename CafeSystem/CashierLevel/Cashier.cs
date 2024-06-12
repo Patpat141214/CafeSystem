@@ -425,6 +425,18 @@ namespace CafeSystem
 
             if (MessageBox.Show("Do you want to logout?", "Logout?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                conn.Open();
+                cm = new SqlCommand("Insert into tblActivityLogs (username, name, action, add_data, update_data, delete_data, role, sdate)values(@username, @name, @action, @add_data, @update_data, @delete_data, @role, @sdate)", conn);
+                cm.Parameters.AddWithValue("@username", txtUser.Text);
+                cm.Parameters.AddWithValue("@name", txtName.Text);
+                cm.Parameters.AddWithValue("@action", "Log Out");
+                cm.Parameters.AddWithValue("@add_data", DBNull.Value);
+                cm.Parameters.AddWithValue("@update_data", DBNull.Value);
+                cm.Parameters.AddWithValue("@delete_data", DBNull.Value);
+                cm.Parameters.AddWithValue("@role", txtLevel.Text);
+                cm.Parameters.AddWithValue("@sdate", DateTime.Now);
+                cm.ExecuteNonQuery();
+                conn.Close();
                 this.Dispose();
                 LogInPage login = new LogInPage();
                 login.ShowDialog();
