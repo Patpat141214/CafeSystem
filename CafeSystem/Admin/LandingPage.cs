@@ -57,7 +57,7 @@ namespace CafeSystem
         private void btnManageProducts_Click(object sender, EventArgs e)
         {
 
-            ProductsForm prd = new ProductsForm();
+            ProductsForm prd = new ProductsForm(this);
             prd.TopLevel = false;
             panel1.Controls.Add(prd);
             prd.BringToFront();

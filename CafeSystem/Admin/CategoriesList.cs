@@ -19,7 +19,8 @@ namespace CafeSystem.Admin
         SqlDataReader dr;
         ProductsForm prd;
         private string search = "Search here";
-        public CategoriesList(ProductsForm prd1)
+        LandingPage land;
+        public CategoriesList(ProductsForm prd1, LandingPage land1)
         {
             InitializeComponent();
             conn = new SqlConnection(dbcon.myConnection());
@@ -27,6 +28,7 @@ namespace CafeSystem.Admin
             txtSearch.Text = "Search here";
             comboFilterCat.Text = "All";
             dataGridCategories.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            land = land1;
         }
 
         public void LoadCategories()
@@ -106,7 +108,7 @@ namespace CafeSystem.Admin
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            AddCategory add = new AddCategory(this);
+            AddCategory add = new AddCategory(this,land);
             add.ShowDialog();
         }
 
@@ -132,7 +134,7 @@ namespace CafeSystem.Admin
                 if (column == "Edit")
                 {
 
-                    EditCategory edit = new EditCategory(_cat, this, prd);
+                    EditCategory edit = new EditCategory(_cat, this, prd, land);
                     edit.txtCat.Text = _cat;
                     edit.txtId.Text = _catid;
                     edit.ShowDialog();
@@ -156,6 +158,17 @@ namespace CafeSystem.Admin
                             return;
                         }
 
+                        cm = new SqlCommand("Insert into tblActivityLogs (username, name, action, add_data, update_data, delete_data, role, sdate)values(@username, @name, @action, @add_data, @update_data, @delete_data, @role, @sdate)", conn);
+                        cm.Parameters.AddWithValue("@username", land.txtUser.Text);
+                        cm.Parameters.AddWithValue("@name", land.txtName.Text);
+                        cm.Parameters.AddWithValue("@action", "Archived Category");
+                        cm.Parameters.AddWithValue("@add_data", DBNull.Value);
+                        cm.Parameters.AddWithValue("@update_data", DBNull.Value);
+                        cm.Parameters.AddWithValue("@delete_data", "Category: " + dataGridCategories.Rows[e.RowIndex].Cells[2].Value.ToString());
+                        cm.Parameters.AddWithValue("@role", land.txtLevel.Text);
+                        cm.Parameters.AddWithValue("@sdate", DateTime.Now);
+                        cm.ExecuteNonQuery();
+
                         cm = new SqlCommand("UPDATE tblCategory set status = @stat where id = @id", conn);
                         cm.Parameters.AddWithValue("@id", dataGridCategories.Rows[e.RowIndex].Cells[1].Value.ToString());
                         cm.Parameters.AddWithValue("@stat", "Archived");
@@ -173,6 +186,17 @@ namespace CafeSystem.Admin
                         cm = new SqlCommand("UPDATE tblCategory set status = @stat where id = @id", conn);
                         cm.Parameters.AddWithValue("@id", dataGridCategories.Rows[e.RowIndex].Cells[1].Value.ToString());
                         cm.Parameters.AddWithValue("@stat", "Active");
+                        cm.ExecuteNonQuery();
+
+                        cm = new SqlCommand("Insert into tblActivityLogs (username, name, action, add_data, update_data, delete_data, role, sdate)values(@username, @name, @action, @add_data, @update_data, @delete_data, @role, @sdate)", conn);
+                        cm.Parameters.AddWithValue("@username", land.txtUser.Text);
+                        cm.Parameters.AddWithValue("@name", land.txtName.Text);
+                        cm.Parameters.AddWithValue("@action", "Activated Category");
+                        cm.Parameters.AddWithValue("@add_data", DBNull.Value);
+                        cm.Parameters.AddWithValue("@update_data", DBNull.Value);
+                        cm.Parameters.AddWithValue("@delete_data", "Category: " + dataGridCategories.Rows[e.RowIndex].Cells[2].Value.ToString());
+                        cm.Parameters.AddWithValue("@role", land.txtLevel.Text);
+                        cm.Parameters.AddWithValue("@sdate", DateTime.Now);
                         cm.ExecuteNonQuery();
                         MessageBox.Show("Category successfully activate!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         conn.Close();

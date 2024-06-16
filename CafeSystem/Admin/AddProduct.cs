@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using CafeSystem.Admin;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
 namespace CafeSystem
 {
@@ -20,14 +21,16 @@ namespace CafeSystem
         DBConnection dbcon = new DBConnection();
         SqlDataReader dr;
         ProductsForm frm;
+        LandingPage land;
 
-        public AddProduct(ProductsForm frm1)
+        public AddProduct(ProductsForm frm1, LandingPage land1)
         {
             InitializeComponent();
             conn = new SqlConnection(dbcon.myConnection());
             this.Shown += AddProduct_Shown;
             frm = frm1;
             this.KeyPreview = true;
+            land = land1;
         }
         private void btnBrowseImage_Click(object sender, EventArgs e)
         {
@@ -92,7 +95,26 @@ namespace CafeSystem
                         catid = dr[0].ToString();
                     }
                     dr.Close();
-                     
+
+                    cm = new SqlCommand("Insert into tblActivityLogs (username, name, action, add_data, update_data, delete_data, role, sdate)values(@username, @name, @action, @add_data, @update_data, @delete_data, @role, @sdate)", conn);
+                    cm.Parameters.AddWithValue("@username", land.txtUser.Text);
+                    cm.Parameters.AddWithValue("@name", land.txtName.Text);
+                    cm.Parameters.AddWithValue("@action", "Added Product");
+                    if (checkboxAv.Checked)
+                    {
+                        cm.Parameters.AddWithValue("@add_data", "Item: " + txtDesc.Text.Trim() + "\n" + "Category: " + txtCat.Text + "\n" + "Price: " + txtPrice.Text.Replace("₱", "").Replace(",", "").Trim() + "\n" + "Availability: " + "Available");
+                    }
+                    else
+                    {
+                        cm.Parameters.AddWithValue("@add_data", "Item: " + txtDesc.Text.Trim() + "\n" + "Category: " + txtCat.Text + "\n" + "Price: " + txtPrice.Text.Replace("₱", "").Replace(",", "").Trim() + "\n" + "Availability: " + "Not Available");
+                    }
+                    
+                    cm.Parameters.AddWithValue("@update_data", DBNull.Value);
+                    cm.Parameters.AddWithValue("@delete_data", DBNull.Value);
+                    cm.Parameters.AddWithValue("@role", land.txtLevel.Text);
+                    cm.Parameters.AddWithValue("@sdate", DateTime.Now);
+                    cm.ExecuteNonQuery();
+
                     cm = new SqlCommand("Insert into tblProduct(description, catid, price, image, status, AvailOrNot)values(@description, @catid, @price, @image, @status, @AvailOrNot)", conn);
                     cm.Parameters.AddWithValue("@description", txtDesc.Text.Trim());
                     cm.Parameters.AddWithValue("@catid", catid);

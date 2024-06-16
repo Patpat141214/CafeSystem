@@ -123,7 +123,6 @@
             this.txtCat.Size = new System.Drawing.Size(234, 27);
             this.txtCat.TabIndex = 22;
             this.txtCat.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCat_KeyDown);
-            this.txtCat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCat_KeyPress);
             // 
             // btnAdd
             // 

@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
 namespace CafeSystem.Admin
 {
@@ -20,15 +21,17 @@ namespace CafeSystem.Admin
         DBConnection dbcon = new DBConnection();
         SqlDataReader dr;
         ProductsForm frm;
+        LandingPage land;
     
         string originalCat;
         string originalDesc;
         string originalPrice;
+        string originalAvailability;
         byte[] originalImageData;
         private bool isNewImageSelected = false;
 
 
-        public EditProduct(string cat, string desc, string price, ProductsForm frm1, byte[] img)
+        public EditProduct(string cat, string desc, string price, ProductsForm frm1, byte[] img, LandingPage land1, string originalavail)
         {
             InitializeComponent();
             conn = new SqlConnection(dbcon.myConnection());
@@ -38,6 +41,8 @@ namespace CafeSystem.Admin
             frm = frm1;
             originalImageData = img;
             this.KeyPreview = true;
+            land = land1;
+            originalAvailability = originalavail;
         }
 
 
@@ -132,7 +137,27 @@ namespace CafeSystem.Admin
                         catid = dr[0].ToString();
                     }
                     dr.Close();
-                
+
+                   
+                    cm = new SqlCommand("Insert into tblActivityLogs (username, name, action, add_data, update_data, delete_data, role, sdate)values(@username, @name, @action, @add_data, @update_data, @delete_data, @role, @sdate)", conn);
+                    cm.Parameters.AddWithValue("@username", land.txtUser.Text);
+                    cm.Parameters.AddWithValue("@name", land.txtName.Text);
+                    cm.Parameters.AddWithValue("@action", "Updated Product");
+                    cm.Parameters.AddWithValue("@add_data", DBNull.Value);
+                    if (checkboxAv.Checked)
+                    {
+                        cm.Parameters.AddWithValue("@update_data", "Old Product" + "\n" + "Item: " + originalDesc + "\n" + "Category: " + originalCat + "\n" + "Price: " + originalPrice.Replace("₱", "").Replace(",", "").Trim() + "\n" + "Availability: " + originalAvailability + "\n" + "Updated Product" + "\n" + "Item: " + txtDesc.Text.Trim() + "\n" + "Category: " + txtCat.Text + "\n" + "Price: " + txtPrice.Text.Replace("₱", "").Replace(",", "").Trim() + "\n" + "Availability: " + "Available");
+                    }
+                    else
+                    {
+                        cm.Parameters.AddWithValue("@update_data", "Old Product" + "\n" + "Item: " + originalDesc + "\n" + "Category: " + originalCat + "\n" + "Price: " + originalPrice.Replace("₱", "").Replace(",", "").Trim() + "\n" + "Availability: " + originalAvailability + "\n" + "Updated Product" + "\n" + "Item: " + txtDesc.Text.Trim() + "\n" + "Category: " + txtCat.Text + "\n" + "Price: " + txtPrice.Text.Replace("₱", "").Replace(",", "").Trim() + "\n" + "Availability: " + "Not Available");
+                    }
+                    
+                    cm.Parameters.AddWithValue("@delete_data", DBNull.Value);
+                    cm.Parameters.AddWithValue("@role", land.txtLevel.Text);
+                    cm.Parameters.AddWithValue("@sdate", DateTime.Now);
+                    cm.ExecuteNonQuery();
+
                     cm = new SqlCommand("UPDATE tblProduct set description = @des, catid = @catid, price = @price, AvailOrNot = @avail, image = @img where id = @id", conn);
                     cm.Parameters.AddWithValue("@des", txtDesc.Text.Trim());
                     cm.Parameters.AddWithValue("@catid", catid);

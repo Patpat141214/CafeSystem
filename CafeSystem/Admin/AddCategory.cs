@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace CafeSystem.Admin
 {
@@ -17,12 +18,14 @@ namespace CafeSystem.Admin
         SqlCommand cm = new SqlCommand();
         DBConnection dbcon = new DBConnection();
         CategoriesList cat;
-        public AddCategory(CategoriesList cat1)
+        LandingPage land;
+        public AddCategory(CategoriesList cat1, LandingPage land1)
         {          
             InitializeComponent();
             conn = new SqlConnection(dbcon.myConnection());
             cat = cat1;
             this.Shown += AddCategory_Shown;
+            land = land1;
         }
 
         private void txtCat_KeyDown(object sender, KeyEventArgs e)
@@ -30,14 +33,6 @@ namespace CafeSystem.Admin
             if (e.KeyCode == Keys.Enter)
             {
                 btnAdd_Click(sender, e);
-            }
-        }
-
-        private void txtCat_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
             }
         }
 
@@ -65,6 +60,18 @@ namespace CafeSystem.Admin
                         txtCat.Focus();
                         return;
                     }
+                
+                    cm = new SqlCommand("Insert into tblActivityLogs (username, name, action, add_data, update_data, delete_data, role, sdate)values(@username, @name, @action, @add_data, @update_data, @delete_data, @role, @sdate)", conn);
+                    cm.Parameters.AddWithValue("@username", land.txtUser.Text);
+                    cm.Parameters.AddWithValue("@name", land.txtName.Text);
+                    cm.Parameters.AddWithValue("@action", "Added Category");
+                    cm.Parameters.AddWithValue("@add_data", "Category: " + txtCat.Text.Trim());
+                    cm.Parameters.AddWithValue("@update_data", DBNull.Value);
+                    cm.Parameters.AddWithValue("@delete_data", DBNull.Value);
+                    cm.Parameters.AddWithValue("@role", land.txtLevel.Text);
+                    cm.Parameters.AddWithValue("@sdate", DateTime.Now);
+                    cm.ExecuteNonQuery();               
+
 
                     cm = new SqlCommand("INSERT INTO tblCategory (category, status) values (@cat, @status)", conn);
                     cm.Parameters.AddWithValue("@cat", txtCat.Text.Trim());

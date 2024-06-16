@@ -21,12 +21,14 @@ namespace CafeSystem.Admin
         DBConnection dbcon = new DBConnection();
         SqlDataReader dr;
         private string search = "Search here";
-        public ProductsForm()
+        LandingPage land;
+        public ProductsForm(LandingPage land1)
         {
             InitializeComponent();
             conn = new SqlConnection(dbcon.myConnection());
             txtSearch.Text = "Search here";
             comboFilterProduct.Text = "All";
+            land = land1;
         }
 
         public void LoadProducts()
@@ -230,7 +232,7 @@ namespace CafeSystem.Admin
             {
                 if (column == "Edit")
                 {
-                    EditProduct edit = new EditProduct(_cat, _desc, _price, this, img);
+                    EditProduct edit = new EditProduct(_cat, _desc, _price, this, img, land, _AvailOrNot);
                     edit.txtDesc.Text = _desc;
                     edit.txtCat.Text = _cat;
                     edit.txtPrice.Text = _price;
@@ -260,6 +262,17 @@ namespace CafeSystem.Admin
                     if (MessageBox.Show("Do you want to archive this product?", "Archive Product?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         conn.Open();
+                        cm = new SqlCommand("Insert into tblActivityLogs (username, name, action, add_data, update_data, delete_data, role, sdate)values(@username, @name, @action, @add_data, @update_data, @delete_data, @role, @sdate)", conn);
+                        cm.Parameters.AddWithValue("@username", land.txtUser.Text);
+                        cm.Parameters.AddWithValue("@name", land.txtName.Text);
+                        cm.Parameters.AddWithValue("@action", "Archived Product");
+                        cm.Parameters.AddWithValue("@add_data", DBNull.Value);
+                        cm.Parameters.AddWithValue("@update_data", DBNull.Value);
+                        cm.Parameters.AddWithValue("@delete_data", "Item: " + dataGridProducts.Rows[e.RowIndex].Cells[2].Value.ToString() + "\n" + "Category: " + dataGridProducts.Rows[e.RowIndex].Cells[3].Value.ToString() + "\n" + "Price: " + dataGridProducts.Rows[e.RowIndex].Cells[4].Value.ToString().Replace("₱", "").Replace(",", "").Trim());
+                        cm.Parameters.AddWithValue("@role", land.txtLevel.Text);
+                        cm.Parameters.AddWithValue("@sdate", DateTime.Now);
+                        cm.ExecuteNonQuery();
+
                         cm = new SqlCommand("Update tblProduct set status = @status where id = @id", conn);
                         cm.Parameters.AddWithValue("@id", dataGridProducts.Rows[e.RowIndex].Cells[1].Value.ToString());
                         cm.Parameters.AddWithValue("@status", "Archived");
@@ -275,6 +288,17 @@ namespace CafeSystem.Admin
                     if (MessageBox.Show("Do you want to activate this product?", "Activate Product?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         conn.Open();
+                        cm = new SqlCommand("Insert into tblActivityLogs (username, name, action, add_data, update_data, delete_data, role, sdate)values(@username, @name, @action, @add_data, @update_data, @delete_data, @role, @sdate)", conn);
+                        cm.Parameters.AddWithValue("@username", land.txtUser.Text);
+                        cm.Parameters.AddWithValue("@name", land.txtName.Text);
+                        cm.Parameters.AddWithValue("@action", "Activated Product");
+                        cm.Parameters.AddWithValue("@add_data", DBNull.Value);
+                        cm.Parameters.AddWithValue("@update_data", DBNull.Value);
+                        cm.Parameters.AddWithValue("@delete_data", "Item: " + dataGridProducts.Rows[e.RowIndex].Cells[2].Value.ToString() + "\n" + "Category: " + dataGridProducts.Rows[e.RowIndex].Cells[3].Value.ToString() + "\n" + "Price: " + dataGridProducts.Rows[e.RowIndex].Cells[4].Value.ToString().Replace("₱", "").Replace(",", "").Trim());
+                        cm.Parameters.AddWithValue("@role", land.txtLevel.Text);
+                        cm.Parameters.AddWithValue("@sdate", DateTime.Now);
+                        cm.ExecuteNonQuery();
+
                         cm = new SqlCommand("Update tblProduct set status = @status where id = @id", conn);
                         cm.Parameters.AddWithValue("@id", dataGridProducts.Rows[e.RowIndex].Cells[1].Value.ToString());
                         cm.Parameters.AddWithValue("@status", "Active");
@@ -378,13 +402,13 @@ namespace CafeSystem.Admin
 
         private void btnAdd_Click_1(object sender, EventArgs e)
         {
-            AddProduct prd = new AddProduct(this);
+            AddProduct prd = new AddProduct(this, land);
             prd.ShowDialog();
         }
 
         private void btnCategory_Click_1(object sender, EventArgs e)
         {
-            CategoriesList cat = new CategoriesList(this);
+            CategoriesList cat = new CategoriesList(this, land);
             cat.LoadCategories();
             cat.ShowDialog();
         }
