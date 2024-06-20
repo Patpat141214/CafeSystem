@@ -268,7 +268,7 @@ namespace CafeSystem.Admin
                         cm.Parameters.AddWithValue("@action", "Archived Product");
                         cm.Parameters.AddWithValue("@add_data", DBNull.Value);
                         cm.Parameters.AddWithValue("@update_data", DBNull.Value);
-                        cm.Parameters.AddWithValue("@delete_data", "Item: " + dataGridProducts.Rows[e.RowIndex].Cells[2].Value.ToString() + "\n" + "Category: " + dataGridProducts.Rows[e.RowIndex].Cells[3].Value.ToString() + "\n" + "Price: " + dataGridProducts.Rows[e.RowIndex].Cells[4].Value.ToString().Replace("₱", "").Replace(",", "").Trim());
+                        cm.Parameters.AddWithValue("@delete_data", "Item: " + dataGridProducts.Rows[e.RowIndex].Cells[2].Value.ToString() + "\n" + "Category: " + dataGridProducts.Rows[e.RowIndex].Cells[3].Value.ToString() + "\n" + "Price: " + dataGridProducts.Rows[e.RowIndex].Cells[4].Value.ToString().Replace("₱", "").Replace(",", "").Trim() + "\n" + "Availability: " + _AvailOrNot + "\n" + "Status: " + _status);
                         cm.Parameters.AddWithValue("@role", land.txtLevel.Text);
                         cm.Parameters.AddWithValue("@sdate", DateTime.Now);
                         cm.ExecuteNonQuery();
@@ -294,7 +294,7 @@ namespace CafeSystem.Admin
                         cm.Parameters.AddWithValue("@action", "Activated Product");
                         cm.Parameters.AddWithValue("@add_data", DBNull.Value);
                         cm.Parameters.AddWithValue("@update_data", DBNull.Value);
-                        cm.Parameters.AddWithValue("@delete_data", "Item: " + dataGridProducts.Rows[e.RowIndex].Cells[2].Value.ToString() + "\n" + "Category: " + dataGridProducts.Rows[e.RowIndex].Cells[3].Value.ToString() + "\n" + "Price: " + dataGridProducts.Rows[e.RowIndex].Cells[4].Value.ToString().Replace("₱", "").Replace(",", "").Trim());
+                        cm.Parameters.AddWithValue("@delete_data", "Item: " + dataGridProducts.Rows[e.RowIndex].Cells[2].Value.ToString() + "\n" + "Category: " + dataGridProducts.Rows[e.RowIndex].Cells[3].Value.ToString() + "\n" + "Price: " + dataGridProducts.Rows[e.RowIndex].Cells[4].Value.ToString().Replace("₱", "").Replace(", ", "").Trim() + "\n" + "Availability: " + _AvailOrNot + "\n" + "Status: " + _status);
                         cm.Parameters.AddWithValue("@role", land.txtLevel.Text);
                         cm.Parameters.AddWithValue("@sdate", DateTime.Now);
                         cm.ExecuteNonQuery();

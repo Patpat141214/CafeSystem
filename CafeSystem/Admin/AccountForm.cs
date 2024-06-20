@@ -18,14 +18,16 @@ namespace CafeSystem.Admin
         SqlCommand cm = new SqlCommand();
         DBConnection dbcon = new DBConnection();
         SqlDataReader dr;
+        LandingPage land;
         private readonly string search = "Search here";
-        public AccountForm()
+        public AccountForm(LandingPage land1)
         {
             InitializeComponent();
             conn = new SqlConnection(dbcon.myConnection());
             txtSearch.Text = "Search here";
             comboFilterAcount.SelectedIndex = 0;
             dataGridCAccounts.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            land = land1;
         }
         
         public void LoadAccounts()
@@ -110,6 +112,7 @@ namespace CafeSystem.Admin
                 return;
             }
             string column = dataGridCAccounts.Columns[e.ColumnIndex].Name;
+            string _id = dataGridCAccounts.Rows[e.RowIndex].Cells[1].Value.ToString();
             string _name = dataGridCAccounts.Rows[e.RowIndex].Cells[2].Value.ToString();
             string _role = dataGridCAccounts.Rows[e.RowIndex].Cells[4].Value.ToString();
             string _usn = dataGridCAccounts.Rows[e.RowIndex].Cells[3].Value.ToString();
@@ -129,7 +132,8 @@ namespace CafeSystem.Admin
                             pass = dr["password"].ToString();
                         }
                         conn.Close();
-                        ProfileSettings prof = new ProfileSettings(pass, _name, _usn);
+                          dr.Close();
+                        ProfileSettings prof = new ProfileSettings(pass, _name, _usn, land, _id, this);
                         prof.txtName.Text = _name;
                         prof.txtUser.Text = _usn;
                         prof.txtPass.Text = pass;
@@ -148,6 +152,17 @@ namespace CafeSystem.Admin
                             return;
                         }
                         conn.Open();
+                        cm = new SqlCommand("Insert into tblActivityLogs (username, name, action, add_data, update_data, delete_data, role, sdate)values(@username, @name, @action, @add_data, @update_data, @delete_data, @role, @sdate)", conn);
+                        cm.Parameters.AddWithValue("@username", land.txtUser.Text);
+                        cm.Parameters.AddWithValue("@name", land.txtName.Text);
+                        cm.Parameters.AddWithValue("@action", "Deactivated Account");
+                        cm.Parameters.AddWithValue("@add_data", DBNull.Value);
+                        cm.Parameters.AddWithValue("@update_data", DBNull.Value);
+                        cm.Parameters.AddWithValue("@delete_data", "Username: " + _usn + "\n" + "Name: " + _name + "\n" + "Role: " + _role + "\n" + "Status: " + _stat + "\n");
+                        cm.Parameters.AddWithValue("@role", land.txtLevel.Text);
+                        cm.Parameters.AddWithValue("@sdate", DateTime.Now);
+                        cm.ExecuteNonQuery();
+
                         cm = new SqlCommand("update tblUser set status = @stat where username = @usn", conn);
                         cm.Parameters.AddWithValue("@stat", "Deactivated");
                         cm.Parameters.AddWithValue("@usn", _usn);
@@ -162,6 +177,17 @@ namespace CafeSystem.Admin
                     if (MessageBox.Show("Do you want to activate this Account?", "Activate Account?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         conn.Open();
+                        cm = new SqlCommand("Insert into tblActivityLogs (username, name, action, add_data, update_data, delete_data, role, sdate)values(@username, @name, @action, @add_data, @update_data, @delete_data, @role, @sdate)", conn);
+                        cm.Parameters.AddWithValue("@username", land.txtUser.Text);
+                        cm.Parameters.AddWithValue("@name", land.txtName.Text);
+                        cm.Parameters.AddWithValue("@action", "Activated Account");
+                        cm.Parameters.AddWithValue("@add_data", DBNull.Value);
+                        cm.Parameters.AddWithValue("@update_data", DBNull.Value);
+                        cm.Parameters.AddWithValue("@delete_data", "Username: " + _usn + "\n" + "Name: " + _name + "\n" + "Role: " + _role + "\n" + "Status: " + _stat + "\n");
+                        cm.Parameters.AddWithValue("@role", land.txtLevel.Text);
+                        cm.Parameters.AddWithValue("@sdate", DateTime.Now);
+                        cm.ExecuteNonQuery();
+
                         cm = new SqlCommand("update tblUser set status = @stat where username = @usn", conn);
                         cm.Parameters.AddWithValue("@stat", "Active");
                         cm.Parameters.AddWithValue("@usn", _usn);
@@ -254,7 +280,7 @@ namespace CafeSystem.Admin
 
         private void btnCreateAccount_Click(object sender, EventArgs e)
         {
-            CreateAccount create = new CreateAccount(this);
+            CreateAccount create = new CreateAccount(this, land);
             create.ShowDialog();    
         }
     }

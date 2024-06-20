@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
 namespace CafeSystem.Admin
 {
@@ -17,13 +18,15 @@ namespace CafeSystem.Admin
         SqlCommand cm = new SqlCommand();
         DBConnection dbcon = new DBConnection();
         AccountForm accountForm;
+        LandingPage land;
 
-        public CreateAccount(AccountForm accountForm)
+        public CreateAccount(AccountForm accountForm, LandingPage land1)
         {
             InitializeComponent();
             conn = new SqlConnection(dbcon.myConnection());
             this.Shown += CreateAccount_Shown;
             this.accountForm = accountForm;
+            land = land1;
         }
 
         private void btnCloseForm_Click(object sender, EventArgs e)
@@ -71,18 +74,22 @@ namespace CafeSystem.Admin
                               
                 if (MessageBox.Show("Do you want to create this account?", "Create Account?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    conn.Open();
-                    cm = new SqlCommand("SELECT COUNT (*) from tblUser where role = @role", conn);
-                    cm.Parameters.AddWithValue("@role", txtRole.Text);
-                    int count = (int)cm.ExecuteScalar();
-                    if (count >= 2)
+                    if (txtRole.SelectedIndex == 0)
                     {
-                        MessageBox.Show("Only a maximum of 2 super administrators are allowed!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        txtUser.Focus();
+                        conn.Open();
+                        cm = new SqlCommand("SELECT COUNT (*) from tblUser where role = 'Super Administrator'", conn);
+                        int count = (int)cm.ExecuteScalar();
+                        if (count >= 2)
+                        {
+                            MessageBox.Show("Only a maximum of 2 super administrators are allowed!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            txtUser.Focus();
+                            conn.Close();
+                            return;
+                        }
                         conn.Close();
-                        return;
+                        
                     }
-
+                    conn.Open();
                     cm = new SqlCommand("select count (*) from tbluser where username = @usn", conn);
                     cm.Parameters.AddWithValue("@usn", txtUser.Text.Trim());
                     int count1 = (int)cm.ExecuteScalar();
@@ -93,7 +100,18 @@ namespace CafeSystem.Admin
                         conn.Close();
                         return;
                     }
-           
+
+                    cm = new SqlCommand("Insert into tblActivityLogs (username, name, action, add_data, update_data, delete_data, role, sdate)values(@username, @name, @action, @add_data, @update_data, @delete_data, @role, @sdate)", conn);
+                    cm.Parameters.AddWithValue("@username", land.txtUser.Text);
+                    cm.Parameters.AddWithValue("@name", land.txtName.Text);
+                    cm.Parameters.AddWithValue("@action", "Added Account");
+                    cm.Parameters.AddWithValue("@add_data", "Username: " + txtUser.Text.Trim() + "\n" + "Name: " + txtName.Text.Trim() + "\n" + "Role: " + txtRole.Text);
+                    cm.Parameters.AddWithValue("@update_data", DBNull.Value);
+                    cm.Parameters.AddWithValue("@delete_data", DBNull.Value);
+                    cm.Parameters.AddWithValue("@role", land.txtLevel.Text);
+                    cm.Parameters.AddWithValue("@sdate", DateTime.Now);
+                    cm.ExecuteNonQuery();
+
                     cm = new SqlCommand("INSERT into tblUser(username, name, role, status, password)values(@username, @name, @role, @status, @password)", conn);
                     cm.Parameters.AddWithValue("@username", txtUser.Text.Trim());
                     cm.Parameters.AddWithValue("@name", txtName.Text);
@@ -107,8 +125,8 @@ namespace CafeSystem.Admin
                     clearAll();
 
                 }
-              
 
+                txtUser.Focus();
             }
             catch (Exception ex)
             {

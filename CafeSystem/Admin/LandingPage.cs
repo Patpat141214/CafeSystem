@@ -171,7 +171,7 @@ namespace CafeSystem
 
         private void btnAccountMain_Click(object sender, EventArgs e)
         {
-            AccountForm acc = new AccountForm();
+            AccountForm acc = new AccountForm(this);
             acc.TopLevel = false;
             panel1.Controls.Add(acc);
             acc.BringToFront();
@@ -213,7 +213,7 @@ namespace CafeSystem
             }
             dr.Close();
             conn.Close();
-            ManageDiscount manage = new ManageDiscount(discountPercen);
+            ManageDiscount manage = new ManageDiscount(discountPercen, this);
             manage.txtPercentage.Text = discountPercen.ToString() + "%";
             manage.txtCurrentStatus.Text = "Current Status: " + status; 
             manage.ShowDialog();

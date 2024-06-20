@@ -9,6 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.AxHost;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
+using System.Xml.Linq;
 
 namespace CafeSystem.Admin
 {
@@ -18,14 +21,16 @@ namespace CafeSystem.Admin
         SqlCommand cm = new SqlCommand();
         DBConnection dbcon = new DBConnection();
         SqlDataReader dr;
+        LandingPage land;
         decimal disPer;
-        public ManageDiscount(decimal disPer1)
+        public ManageDiscount(decimal disPer1, LandingPage land1)
         {
             InitializeComponent();
             conn = new SqlConnection(dbcon.myConnection());
             disPer = disPer1;
             this.Shown += ManageDiscount_Shown;
             this.KeyPreview = true;
+            land = land1;
         }
 
         private void btnCloseForm_Click(object sender, EventArgs e)
@@ -118,6 +123,17 @@ namespace CafeSystem.Admin
                 if (MessageBox.Show("Do you want to update this Discount?", "Update Discount?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     conn.Open();
+                    cm = new SqlCommand("Insert into tblActivityLogs (username, name, action, add_data, update_data, delete_data, role, sdate)values(@username, @name, @action, @add_data, @update_data, @delete_data, @role, @sdate)", conn);
+                    cm.Parameters.AddWithValue("@username", land.txtUser.Text);
+                    cm.Parameters.AddWithValue("@name", land.txtName.Text);
+                    cm.Parameters.AddWithValue("@action", "Updated Discount");
+                    cm.Parameters.AddWithValue("@add_data", DBNull.Value);
+                    cm.Parameters.AddWithValue("@update_data", "Old Discount" + "\n" + disPer.ToString().Replace("%", "").Replace(",","").Trim() + "\n" + "New Discount" + "\n" + txtPercentage.Text.Replace("%", "").Replace(",", "").Trim());
+                    cm.Parameters.AddWithValue("@delete_data", DBNull.Value);
+                    cm.Parameters.AddWithValue("@role", land.txtLevel.Text);
+                    cm.Parameters.AddWithValue("@sdate", DateTime.Now);
+                    cm.ExecuteNonQuery();
+
                     cm = new SqlCommand("UPDATE tblDiscount set _discountPercent = @discount where id = 1", conn);
                     cm.Parameters.AddWithValue("@discount", decimal.Parse(txtPercentage.Text.Replace("%", "").Replace(",", "").Trim()));
                     cm.ExecuteNonQuery();
@@ -159,6 +175,17 @@ namespace CafeSystem.Admin
                 if (MessageBox.Show("Do you want to disable this Discount?", "Disable Discount?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     conn.Open();
+                    cm = new SqlCommand("Insert into tblActivityLogs (username, name, action, add_data, update_data, delete_data, role, sdate)values(@username, @name, @action, @add_data, @update_data, @delete_data, @role, @sdate)", conn);
+                    cm.Parameters.AddWithValue("@username", land.txtUser.Text);
+                    cm.Parameters.AddWithValue("@name", land.txtName.Text);
+                    cm.Parameters.AddWithValue("@action", "Deactivated Discount");
+                    cm.Parameters.AddWithValue("@add_data", DBNull.Value);
+                    cm.Parameters.AddWithValue("@update_data", DBNull.Value);
+                    cm.Parameters.AddWithValue("@delete_data", "Discount: " + disPer.ToString().Replace("%","").Replace(",", "").Trim() + "\n" + txtCurrentStatus.Text);
+                    cm.Parameters.AddWithValue("@role", land.txtLevel.Text);
+                    cm.Parameters.AddWithValue("@sdate", DateTime.Now);
+                    cm.ExecuteNonQuery();
+
                     cm = new SqlCommand("UPDATE tblDiscount set _status = 'Deactivated' where id = 1", conn);
                     cm.ExecuteNonQuery();
                     conn.Close();
@@ -199,6 +226,17 @@ namespace CafeSystem.Admin
                 if (MessageBox.Show("Do you want to enable this Discount?", "Enable Discount?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     conn.Open();
+                    cm = new SqlCommand("Insert into tblActivityLogs (username, name, action, add_data, update_data, delete_data, role, sdate)values(@username, @name, @action, @add_data, @update_data, @delete_data, @role, @sdate)", conn);
+                    cm.Parameters.AddWithValue("@username", land.txtUser.Text);
+                    cm.Parameters.AddWithValue("@name", land.txtName.Text);
+                    cm.Parameters.AddWithValue("@action", "Activated Discount");
+                    cm.Parameters.AddWithValue("@add_data", DBNull.Value);
+                    cm.Parameters.AddWithValue("@update_data", DBNull.Value);
+                    cm.Parameters.AddWithValue("@delete_data", "Discount: " + disPer.ToString().Replace("%", "").Replace(",", "").Trim() + "\n" + txtCurrentStatus.Text);
+                    cm.Parameters.AddWithValue("@role", land.txtLevel.Text);
+                    cm.Parameters.AddWithValue("@sdate", DateTime.Now);
+                    cm.ExecuteNonQuery();
+
                     cm = new SqlCommand("UPDATE tblDiscount set _status = 'Active' where id = 1", conn);
                     cm.ExecuteNonQuery();
                     conn.Close();
