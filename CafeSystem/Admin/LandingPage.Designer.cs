@@ -105,6 +105,7 @@
             this.btnLogActivity.TabIndex = 13;
             this.btnLogActivity.Text = "Activity History";
             this.btnLogActivity.TextOffsetX = 14;
+            this.btnLogActivity.Click += new System.EventHandler(this.btnLogActivity_Click);
             // 
             // btnDiscount
             // 

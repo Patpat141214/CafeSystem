@@ -38,7 +38,7 @@ namespace CafeSystem.Admin
                 dataGridProducts.Rows.Clear();
                 int i = 0;
                 conn.Open();
-                cm = new SqlCommand("select p.id, p.price, p.status, p.AvailOrNot, p.image, p.description, p.status, c.category FROM tblProduct AS p INNER JOIN tblCategory as c on p.catid = c.id", conn);
+                cm = new SqlCommand("select p.id, p.price, p.status, p.AvailOrNot, p.image, p.description, p.status, c.category FROM tblProduct AS p INNER JOIN tblCategory as c on p.catid = c.id order by p.description asc", conn);
                 dr = cm.ExecuteReader();
                 while (dr.Read())
                 {

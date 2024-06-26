@@ -98,9 +98,9 @@ namespace CafeSystem.Admin
                     txtPercentage.Focus();
                     return;
                 }
-                if (txtPercentage.Text == "0%")
+                if (txtPercentage.Text == "0.00%" || txtPercentage.Text == "0%")
                 {
-                    MessageBox.Show("Cannot set the discount to 0%. Please disable the discount instead.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Cannot set the discount to 0.00%. Please disable the discount instead.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtPercentage.Focus();
                     return;
                 }

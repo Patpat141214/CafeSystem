@@ -108,14 +108,14 @@ namespace CafeSystem.Admin
                     cm.Parameters.AddWithValue("@action", "Updated Account");
                     if (txtPass.Text != OrigPass)
                     {
-                        cm.Parameters.AddWithValue("@add_data", "Old Info" + "\n" + "Username: " + usn + "\n" + "Name: " + name + "\n" + "Updated Info" + "\n" + "Username: " + txtUser.Text + "\n" + "Name: " + txtName.Text + "\n" + "New Password");
+                        cm.Parameters.AddWithValue("@update_data", "Old Info" + "\n" + "Username: " + usn + "\n" + "Name: " + name + "\n" + "Updated Info" + "\n" + "Username: " + txtUser.Text + "\n" + "Name: " + txtName.Text + "\n" + "New Password");
                     }
                     else
                     {
-                        cm.Parameters.AddWithValue("@add_data", "Old Info" + "\n" + "Username: " + usn + "\n" + "Name: " + name + "\n" + "Updated Info" + "\n" + "Username: " + txtUser.Text + "\n" + "Name: " + txtName.Text);
+                        cm.Parameters.AddWithValue("@update_data", "Old Info" + "\n" + "Username: " + usn + "\n" + "Name: " + name + "\n" + "Updated Info" + "\n" + "Username: " + txtUser.Text + "\n" + "Name: " + txtName.Text);
                     }
                   
-                    cm.Parameters.AddWithValue("@update_data", DBNull.Value);
+                    cm.Parameters.AddWithValue("@add_data", DBNull.Value);
                     cm.Parameters.AddWithValue("@delete_data", DBNull.Value);
                     cm.Parameters.AddWithValue("@role", land.txtLevel.Text);
                     cm.Parameters.AddWithValue("@sdate", DateTime.Now);

@@ -37,7 +37,7 @@ namespace CafeSystem.Admin
                 dataGridProducts.Rows.Clear();
                 int i = 0;
                 conn.Open();
-                cm = new SqlCommand("select p.id, p.price, p.status, p.AvailOrNot, p.image, p.description, c.category FROM tblProduct AS p INNER JOIN tblCategory as c on p.catid = c.id", conn);
+                cm = new SqlCommand("select p.id, p.price, p.status, p.AvailOrNot, p.image, p.description, c.category FROM tblProduct AS p INNER JOIN tblCategory as c on p.catid = c.id order by p.description asc", conn);
                 dr = cm.ExecuteReader();
                 while (dr.Read())
                 {
@@ -295,7 +295,7 @@ namespace CafeSystem.Admin
             ReportsRDLC rdlc = new ReportsRDLC(null, land);
             if (filterBySold.SelectedIndex == 0)
             {
-                rdlc.loadInventoryReport("select p.id, p.price, p.status, p.AvailOrNot, p.image, p.description, c.category FROM tblProduct AS p INNER JOIN tblCategory as c on p.catid = c.id", "ALL ITEMS");
+                rdlc.loadInventoryReport("select p.id, p.price, p.status, p.AvailOrNot, p.image, p.description, c.category FROM tblProduct AS p INNER JOIN tblCategory as c on p.catid = c.id order by p.description asc", "ALL ITEMS");
             }
             else if (filterBySold.SelectedIndex == 1)
             {

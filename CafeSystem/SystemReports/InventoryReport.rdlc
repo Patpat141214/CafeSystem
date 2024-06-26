@@ -458,7 +458,6 @@
                             </Border>
                           </Style>
                         </Image>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -668,7 +667,7 @@
                       <Value>="Page " &amp; Globals!PageNumber.ToString() &amp; " of " &amp; Globals!TotalPages.ToString()</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
-                        <FontSize>12pt</FontSize>
+                        <FontSize>9pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -679,9 +678,9 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox7</rd:DefaultName>
-              <Top>0.38889in</Top>
+              <Top>0.34722in</Top>
               <Left>6.77132in</Left>
-              <Height>0.25in</Height>
+              <Height>0.29167in</Height>
               <Width>4.0191in</Width>
               <ZIndex>1</ZIndex>
               <Style>

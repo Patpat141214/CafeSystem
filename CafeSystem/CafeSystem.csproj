@@ -101,6 +101,12 @@
     <Compile Include="Admin\AccountForm.Designer.cs">
       <DependentUpon>AccountForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\ActivityLogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\ActivityLogForm.Designer.cs">
+      <DependentUpon>ActivityLogForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\AddCategory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -263,6 +269,9 @@
     </Compile>
     <EmbeddedResource Include="Admin\AccountForm.resx">
       <DependentUpon>AccountForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\ActivityLogForm.resx">
+      <DependentUpon>ActivityLogForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\AddCategory.resx">
       <DependentUpon>AddCategory.cs</DependentUpon>

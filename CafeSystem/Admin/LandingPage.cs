@@ -1,18 +1,9 @@
 ﻿using CafeSystem.Admin;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Diagnostics;
 using System.Drawing;
-using System.Globalization;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 
 namespace CafeSystem
@@ -218,6 +209,16 @@ namespace CafeSystem
             manage.txtCurrentStatus.Text = "Current Status: " + status; 
             manage.ShowDialog();
 
+        }
+
+        private void btnLogActivity_Click(object sender, EventArgs e)
+        {
+            ActivityLogForm log = new ActivityLogForm();
+            log.TopLevel = false;
+            panel1.Controls.Add(log);
+            log.BringToFront();
+            log.LoadLogs();
+            log.Show();
         }
     }
 }

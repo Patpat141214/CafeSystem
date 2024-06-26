@@ -283,5 +283,10 @@ namespace CafeSystem.Admin
             CreateAccount create = new CreateAccount(this, land);
             create.ShowDialog();    
         }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
