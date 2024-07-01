@@ -177,6 +177,7 @@
             this.btnDashboard.TabIndex = 10;
             this.btnDashboard.Text = "Dashboard";
             this.btnDashboard.TextOffsetX = 14;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
             // btnAccountMain
             // 

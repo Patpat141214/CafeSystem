@@ -220,5 +220,22 @@ namespace CafeSystem
             log.LoadLogs();
             log.Show();
         }
+
+        public void MyDashboard()
+        {
+            DashBoardForm dash = new DashBoardForm();
+            dash.TopLevel = false;
+            panel1.Controls.Add(dash);
+            dash.BringToFront();
+            dash.loadTop5SellingProductsByCategory();
+            dash.lblTodaySales.Text = "₱" + dbcon.TodayTransaction().ToString("N2");
+            dash.Show();
+
+        }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            MyDashboard();
+        }
     }
 }

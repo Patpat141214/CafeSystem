@@ -252,6 +252,7 @@
             this.dataGridLogs.ThemeStyle.RowsStyle.Height = 22;
             this.dataGridLogs.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.SystemColors.ControlLight;
             this.dataGridLogs.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGridLogs.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridLogs_CellFormatting);
             // 
             // Column7
             // 

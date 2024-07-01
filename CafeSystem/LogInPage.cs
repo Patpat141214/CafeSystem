@@ -132,6 +132,7 @@ namespace CafeSystem
                         admin.txtUser.Text = username;
                         admin.btnDiscount.Visible = false;
                         admin.btnAccountMain.Visible = false;
+                        admin.MyDashboard();
                         admin.ShowDialog();
                         //admin.MyDashboard();
                         //admin.UpdateBellIcons();
@@ -144,7 +145,7 @@ namespace CafeSystem
                         admin.txtName.Text = name;
                         admin.txtLevel.Text = role;
                         admin.txtUser.Text = username;
-                        
+                        admin.MyDashboard();
                         admin.ShowDialog();
                         //admin.MyDashboard();
                         //admin.UpdateBellIcons();

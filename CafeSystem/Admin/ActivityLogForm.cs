@@ -30,6 +30,7 @@ namespace CafeSystem.Admin
 
         public void LoadLogs()
         {
+            
             dataGridLogs.Rows.Clear();
             int i = 0;
             conn.Open();
@@ -40,9 +41,14 @@ namespace CafeSystem.Admin
                 i++;
                 dataGridLogs.Rows.Add(i, dr["id"].ToString(), dr["username"].ToString(), dr["name"].ToString(), dr["role"].ToString(), dr["action"].ToString(), dr["add_data"].ToString(), dr["update_data"].ToString(), dr["delete_data"].ToString(), dr["sdate"].ToString());
                 dataGridLogs.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+                dataGridLogs.Rows[dataGridLogs.Rows.Count - 1].Cells[5].Style.ForeColor = Color.FromArgb(238, 105, 105);
+                dataGridLogs.Columns["Column6"].Visible = true;
+                dataGridLogs.Columns["Column8"].Visible = true;
+                dataGridLogs.Columns["Column9"].Visible = true;
             }
             conn.Close();
             dr.Close();
+            
         }
 
         public void LoadLogsAllCategory()
@@ -57,6 +63,10 @@ namespace CafeSystem.Admin
                 i++;
                 dataGridLogs.Rows.Add(i, dr["id"].ToString(), dr["username"].ToString(), dr["name"].ToString(), dr["role"].ToString(), dr["action"].ToString(), dr["add_data"].ToString(), dr["update_data"].ToString(), dr["delete_data"].ToString(), dr["sdate"].ToString());
                 dataGridLogs.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+                dataGridLogs.Rows[dataGridLogs.Rows.Count - 1].Cells[5].Style.ForeColor = Color.FromArgb(238, 105, 105);
+                dataGridLogs.Columns["Column6"].Visible = true;
+                dataGridLogs.Columns["Column8"].Visible = true;
+                dataGridLogs.Columns["Column9"].Visible = true;
             }
             conn.Close();
             dr.Close();
@@ -74,6 +84,13 @@ namespace CafeSystem.Admin
                 i++;
                 dataGridLogs.Rows.Add(i, dr["id"].ToString(), dr["username"].ToString(), dr["name"].ToString(), dr["role"].ToString(), dr["action"].ToString(), dr["add_data"].ToString(), dr["update_data"].ToString(), dr["delete_data"].ToString(), dr["sdate"].ToString());
                 dataGridLogs.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+                dataGridLogs.Rows[dataGridLogs.Rows.Count - 1].Cells[5].Style.ForeColor = Color.FromArgb(238, 105, 105);
+                dataGridLogs.Columns["Column6"].Visible = true;
+                dataGridLogs.Columns["Column8"].Visible = false;
+                dataGridLogs.Columns["Column9"].Visible = false;
+                dataGridLogs.Columns["Column4"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridLogs.Columns["Column10"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridLogs.Columns["Column5"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
             conn.Close();
             dr.Close();
@@ -91,6 +108,13 @@ namespace CafeSystem.Admin
                 i++;
                 dataGridLogs.Rows.Add(i, dr["id"].ToString(), dr["username"].ToString(), dr["name"].ToString(), dr["role"].ToString(), dr["action"].ToString(), dr["add_data"].ToString(), dr["update_data"].ToString(), dr["delete_data"].ToString(), dr["sdate"].ToString());
                 dataGridLogs.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+                dataGridLogs.Rows[dataGridLogs.Rows.Count - 1].Cells[5].Style.ForeColor = Color.FromArgb(238, 105, 105);
+                dataGridLogs.Columns["Column6"].Visible = false;
+                dataGridLogs.Columns["Column8"].Visible = true;
+                dataGridLogs.Columns["Column9"].Visible = false;
+                dataGridLogs.Columns["Column4"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridLogs.Columns["Column10"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridLogs.Columns["Column5"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
             conn.Close();
             dr.Close();
@@ -108,6 +132,13 @@ namespace CafeSystem.Admin
                 i++;
                 dataGridLogs.Rows.Add(i, dr["id"].ToString(), dr["username"].ToString(), dr["name"].ToString(), dr["role"].ToString(), dr["action"].ToString(), dr["add_data"].ToString(), dr["update_data"].ToString(), dr["delete_data"].ToString(), dr["sdate"].ToString());
                 dataGridLogs.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+                dataGridLogs.Rows[dataGridLogs.Rows.Count - 1].Cells[5].Style.ForeColor = Color.FromArgb(238, 105, 105);
+                dataGridLogs.Columns["Column6"].Visible = false;
+                dataGridLogs.Columns["Column8"].Visible = false;
+                dataGridLogs.Columns["Column9"].Visible = true;
+                dataGridLogs.Columns["Column4"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridLogs.Columns["Column10"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridLogs.Columns["Column5"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
             conn.Close();
             dr.Close();
@@ -125,6 +156,10 @@ namespace CafeSystem.Admin
                 i++;
                 dataGridLogs.Rows.Add(i, dr["id"].ToString(), dr["username"].ToString(), dr["name"].ToString(), dr["role"].ToString(), dr["action"].ToString(), dr["add_data"].ToString(), dr["update_data"].ToString(), dr["delete_data"].ToString(), dr["sdate"].ToString());
                 dataGridLogs.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+                dataGridLogs.Rows[dataGridLogs.Rows.Count - 1].Cells[5].Style.ForeColor = Color.FromArgb(238, 105, 105);
+                dataGridLogs.Columns["Column6"].Visible = true;
+                dataGridLogs.Columns["Column8"].Visible = true;
+                dataGridLogs.Columns["Column9"].Visible = true;
             }
             conn.Close();
             dr.Close();
@@ -142,6 +177,13 @@ namespace CafeSystem.Admin
                 i++;
                 dataGridLogs.Rows.Add(i, dr["id"].ToString(), dr["username"].ToString(), dr["name"].ToString(), dr["role"].ToString(), dr["action"].ToString(), dr["add_data"].ToString(), dr["update_data"].ToString(), dr["delete_data"].ToString(), dr["sdate"].ToString());
                 dataGridLogs.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+                dataGridLogs.Rows[dataGridLogs.Rows.Count - 1].Cells[5].Style.ForeColor = Color.FromArgb(238, 105, 105);
+                dataGridLogs.Columns["Column6"].Visible = true;
+                dataGridLogs.Columns["Column8"].Visible = false;
+                dataGridLogs.Columns["Column9"].Visible = false;
+                dataGridLogs.Columns["Column4"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridLogs.Columns["Column10"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridLogs.Columns["Column5"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
             conn.Close();
             dr.Close();
@@ -159,6 +201,13 @@ namespace CafeSystem.Admin
                 i++;
                 dataGridLogs.Rows.Add(i, dr["id"].ToString(), dr["username"].ToString(), dr["name"].ToString(), dr["role"].ToString(), dr["action"].ToString(), dr["add_data"].ToString(), dr["update_data"].ToString(), dr["delete_data"].ToString(), dr["sdate"].ToString());
                 dataGridLogs.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+                dataGridLogs.Rows[dataGridLogs.Rows.Count - 1].Cells[5].Style.ForeColor = Color.FromArgb(238, 105, 105);
+                dataGridLogs.Columns["Column6"].Visible = false;
+                dataGridLogs.Columns["Column8"].Visible = true;
+                dataGridLogs.Columns["Column9"].Visible = false;
+                dataGridLogs.Columns["Column4"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridLogs.Columns["Column10"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridLogs.Columns["Column5"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
             conn.Close();
             dr.Close();
@@ -176,6 +225,13 @@ namespace CafeSystem.Admin
                 i++;
                 dataGridLogs.Rows.Add(i, dr["id"].ToString(), dr["username"].ToString(), dr["name"].ToString(), dr["role"].ToString(), dr["action"].ToString(), dr["add_data"].ToString(), dr["update_data"].ToString(), dr["delete_data"].ToString(), dr["sdate"].ToString());
                 dataGridLogs.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+                dataGridLogs.Rows[dataGridLogs.Rows.Count - 1].Cells[5].Style.ForeColor = Color.FromArgb(238, 105, 105);
+                dataGridLogs.Columns["Column6"].Visible = false;
+                dataGridLogs.Columns["Column8"].Visible = false;
+                dataGridLogs.Columns["Column9"].Visible = true;
+                dataGridLogs.Columns["Column4"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridLogs.Columns["Column10"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridLogs.Columns["Column5"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
             conn.Close();
             dr.Close();
@@ -192,6 +248,13 @@ namespace CafeSystem.Admin
                 i++;
                 dataGridLogs.Rows.Add(i, dr["id"].ToString(), dr["username"].ToString(), dr["name"].ToString(), dr["role"].ToString(), dr["action"].ToString(), dr["add_data"].ToString(), dr["update_data"].ToString(), dr["delete_data"].ToString(), dr["sdate"].ToString());
                 dataGridLogs.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+                dataGridLogs.Rows[dataGridLogs.Rows.Count - 1].Cells[5].Style.ForeColor = Color.FromArgb(238, 105, 105);
+                dataGridLogs.Columns["Column6"].Visible = false;
+                dataGridLogs.Columns["Column8"].Visible = true;
+                dataGridLogs.Columns["Column9"].Visible = true;
+                dataGridLogs.Columns["Column4"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridLogs.Columns["Column10"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridLogs.Columns["Column5"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
             conn.Close();
             dr.Close();
@@ -209,6 +272,13 @@ namespace CafeSystem.Admin
                 i++;
                 dataGridLogs.Rows.Add(i, dr["id"].ToString(), dr["username"].ToString(), dr["name"].ToString(), dr["role"].ToString(), dr["action"].ToString(), dr["add_data"].ToString(), dr["update_data"].ToString(), dr["delete_data"].ToString(), dr["sdate"].ToString());
                 dataGridLogs.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+                dataGridLogs.Rows[dataGridLogs.Rows.Count - 1].Cells[5].Style.ForeColor = Color.FromArgb(238, 105, 105);
+                dataGridLogs.Columns["Column6"].Visible = false;
+                dataGridLogs.Columns["Column8"].Visible = true;
+                dataGridLogs.Columns["Column9"].Visible = false;
+                dataGridLogs.Columns["Column4"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridLogs.Columns["Column10"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridLogs.Columns["Column5"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
             conn.Close();
             dr.Close();
@@ -226,6 +296,13 @@ namespace CafeSystem.Admin
                 i++;
                 dataGridLogs.Rows.Add(i, dr["id"].ToString(), dr["username"].ToString(), dr["name"].ToString(), dr["role"].ToString(), dr["action"].ToString(), dr["add_data"].ToString(), dr["update_data"].ToString(), dr["delete_data"].ToString(), dr["sdate"].ToString());
                 dataGridLogs.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+                dataGridLogs.Rows[dataGridLogs.Rows.Count - 1].Cells[5].Style.ForeColor = Color.FromArgb(238, 105, 105);
+                dataGridLogs.Columns["Column6"].Visible = false;
+                dataGridLogs.Columns["Column8"].Visible = false;
+                dataGridLogs.Columns["Column9"].Visible = true;
+                dataGridLogs.Columns["Column4"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridLogs.Columns["Column10"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridLogs.Columns["Column5"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
             conn.Close();
             dr.Close();
@@ -243,6 +320,10 @@ namespace CafeSystem.Admin
                 i++;
                 dataGridLogs.Rows.Add(i, dr["id"].ToString(), dr["username"].ToString(), dr["name"].ToString(), dr["role"].ToString(), dr["action"].ToString(), dr["add_data"].ToString(), dr["update_data"].ToString(), dr["delete_data"].ToString(), dr["sdate"].ToString());
                 dataGridLogs.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+                dataGridLogs.Rows[dataGridLogs.Rows.Count - 1].Cells[5].Style.ForeColor = Color.FromArgb(238, 105, 105);
+                dataGridLogs.Columns["Column6"].Visible = true;
+                dataGridLogs.Columns["Column8"].Visible = true;
+                dataGridLogs.Columns["Column9"].Visible = true;
             }
             conn.Close();
             dr.Close();
@@ -260,6 +341,13 @@ namespace CafeSystem.Admin
                 i++;
                 dataGridLogs.Rows.Add(i, dr["id"].ToString(), dr["username"].ToString(), dr["name"].ToString(), dr["role"].ToString(), dr["action"].ToString(), dr["add_data"].ToString(), dr["update_data"].ToString(), dr["delete_data"].ToString(), dr["sdate"].ToString());
                 dataGridLogs.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+                dataGridLogs.Rows[dataGridLogs.Rows.Count - 1].Cells[5].Style.ForeColor = Color.FromArgb(238, 105, 105);
+                dataGridLogs.Columns["Column6"].Visible = true;
+                dataGridLogs.Columns["Column8"].Visible = false;
+                dataGridLogs.Columns["Column9"].Visible = false;
+                dataGridLogs.Columns["Column4"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridLogs.Columns["Column10"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridLogs.Columns["Column5"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
             conn.Close();
             dr.Close();
@@ -277,6 +365,13 @@ namespace CafeSystem.Admin
                 i++;
                 dataGridLogs.Rows.Add(i, dr["id"].ToString(), dr["username"].ToString(), dr["name"].ToString(), dr["role"].ToString(), dr["action"].ToString(), dr["add_data"].ToString(), dr["update_data"].ToString(), dr["delete_data"].ToString(), dr["sdate"].ToString());
                 dataGridLogs.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+                dataGridLogs.Rows[dataGridLogs.Rows.Count - 1].Cells[5].Style.ForeColor = Color.FromArgb(238, 105, 105);
+                dataGridLogs.Columns["Column6"].Visible = false;
+                dataGridLogs.Columns["Column8"].Visible = true;
+                dataGridLogs.Columns["Column9"].Visible = false;
+                dataGridLogs.Columns["Column4"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridLogs.Columns["Column10"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridLogs.Columns["Column5"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
             conn.Close();
             dr.Close();
@@ -294,6 +389,84 @@ namespace CafeSystem.Admin
                 i++;
                 dataGridLogs.Rows.Add(i, dr["id"].ToString(), dr["username"].ToString(), dr["name"].ToString(), dr["role"].ToString(), dr["action"].ToString(), dr["add_data"].ToString(), dr["update_data"].ToString(), dr["delete_data"].ToString(), dr["sdate"].ToString());
                 dataGridLogs.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+                dataGridLogs.Rows[dataGridLogs.Rows.Count - 1].Cells[5].Style.ForeColor = Color.FromArgb(238, 105, 105);
+                dataGridLogs.Columns["Column6"].Visible = false;
+                dataGridLogs.Columns["Column8"].Visible = false;
+                dataGridLogs.Columns["Column9"].Visible = true;
+                dataGridLogs.Columns["Column4"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridLogs.Columns["Column10"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridLogs.Columns["Column5"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
+            conn.Close();
+            dr.Close();
+        }
+
+        public void LoadAllLogsLoginLogout()
+        {
+            dataGridLogs.Rows.Clear();
+            int i = 0;
+            conn.Open();
+            cm = new SqlCommand("Select * from tblActivityLogs where action IN ('Log In', 'Log Out')", conn);
+            dr = cm.ExecuteReader();
+            while (dr.Read())
+            {
+                i++;
+                dataGridLogs.Rows.Add(i, dr["id"].ToString(), dr["username"].ToString(), dr["name"].ToString(), dr["role"].ToString(), dr["action"].ToString(), dr["add_data"].ToString(), dr["update_data"].ToString(), dr["delete_data"].ToString(), dr["sdate"].ToString());
+                dataGridLogs.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+                dataGridLogs.Rows[dataGridLogs.Rows.Count - 1].Cells[5].Style.ForeColor = Color.FromArgb(238, 105, 105);
+                dataGridLogs.Columns["Column6"].Visible = false;
+                dataGridLogs.Columns["Column8"].Visible = false;
+                dataGridLogs.Columns["Column9"].Visible = false;
+                dataGridLogs.Columns["Column4"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridLogs.Columns["Column10"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridLogs.Columns["Column5"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
+            conn.Close();
+            dr.Close();
+        }
+
+        public void LoadAllLogsLogin()
+        {
+            dataGridLogs.Rows.Clear();           
+            int i = 0;
+            conn.Open();
+            cm = new SqlCommand("Select * from tblActivityLogs where action = 'Log In'", conn);
+            dr = cm.ExecuteReader();
+            while (dr.Read())
+            {
+                i++;
+                dataGridLogs.Rows.Add(i, dr["id"].ToString(), dr["username"].ToString(), dr["name"].ToString(), dr["role"].ToString(), dr["action"].ToString(), dr["add_data"].ToString(), dr["update_data"].ToString(), dr["delete_data"].ToString(), dr["sdate"].ToString());
+                dataGridLogs.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+                dataGridLogs.Rows[dataGridLogs.Rows.Count - 1].Cells[5].Style.ForeColor = Color.FromArgb(238, 105, 105);
+                dataGridLogs.Columns["Column6"].Visible = false;
+                dataGridLogs.Columns["Column8"].Visible = false;
+                dataGridLogs.Columns["Column9"].Visible = false;
+                dataGridLogs.Columns["Column4"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridLogs.Columns["Column10"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridLogs.Columns["Column5"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
+            conn.Close();
+            dr.Close();
+        }
+        public void LoadAllLogsLogout()
+        {
+            dataGridLogs.Rows.Clear();
+            int i = 0;
+            conn.Open();
+            cm = new SqlCommand("Select * from tblActivityLogs where action = 'Log Out'", conn);
+            dr = cm.ExecuteReader();
+            while (dr.Read())
+            {
+                i++;
+                dataGridLogs.Rows.Add(i, dr["id"].ToString(), dr["username"].ToString(), dr["name"].ToString(), dr["role"].ToString(), dr["action"].ToString(), dr["add_data"].ToString(), dr["update_data"].ToString(), dr["delete_data"].ToString(), dr["sdate"].ToString());
+                dataGridLogs.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+                dataGridLogs.Rows[dataGridLogs.Rows.Count - 1].Cells[5].Style.ForeColor = Color.FromArgb(238, 105, 105);
+                dataGridLogs.Columns["Column6"].Visible = false;
+                dataGridLogs.Columns["Column8"].Visible = false;
+                dataGridLogs.Columns["Column9"].Visible = false;
+                dataGridLogs.Columns["Column4"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridLogs.Columns["Column10"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridLogs.Columns["Column5"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
             conn.Close();
             dr.Close();
@@ -312,7 +485,7 @@ namespace CafeSystem.Admin
             {
                 comboAction.Items.Clear();
                 comboAction.Enabled = true;
-                comboAction.Items.Add("All");
+                comboAction.Items.Add("All Records");
                 comboAction.Items.Add("Added Category");
                 comboAction.Items.Add("Updated Category");
                 comboAction.Items.Add("Archived/Activated Category");
@@ -321,7 +494,7 @@ namespace CafeSystem.Admin
             {
                 comboAction.Items.Clear();
                 comboAction.Enabled = true;
-                comboAction.Items.Add("All");
+                comboAction.Items.Add("All Records");
                 comboAction.Items.Add("Added Product");
                 comboAction.Items.Add("Updated Product");
                 comboAction.Items.Add("Archived/Activated Product");
@@ -330,7 +503,7 @@ namespace CafeSystem.Admin
             {
                 comboAction.Items.Clear();
                 comboAction.Enabled = true;
-                comboAction.Items.Add("All");
+                comboAction.Items.Add("All Records");
                 comboAction.Items.Add("Updated Discount");
                 comboAction.Items.Add("Archived/Activated Discount");
             }
@@ -338,10 +511,18 @@ namespace CafeSystem.Admin
             {
                 comboAction.Items.Clear();
                 comboAction.Enabled = true;
-                comboAction.Items.Add("All");
+                comboAction.Items.Add("All Records");
                 comboAction.Items.Add("Added Account");
                 comboAction.Items.Add("Updated Account");
                 comboAction.Items.Add("Archived/Activated Account");
+            }
+            if (comboFilterLogs.SelectedIndex == 5)
+            {
+                comboAction.Items.Clear();
+                comboAction.Enabled = true;
+                comboAction.Items.Add("All Records");
+                comboAction.Items.Add("Log In");
+                comboAction.Items.Add("Log Out");
             }
 
         }
@@ -469,6 +650,35 @@ namespace CafeSystem.Admin
             {
 
                 LoadLogsActivateddDeactivatedAccount();
+            }
+            if (comboAction.SelectedIndex == 0 && comboFilterLogs.SelectedIndex == 5)
+            {
+
+                LoadAllLogsLoginLogout();
+            }
+            if (comboAction.SelectedIndex == 1 && comboFilterLogs.SelectedIndex == 5)
+            {
+
+                LoadAllLogsLogin();
+            }
+            if (comboAction.SelectedIndex == 2 && comboFilterLogs.SelectedIndex == 5)
+            {
+
+                LoadAllLogsLogout();
+            }
+        }
+
+        private void dataGridLogs_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.RowIndex > -1 && e.ColumnIndex == 5)
+            {
+                
+                DataGridViewRow row = dataGridLogs.Rows[e.RowIndex];
+
+                Color cellForeColor = row.Cells[5].Style.ForeColor;
+
+                e.CellStyle.SelectionForeColor = cellForeColor;
+
             }
         }
     }  
