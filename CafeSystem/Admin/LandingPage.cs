@@ -229,6 +229,8 @@ namespace CafeSystem
             dash.BringToFront();
             dash.loadTop5SellingProductsByCategory();
             dash.lblTodaySales.Text = "₱" + dbcon.TodayTransaction().ToString("N2");
+            dash.lblTodayTransaction.Text = dbcon.TodaysCustomer().ToString();
+            dash.lblPendingOrders.Text = dbcon.pendingOrders().ToString();
             dash.Show();
 
         }

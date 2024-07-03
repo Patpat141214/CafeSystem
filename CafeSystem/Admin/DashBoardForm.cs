@@ -48,6 +48,7 @@ ORDER BY totalqty DESC";
                 row["category"] = "No Sales";
                 row["totalqty"] = 0;
                 dt.Rows.Add(row);
+                CategoryChart.Visible = true;
             }
 
             CategoryChart.DataSource = ds.Tables["Sales"];
