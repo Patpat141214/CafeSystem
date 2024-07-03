@@ -31,6 +31,7 @@ namespace CafeSystem.Admin
 FROM tblCart cart
 JOIN tblProduct p ON cart.pid = p.id
 JOIN tblCategory c ON p.catid = c.id
+where cart.status ='Sold'
 GROUP BY c.category
 ORDER BY totalqty DESC";
 
