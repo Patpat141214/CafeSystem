@@ -35,7 +35,6 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.gunaPanel1 = new Guna.UI.WinForms.GunaPanel();
             this.gunaLabel4 = new Guna.UI.WinForms.GunaLabel();
             this.gunaElipsePanel1 = new Guna.UI.WinForms.GunaElipsePanel();
@@ -47,11 +46,17 @@
             this.lblTodayTransaction = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.gunaElipsePanel5 = new Guna.UI.WinForms.GunaElipsePanel();
+            this.lblPendingOrders = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.gunaElipsePanel6 = new Guna.UI.WinForms.GunaElipsePanel();
             this.CategoryChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.ChartSales = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblPendingOrders = new System.Windows.Forms.Label();
+            this.filterBySold = new Guna.UI.WinForms.GunaComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.endDate = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.startDate = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
             this.gunaPanel1.SuspendLayout();
             this.gunaElipsePanel1.SuspendLayout();
             this.gunaElipsePanel4.SuspendLayout();
@@ -189,6 +194,32 @@
             this.gunaElipsePanel5.Size = new System.Drawing.Size(320, 164);
             this.gunaElipsePanel5.TabIndex = 46;
             // 
+            // lblPendingOrders
+            // 
+            this.lblPendingOrders.Font = new System.Drawing.Font("Consolas", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPendingOrders.ForeColor = System.Drawing.Color.Black;
+            this.lblPendingOrders.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblPendingOrders.Location = new System.Drawing.Point(13, 74);
+            this.lblPendingOrders.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPendingOrders.Name = "lblPendingOrders";
+            this.lblPendingOrders.Size = new System.Drawing.Size(292, 67);
+            this.lblPendingOrders.TabIndex = 54;
+            this.lblPendingOrders.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Consolas", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label2.Location = new System.Drawing.Point(49, 23);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(224, 32);
+            this.label2.TabIndex = 53;
+            this.label2.Text = "PENDING ORDERS";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // gunaElipsePanel6
             // 
             this.gunaElipsePanel6.BackColor = System.Drawing.Color.Transparent;
@@ -258,7 +289,7 @@
             legend2.BackColor = System.Drawing.SystemColors.Control;
             legend2.Name = "Legend2";
             this.ChartSales.Legends.Add(legend2);
-            this.ChartSales.Location = new System.Drawing.Point(23, 519);
+            this.ChartSales.Location = new System.Drawing.Point(23, 568);
             this.ChartSales.Name = "ChartSales";
             this.ChartSales.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
             series2.ChartArea = "ChartArea2";
@@ -267,46 +298,108 @@
             series2.Legend = "Legend2";
             series2.Name = "Series2";
             this.ChartSales.Series.Add(series2);
-            this.ChartSales.Size = new System.Drawing.Size(1596, 530);
+            this.ChartSales.Size = new System.Drawing.Size(1596, 481);
             this.ChartSales.TabIndex = 49;
             this.ChartSales.Text = "ChartSales";
-            title2.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title2.Name = "Title2";
-            title2.Text = "SALES";
-            title2.TextStyle = System.Windows.Forms.DataVisualization.Charting.TextStyle.Shadow;
-            this.ChartSales.Titles.Add(title2);
             // 
-            // label2
+            // filterBySold
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Consolas", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label2.Location = new System.Drawing.Point(49, 23);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(224, 32);
-            this.label2.TabIndex = 53;
-            this.label2.Text = "PENDING ORDERS";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.filterBySold.BackColor = System.Drawing.Color.Transparent;
+            this.filterBySold.BaseColor = System.Drawing.Color.White;
+            this.filterBySold.BorderColor = System.Drawing.Color.Silver;
+            this.filterBySold.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.filterBySold.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.filterBySold.FocusedColor = System.Drawing.Color.Empty;
+            this.filterBySold.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.filterBySold.ForeColor = System.Drawing.Color.Black;
+            this.filterBySold.FormattingEnabled = true;
+            this.filterBySold.Items.AddRange(new object[] {
+            "WEEKLY SALES",
+            "MONTHLY SALES",
+            "ANNUAL SALES"});
+            this.filterBySold.Location = new System.Drawing.Point(349, 520);
+            this.filterBySold.Name = "filterBySold";
+            this.filterBySold.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.filterBySold.OnHoverItemForeColor = System.Drawing.Color.White;
+            this.filterBySold.Size = new System.Drawing.Size(193, 31);
+            this.filterBySold.TabIndex = 53;
+            this.filterBySold.SelectedIndexChanged += new System.EventHandler(this.filterBySold_SelectedIndexChanged);
             // 
-            // lblPendingOrders
+            // label3
             // 
-            this.lblPendingOrders.Font = new System.Drawing.Font("Consolas", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPendingOrders.ForeColor = System.Drawing.Color.Black;
-            this.lblPendingOrders.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblPendingOrders.Location = new System.Drawing.Point(13, 74);
-            this.lblPendingOrders.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblPendingOrders.Name = "lblPendingOrders";
-            this.lblPendingOrders.Size = new System.Drawing.Size(292, 67);
-            this.lblPendingOrders.TabIndex = 54;
-            this.lblPendingOrders.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label3.Location = new System.Drawing.Point(243, 525);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(110, 22);
+            this.label3.TabIndex = 52;
+            this.label3.Text = "Filter By:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // endDate
+            // 
+            this.endDate.CustomFormat = "";
+            this.endDate.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.endDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.endDate.Location = new System.Drawing.Point(1252, 517);
+            this.endDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.endDate.Name = "endDate";
+            this.endDate.Size = new System.Drawing.Size(187, 30);
+            this.endDate.TabIndex = 56;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label4.Location = new System.Drawing.Point(1209, 521);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(40, 22);
+            this.label4.TabIndex = 55;
+            this.label4.Text = "To:";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // startDate
+            // 
+            this.startDate.CustomFormat = "";
+            this.startDate.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.startDate.Location = new System.Drawing.Point(1012, 517);
+            this.startDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.startDate.Name = "startDate";
+            this.startDate.Size = new System.Drawing.Size(187, 30);
+            this.startDate.TabIndex = 54;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label6.Location = new System.Drawing.Point(949, 521);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(60, 22);
+            this.label6.TabIndex = 57;
+            this.label6.Text = "From:";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // DashBoardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1631, 1061);
+            this.Controls.Add(this.endDate);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.startDate);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.filterBySold);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.ChartSales);
             this.Controls.Add(this.CategoryChart);
             this.Controls.Add(this.gunaElipsePanel6);
@@ -332,6 +425,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.CategoryChart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ChartSales)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -353,5 +447,11 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart ChartSales;
         public System.Windows.Forms.Label lblPendingOrders;
         public System.Windows.Forms.Label label2;
+        private Guna.UI.WinForms.GunaComboBox filterBySold;
+        public System.Windows.Forms.Label label3;
+        public System.Windows.Forms.DateTimePicker endDate;
+        public System.Windows.Forms.Label label4;
+        public System.Windows.Forms.DateTimePicker startDate;
+        public System.Windows.Forms.Label label6;
     }
 }
