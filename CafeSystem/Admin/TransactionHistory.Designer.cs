@@ -43,8 +43,6 @@
             this.filterBySold = new Guna.UI.WinForms.GunaComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dataGridTransact = new Guna.UI.WinForms.GunaDataGridView();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.endDate = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.startDate = new System.Windows.Forms.DateTimePicker();
@@ -66,6 +64,9 @@
             this.lblDiscountAmount = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lblTotalSold = new System.Windows.Forms.Label();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.gunaPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTransact)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSold)).BeginInit();
@@ -191,7 +192,8 @@
             this.dataGridTransact.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridTransact.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column7,
-            this.Column3});
+            this.Column3,
+            this.Delete});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -240,23 +242,8 @@
             this.dataGridTransact.ThemeStyle.RowsStyle.Height = 22;
             this.dataGridTransact.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.SystemColors.ControlLight;
             this.dataGridTransact.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGridTransact.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridTransact_CellContentClick);
             this.dataGridTransact.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridTransact_CellDoubleClick);
-            // 
-            // Column7
-            // 
-            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column7.HeaderText = "#";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column7.Width = 43;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Transaction#";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // endDate
             // 
@@ -579,6 +566,32 @@
             this.lblTotalSold.Text = "₱0.00";
             this.lblTotalSold.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // Column7
+            // 
+            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column7.HeaderText = "#";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column7.Width = 43;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Transaction#";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Delete
+            // 
+            this.Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Delete.HeaderText = "";
+            this.Delete.Image = ((System.Drawing.Image)(resources.GetObject("Delete.Image")));
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Delete.Width = 5;
+            // 
             // TransactionHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -626,8 +639,6 @@
         private Guna.UI.WinForms.GunaComboBox filterBySold;
         public System.Windows.Forms.Label label5;
         public Guna.UI.WinForms.GunaDataGridView dataGridTransact;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         public System.Windows.Forms.DateTimePicker endDate;
         public System.Windows.Forms.Label label3;
         public System.Windows.Forms.DateTimePicker startDate;
@@ -649,5 +660,8 @@
         public System.Windows.Forms.Label lblDiscountAmount;
         public System.Windows.Forms.Label label6;
         public System.Windows.Forms.Label lblTotalSold;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewImageColumn Delete;
     }
 }

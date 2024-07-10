@@ -35,34 +35,39 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gunaPanel1 = new Guna.UI.WinForms.GunaPanel();
             this.gunaLabel4 = new Guna.UI.WinForms.GunaLabel();
             this.gunaElipsePanel1 = new Guna.UI.WinForms.GunaElipsePanel();
             this.lblTodaySales = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.gunaElipsePanel2 = new Guna.UI.WinForms.GunaElipsePanel();
-            this.gunaElipsePanel3 = new Guna.UI.WinForms.GunaElipsePanel();
             this.gunaElipsePanel4 = new Guna.UI.WinForms.GunaElipsePanel();
             this.lblTodayTransaction = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.gunaElipsePanel5 = new Guna.UI.WinForms.GunaElipsePanel();
             this.lblPendingOrders = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.gunaElipsePanel6 = new Guna.UI.WinForms.GunaElipsePanel();
             this.CategoryChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.ChartSales = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.filterBySold = new Guna.UI.WinForms.GunaComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.endDate = new System.Windows.Forms.DateTimePicker();
-            this.label4 = new System.Windows.Forms.Label();
             this.startDate = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
+            this.topSellingProductsGrid = new Guna.UI.WinForms.GunaDataGridView();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gunaPanel1.SuspendLayout();
             this.gunaElipsePanel1.SuspendLayout();
             this.gunaElipsePanel4.SuspendLayout();
             this.gunaElipsePanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CategoryChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ChartSales)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.topSellingProductsGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // gunaPanel1
@@ -123,26 +128,6 @@
             this.label5.TabIndex = 51;
             this.label5.Text = "TODAY\'S SALES";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // gunaElipsePanel2
-            // 
-            this.gunaElipsePanel2.BackColor = System.Drawing.Color.Transparent;
-            this.gunaElipsePanel2.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
-            this.gunaElipsePanel2.Location = new System.Drawing.Point(23, 313);
-            this.gunaElipsePanel2.Name = "gunaElipsePanel2";
-            this.gunaElipsePanel2.Radius = 20;
-            this.gunaElipsePanel2.Size = new System.Drawing.Size(320, 164);
-            this.gunaElipsePanel2.TabIndex = 45;
-            // 
-            // gunaElipsePanel3
-            // 
-            this.gunaElipsePanel3.BackColor = System.Drawing.Color.Transparent;
-            this.gunaElipsePanel3.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(234)))), ((int)(((byte)(183)))));
-            this.gunaElipsePanel3.Location = new System.Drawing.Point(363, 313);
-            this.gunaElipsePanel3.Name = "gunaElipsePanel3";
-            this.gunaElipsePanel3.Radius = 20;
-            this.gunaElipsePanel3.Size = new System.Drawing.Size(320, 164);
-            this.gunaElipsePanel3.TabIndex = 45;
             // 
             // gunaElipsePanel4
             // 
@@ -219,16 +204,6 @@
             this.label2.TabIndex = 53;
             this.label2.Text = "PENDING ORDERS";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // gunaElipsePanel6
-            // 
-            this.gunaElipsePanel6.BackColor = System.Drawing.Color.Transparent;
-            this.gunaElipsePanel6.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
-            this.gunaElipsePanel6.Location = new System.Drawing.Point(702, 313);
-            this.gunaElipsePanel6.Name = "gunaElipsePanel6";
-            this.gunaElipsePanel6.Radius = 20;
-            this.gunaElipsePanel6.Size = new System.Drawing.Size(320, 164);
-            this.gunaElipsePanel6.TabIndex = 47;
             // 
             // CategoryChart
             // 
@@ -339,31 +314,6 @@
             this.label3.Text = "Filter By:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // endDate
-            // 
-            this.endDate.CustomFormat = "";
-            this.endDate.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.endDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.endDate.Location = new System.Drawing.Point(1252, 517);
-            this.endDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.endDate.Name = "endDate";
-            this.endDate.Size = new System.Drawing.Size(187, 30);
-            this.endDate.TabIndex = 56;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label4.Location = new System.Drawing.Point(1209, 521);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 22);
-            this.label4.TabIndex = 55;
-            this.label4.Text = "To:";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // startDate
             // 
             this.startDate.CustomFormat = "";
@@ -374,6 +324,7 @@
             this.startDate.Name = "startDate";
             this.startDate.Size = new System.Drawing.Size(187, 30);
             this.startDate.TabIndex = 54;
+            this.startDate.ValueChanged += new System.EventHandler(this.startDate_ValueChanged);
             // 
             // label6
             // 
@@ -386,27 +337,135 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(60, 22);
             this.label6.TabIndex = 57;
-            this.label6.Text = "From:";
+            this.label6.Text = "Date:";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // topSellingProductsGrid
+            // 
+            this.topSellingProductsGrid.AllowUserToAddRows = false;
+            this.topSellingProductsGrid.AllowUserToDeleteRows = false;
+            this.topSellingProductsGrid.AllowUserToResizeColumns = false;
+            this.topSellingProductsGrid.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.topSellingProductsGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.topSellingProductsGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.topSellingProductsGrid.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.topSellingProductsGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.topSellingProductsGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.topSellingProductsGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(158)))), ((int)(((byte)(135)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(158)))), ((int)(((byte)(135)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.topSellingProductsGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.topSellingProductsGrid.ColumnHeadersHeight = 26;
+            this.topSellingProductsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.topSellingProductsGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column7,
+            this.Column2,
+            this.Column1,
+            this.Column3});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.topSellingProductsGrid.DefaultCellStyle = dataGridViewCellStyle3;
+            this.topSellingProductsGrid.EnableHeadersVisualStyles = false;
+            this.topSellingProductsGrid.GridColor = System.Drawing.Color.White;
+            this.topSellingProductsGrid.Location = new System.Drawing.Point(23, 302);
+            this.topSellingProductsGrid.MultiSelect = false;
+            this.topSellingProductsGrid.Name = "topSellingProductsGrid";
+            this.topSellingProductsGrid.ReadOnly = true;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(68)))), ((int)(((byte)(75)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.topSellingProductsGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.topSellingProductsGrid.RowHeadersVisible = false;
+            this.topSellingProductsGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.topSellingProductsGrid.Size = new System.Drawing.Size(999, 197);
+            this.topSellingProductsGrid.TabIndex = 58;
+            this.topSellingProductsGrid.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.Guna;
+            this.topSellingProductsGrid.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.topSellingProductsGrid.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.topSellingProductsGrid.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.topSellingProductsGrid.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.topSellingProductsGrid.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.topSellingProductsGrid.ThemeStyle.BackColor = System.Drawing.SystemColors.Control;
+            this.topSellingProductsGrid.ThemeStyle.GridColor = System.Drawing.Color.White;
+            this.topSellingProductsGrid.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(158)))), ((int)(((byte)(135)))));
+            this.topSellingProductsGrid.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.topSellingProductsGrid.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.topSellingProductsGrid.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.topSellingProductsGrid.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.topSellingProductsGrid.ThemeStyle.HeaderStyle.Height = 26;
+            this.topSellingProductsGrid.ThemeStyle.ReadOnly = true;
+            this.topSellingProductsGrid.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.topSellingProductsGrid.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.topSellingProductsGrid.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.topSellingProductsGrid.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.topSellingProductsGrid.ThemeStyle.RowsStyle.Height = 22;
+            this.topSellingProductsGrid.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.SystemColors.ControlLight;
+            this.topSellingProductsGrid.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            // 
+            // Column7
+            // 
+            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column7.HeaderText = "#";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column7.Width = 43;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column2.HeaderText = "Item";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column1.HeaderText = "Category";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column1.Width = 97;
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column3.HeaderText = "Total Qty";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column3.Width = 95;
             // 
             // DashBoardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1631, 1061);
-            this.Controls.Add(this.endDate);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.topSellingProductsGrid);
             this.Controls.Add(this.startDate);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.filterBySold);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.ChartSales);
             this.Controls.Add(this.CategoryChart);
-            this.Controls.Add(this.gunaElipsePanel6);
             this.Controls.Add(this.gunaElipsePanel5);
             this.Controls.Add(this.gunaElipsePanel4);
-            this.Controls.Add(this.gunaElipsePanel3);
-            this.Controls.Add(this.gunaElipsePanel2);
             this.Controls.Add(this.gunaElipsePanel1);
             this.Controls.Add(this.gunaPanel1);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -424,6 +483,7 @@
             this.gunaElipsePanel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CategoryChart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ChartSales)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.topSellingProductsGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -434,11 +494,8 @@
         private Guna.UI.WinForms.GunaPanel gunaPanel1;
         private Guna.UI.WinForms.GunaLabel gunaLabel4;
         private Guna.UI.WinForms.GunaElipsePanel gunaElipsePanel1;
-        private Guna.UI.WinForms.GunaElipsePanel gunaElipsePanel2;
-        private Guna.UI.WinForms.GunaElipsePanel gunaElipsePanel3;
         private Guna.UI.WinForms.GunaElipsePanel gunaElipsePanel4;
         private Guna.UI.WinForms.GunaElipsePanel gunaElipsePanel5;
-        private Guna.UI.WinForms.GunaElipsePanel gunaElipsePanel6;
         private System.Windows.Forms.DataVisualization.Charting.Chart CategoryChart;
         public System.Windows.Forms.Label lblTodaySales;
         public System.Windows.Forms.Label label5;
@@ -449,9 +506,12 @@
         public System.Windows.Forms.Label label2;
         private Guna.UI.WinForms.GunaComboBox filterBySold;
         public System.Windows.Forms.Label label3;
-        public System.Windows.Forms.DateTimePicker endDate;
-        public System.Windows.Forms.Label label4;
         public System.Windows.Forms.DateTimePicker startDate;
         public System.Windows.Forms.Label label6;
+        public Guna.UI.WinForms.GunaDataGridView topSellingProductsGrid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
     }
 }

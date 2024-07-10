@@ -10,6 +10,7 @@ using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
@@ -62,12 +63,44 @@ namespace CafeSystem.Admin
 
                 SystemReports.DataSetsForReports ds = new SystemReports.DataSetsForReports();
                 SqlDataAdapter da = new SqlDataAdapter();
-
                 conn.Open();
-                
+
+                DateTime start1 = new DateTime(srp.startDate.Value.Year, srp.startDate.Value.Month, srp.startDate.Value.Day, 00, 00, 00); ;
+                DateTime end1 = new DateTime(srp.endDate.Value.Year, srp.endDate.Value.Month, srp.endDate.Value.Day, 23, 59, 59);
+
+                DateTime currentDate = DateTime.Now.Date;
+
+                DateTime start2 = currentDate.AddDays(-6);
+
+                DateTime end2 = currentDate.AddHours(23).AddMinutes(59).AddSeconds(59);
+
+                DateTime start3 = new DateTime(srp.startDate.Value.Year, srp.startDate.Value.Month, 1);
+                DateTime end3 = new DateTime(srp.endDate.Value.Year, srp.endDate.Value.Month, DateTime.DaysInMonth(srp.endDate.Value.Year, srp.endDate.Value.Month), 23, 59, 59);
+
+                DateTime start4 = new DateTime(srp.startDate.Value.Year, 1, 1, 00, 00, 00);
+                DateTime end4 = new DateTime(srp.endDate.Value.Year, 12, DateTime.DaysInMonth(srp.endDate.Value.Year, 12), 23, 59, 59);
+
                 SqlCommand cmd = new SqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@start", srp.startDate.Value);
-                cmd.Parameters.AddWithValue("@end", srp.endDate.Value);
+                if (srp.filterBySold.SelectedIndex == 0)
+                {
+                    cmd.Parameters.AddWithValue("@start", start1.ToString());
+                    cmd.Parameters.AddWithValue("@end", end1.ToString());
+                }
+                else if (srp.filterBySold.SelectedIndex == 1)
+                {
+                    cmd.Parameters.AddWithValue("@start", start2.ToString());
+                    cmd.Parameters.AddWithValue("@end", end2.ToString());
+                }
+                else if (srp.filterBySold.SelectedIndex == 2)
+                {
+                    cmd.Parameters.AddWithValue("@start", start3.ToString());
+                    cmd.Parameters.AddWithValue("@end", end3.ToString());
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@start", start4.ToString());
+                    cmd.Parameters.AddWithValue("@end", end4.ToString());
+                }
                 da.SelectCommand = cmd;
                 da.Fill(ds.Tables["dtSalesReport"]);
                 dr = cmd.ExecuteReader();

@@ -618,5 +618,10 @@ namespace CafeSystem.Admin
         {
             
         }
+
+        private void dataGridTransact_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string column = dataGridTransact.Columns[e.ColumnIndex].Name;
+        }
     }
 }

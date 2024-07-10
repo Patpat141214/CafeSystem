@@ -343,20 +343,23 @@ namespace CafeSystem.Admin
 
         private void btnGenerateReport_Click(object sender, EventArgs e)
         {
+            DateTime start1 = new DateTime(startDate.Value.Year, startDate.Value.Month, startDate.Value.Day, 00, 00, 00); ;
+            DateTime end1 = new DateTime(endDate.Value.Year, endDate.Value.Month, endDate.Value.Day, 23, 59, 59);
+
             DateTime currentDate = DateTime.Now.Date;
 
-            DateTime start = currentDate.AddDays(-6);
+            DateTime start2 = currentDate.AddDays(-6);
 
-            DateTime end = currentDate.AddHours(23).AddMinutes(59).AddSeconds(59);
+            DateTime end2 = currentDate.AddHours(23).AddMinutes(59).AddSeconds(59);
             ReportsRDLC rdlc = new ReportsRDLC(this, land) ;
 
             if (filterBySold.SelectedIndex == 0)
             {
-                rdlc.loadSalesReport("select c.transacno, c.ItemName, c.price, c.qty, c.sdate, c.customerName, c.OrderType, c.status, c.total * (1 - COALESCE(d.discountPercent, 0) / 100) as discounted_total FROM tblCart as c LEFT JOIN tblDiscountCart as d ON c.transacno = d.transacno where c.status = 'Sold' and sdate between @start and @end order by transacno desc", "From: " + startDate.Value.ToString("yyyy/MM/dd ") + "|" + " To: " + endDate.Value.ToString("yyyy/MM/dd"), "CUSTOM DATE");
+                rdlc.loadSalesReport("select c.transacno, c.ItemName, c.price, c.qty, c.sdate, c.customerName, c.OrderType, c.status, c.total * (1 - COALESCE(d.discountPercent, 0) / 100) as discounted_total FROM tblCart as c LEFT JOIN tblDiscountCart as d ON c.transacno = d.transacno where c.status = 'Sold' and sdate between @start and @end order by transacno desc", "From: " + start1.ToString("yyyy/MM/dd ") + "|" + " To: " + end1.ToString("yyyy/MM/dd"), "CUSTOM DATE");
             }
             else if (filterBySold.SelectedIndex == 1)
             {
-                rdlc.loadSalesReport("select c.transacno, c.ItemName, c.price, c.qty, c.sdate, c.customerName, c.OrderType, c.status, c.total * (1 - COALESCE(d.discountPercent, 0) / 100) as discounted_total FROM tblCart as c LEFT JOIN tblDiscountCart as d ON c.transacno = d.transacno where c.status = 'Sold' and sdate between @start and @end order by transacno desc", "From: " + start.ToString("yyyy/MM/dd ") + "|" + " To: " + end.ToString("yyyy/MM/dd"), "WEEKLY SALES");
+                rdlc.loadSalesReport("select c.transacno, c.ItemName, c.price, c.qty, c.sdate, c.customerName, c.OrderType, c.status, c.total * (1 - COALESCE(d.discountPercent, 0) / 100) as discounted_total FROM tblCart as c LEFT JOIN tblDiscountCart as d ON c.transacno = d.transacno where c.status = 'Sold' and sdate between @start and @end order by transacno desc", "From: " + start2.ToString("yyyy/MM/dd ") + "|" + " To: " + end2.ToString("yyyy/MM/dd"), "WEEKLY SALES");
             }
             else if (filterBySold.SelectedIndex == 2)
             {
