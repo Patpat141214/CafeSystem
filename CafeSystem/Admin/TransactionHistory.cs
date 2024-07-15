@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
 namespace CafeSystem.Admin
 {
@@ -18,8 +20,9 @@ namespace CafeSystem.Admin
         SqlCommand cm = new SqlCommand();
         DBConnection dbcon = new DBConnection();
         SqlDataReader dr;
+        LandingPage land;
         private readonly string search = "search transaction#";
-        public TransactionHistory()
+        public TransactionHistory(LandingPage land1)
         {
             InitializeComponent();
             conn = new SqlConnection(dbcon.myConnection());
@@ -28,6 +31,7 @@ namespace CafeSystem.Admin
             filterByCashier.Text = "All Cashier";
             startDate.MaxDate = DateTime.Now;
             endDate.MaxDate = DateTime.Now;
+            land = land1;
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -434,8 +438,10 @@ namespace CafeSystem.Admin
             {
                 return;
             }
+
             try
             {
+              
                 string trans = dataGridTransact.Rows[e.RowIndex].Cells[1].Value.ToString();
                 decimal totalSold = 0;
                 decimal totalDiscount = 0;
@@ -616,12 +622,114 @@ namespace CafeSystem.Admin
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            
+            filterBySold.SelectedIndex = 0;
+            loadCashier();
         }
 
         private void dataGridTransact_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             string column = dataGridTransact.Columns[e.ColumnIndex].Name;
+            string transacno = dataGridTransact.Rows[e.RowIndex].Cells[1].Value.ToString();
+            try
+            {
+                if (column == "Delete")
+                {
+                    if (MessageBox.Show("Do you want to delete this transaction?", "Delete Transaction?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        conn.Open();
+                        cm = new SqlCommand("Insert into tblActivityLogs (username, name, action, add_data, update_data, delete_data, role, sdate)values(@username, @name, @action, @add_data, @update_data, @delete_data, @role, @sdate)", conn);
+                        cm.Parameters.AddWithValue("@username", land.txtUser.Text);
+                        cm.Parameters.AddWithValue("@name", land.txtName.Text);
+                        cm.Parameters.AddWithValue("@action", "Deleted Transactions");
+                        cm.Parameters.AddWithValue("@add_data", DBNull.Value);
+                        cm.Parameters.AddWithValue("@update_data", DBNull.Value);
+                        cm.Parameters.AddWithValue("@delete_data", "Transaction No: " + transacno);
+                        cm.Parameters.AddWithValue("@role", land.txtLevel.Text);
+                        cm.Parameters.AddWithValue("@sdate", DateTime.Now);
+                        cm.ExecuteNonQuery();
+
+                        
+                        cm = new SqlCommand("delete from tblCart where transacno = @trans", conn);
+                        cm.Parameters.AddWithValue("@trans", transacno);
+                        cm.ExecuteNonQuery();
+
+                        cm = new SqlCommand("delete from tblDiscountCart where transacno = @trans", conn);
+                        cm.Parameters.AddWithValue("@trans", transacno);
+                        cm.ExecuteNonQuery();
+
+                        MessageBox.Show("Transaction Deleted!", "Successfully Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        conn.Close();
+                        loadCashier();                      
+                        loadTransactGroup();
+                       
+                        filterBySold.SelectedIndex = 0;
+                    }
+                }
+
+            }catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                conn.Close();
+            }
+        }
+
+        private void btnDeleteTransactions_Click(object sender, EventArgs e)
+        {
+            try
+
+            {
+                List<string> transactions = new List<string>();
+                if (MessageBox.Show("Do you want to delete all transaction?", "Delete all transactions?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+
+
+                {
+                    conn.Open();
+                    cm = new SqlCommand("select distinct transacno from tblCart where status = 'Sold'", conn);
+                    dr = cm.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        transactions.Add(dr["transacno"].ToString());
+                    }
+                    dr.Close();
+
+                    cm = new SqlCommand("Insert into tblActivityLogs (username, name, action, add_data, update_data, delete_data, role, sdate)values(@username, @name, @action, @add_data, @update_data, @delete_data, @role, @sdate)", conn);
+                    cm.Parameters.AddWithValue("@username", land.txtUser.Text);
+                    cm.Parameters.AddWithValue("@name", land.txtName.Text);
+                    cm.Parameters.AddWithValue("@action", "Deleted Transactions");
+                    cm.Parameters.AddWithValue("@add_data", DBNull.Value);
+                    cm.Parameters.AddWithValue("@update_data", DBNull.Value);
+                    cm.Parameters.AddWithValue("@delete_data", "Transaction No: " + string.Join(", ", transactions));
+                    cm.Parameters.AddWithValue("@role", land.txtLevel.Text);
+                    cm.Parameters.AddWithValue("@sdate", DateTime.Now);
+                    cm.ExecuteNonQuery();
+
+                    
+
+                    cm = new SqlCommand("delete from tblCart", conn);
+                    cm.ExecuteNonQuery();
+
+                  
+                    cm = new SqlCommand("delete from tblDiscountCart", conn);
+                    cm.ExecuteNonQuery();
+
+                    
+                    MessageBox.Show("Transactions Deleted!", "Successfully Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    conn.Close();
+                    loadCashier();
+                    loadTransactGroup();
+
+                    filterBySold.SelectedIndex = 0;
+
+                }
+            }
+       
+            
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                conn.Close();
+            }
+           
         }
     }
 }

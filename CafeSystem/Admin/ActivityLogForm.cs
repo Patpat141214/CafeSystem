@@ -34,7 +34,7 @@ namespace CafeSystem.Admin
             dataGridLogs.Rows.Clear();
             int i = 0;
             conn.Open();
-            cm = new SqlCommand("Select * from tblActivityLogs", conn);
+            cm = new SqlCommand("Select * from tblActivityLogs order by sdate desc", conn);
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
@@ -45,6 +45,7 @@ namespace CafeSystem.Admin
                 dataGridLogs.Columns["Column6"].Visible = true;
                 dataGridLogs.Columns["Column8"].Visible = true;
                 dataGridLogs.Columns["Column9"].Visible = true;
+                dataGridLogs.Columns["Column9"].HeaderText = "Archived/Activated/Deleted Data";
             }
             conn.Close();
             dr.Close();
@@ -56,7 +57,7 @@ namespace CafeSystem.Admin
             dataGridLogs.Rows.Clear();
             int i = 0;
             conn.Open();
-            cm = new SqlCommand("Select * from tblActivityLogs where action IN ('Added Category', 'Updated Category', 'Activated Category', 'Archived Category')", conn);
+            cm = new SqlCommand("Select * from tblActivityLogs where action IN ('Added Category', 'Updated Category', 'Activated Category', 'Archived Category') order by sdate desc", conn);
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
@@ -67,6 +68,7 @@ namespace CafeSystem.Admin
                 dataGridLogs.Columns["Column6"].Visible = true;
                 dataGridLogs.Columns["Column8"].Visible = true;
                 dataGridLogs.Columns["Column9"].Visible = true;
+                dataGridLogs.Columns["Column9"].HeaderText = "Archived/Activated Data";
             }
             conn.Close();
             dr.Close();
@@ -77,7 +79,7 @@ namespace CafeSystem.Admin
             dataGridLogs.Rows.Clear();
             int i = 0;
             conn.Open();
-            cm = new SqlCommand("Select * from tblActivityLogs where action = 'Added Category'", conn);
+            cm = new SqlCommand("Select * from tblActivityLogs where action = 'Added Category' order by sdate desc", conn);
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
@@ -88,6 +90,7 @@ namespace CafeSystem.Admin
                 dataGridLogs.Columns["Column6"].Visible = true;
                 dataGridLogs.Columns["Column8"].Visible = false;
                 dataGridLogs.Columns["Column9"].Visible = false;
+                dataGridLogs.Columns["Column9"].HeaderText = "Archived/Activated Data";
                 dataGridLogs.Columns["Column4"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridLogs.Columns["Column10"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridLogs.Columns["Column5"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -101,7 +104,7 @@ namespace CafeSystem.Admin
             dataGridLogs.Rows.Clear();
             int i = 0;
             conn.Open();
-            cm = new SqlCommand("Select * from tblActivityLogs where action = 'Updated Category'", conn);
+            cm = new SqlCommand("Select * from tblActivityLogs where action = 'Updated Category' order by sdate desc", conn);
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
@@ -112,6 +115,7 @@ namespace CafeSystem.Admin
                 dataGridLogs.Columns["Column6"].Visible = false;
                 dataGridLogs.Columns["Column8"].Visible = true;
                 dataGridLogs.Columns["Column9"].Visible = false;
+                dataGridLogs.Columns["Column9"].HeaderText = "Archived/Activated Data";
                 dataGridLogs.Columns["Column4"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridLogs.Columns["Column10"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridLogs.Columns["Column5"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -125,7 +129,7 @@ namespace CafeSystem.Admin
             dataGridLogs.Rows.Clear();
             int i = 0;
             conn.Open();
-            cm = new SqlCommand("Select * from tblActivityLogs where action IN ('Archived Category', 'Activated Category')", conn);
+            cm = new SqlCommand("Select * from tblActivityLogs where action IN ('Archived Category', 'Activated Category') order by sdate desc", conn);
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
@@ -136,6 +140,7 @@ namespace CafeSystem.Admin
                 dataGridLogs.Columns["Column6"].Visible = false;
                 dataGridLogs.Columns["Column8"].Visible = false;
                 dataGridLogs.Columns["Column9"].Visible = true;
+                dataGridLogs.Columns["Column9"].HeaderText = "Archived/Activated Data";
                 dataGridLogs.Columns["Column4"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridLogs.Columns["Column10"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridLogs.Columns["Column5"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -149,7 +154,7 @@ namespace CafeSystem.Admin
             dataGridLogs.Rows.Clear();
             int i = 0;
             conn.Open();
-            cm = new SqlCommand("Select * from tblActivityLogs where action IN ('Added Product', 'Updated Product', 'Activated Product', 'Archived Product')", conn);
+            cm = new SqlCommand("Select * from tblActivityLogs where action IN ('Added Product', 'Updated Product', 'Activated Product', 'Archived Product') order by sdate desc", conn);
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
@@ -160,6 +165,7 @@ namespace CafeSystem.Admin
                 dataGridLogs.Columns["Column6"].Visible = true;
                 dataGridLogs.Columns["Column8"].Visible = true;
                 dataGridLogs.Columns["Column9"].Visible = true;
+                dataGridLogs.Columns["Column9"].HeaderText = "Archived/Activated Data";
             }
             conn.Close();
             dr.Close();
@@ -170,7 +176,7 @@ namespace CafeSystem.Admin
             dataGridLogs.Rows.Clear();
             int i = 0;
             conn.Open();
-            cm = new SqlCommand("Select * from tblActivityLogs where action = 'Added Product'", conn);
+            cm = new SqlCommand("Select * from tblActivityLogs where action = 'Added Product' order by sdate desc", conn);
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
@@ -181,6 +187,7 @@ namespace CafeSystem.Admin
                 dataGridLogs.Columns["Column6"].Visible = true;
                 dataGridLogs.Columns["Column8"].Visible = false;
                 dataGridLogs.Columns["Column9"].Visible = false;
+                dataGridLogs.Columns["Column9"].HeaderText = "Archived/Activated Data";
                 dataGridLogs.Columns["Column4"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridLogs.Columns["Column10"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridLogs.Columns["Column5"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -194,7 +201,7 @@ namespace CafeSystem.Admin
             dataGridLogs.Rows.Clear();
             int i = 0;
             conn.Open();
-            cm = new SqlCommand("Select * from tblActivityLogs where action = 'Updated Product'", conn);
+            cm = new SqlCommand("Select * from tblActivityLogs where action = 'Updated Product' order by sdate desc", conn);
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
@@ -205,6 +212,7 @@ namespace CafeSystem.Admin
                 dataGridLogs.Columns["Column6"].Visible = false;
                 dataGridLogs.Columns["Column8"].Visible = true;
                 dataGridLogs.Columns["Column9"].Visible = false;
+                dataGridLogs.Columns["Column9"].HeaderText = "Archived/Activated Data";
                 dataGridLogs.Columns["Column4"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridLogs.Columns["Column10"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridLogs.Columns["Column5"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -218,7 +226,7 @@ namespace CafeSystem.Admin
             dataGridLogs.Rows.Clear();
             int i = 0;
             conn.Open();
-            cm = new SqlCommand("Select * from tblActivityLogs where action IN ('Archived Product', 'Activated Product')", conn);
+            cm = new SqlCommand("Select * from tblActivityLogs where action IN ('Archived Product', 'Activated Product') order by sdate desc", conn);
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
@@ -229,6 +237,7 @@ namespace CafeSystem.Admin
                 dataGridLogs.Columns["Column6"].Visible = false;
                 dataGridLogs.Columns["Column8"].Visible = false;
                 dataGridLogs.Columns["Column9"].Visible = true;
+                dataGridLogs.Columns["Column9"].HeaderText = "Archived/Activated Data";
                 dataGridLogs.Columns["Column4"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridLogs.Columns["Column10"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridLogs.Columns["Column5"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -241,7 +250,7 @@ namespace CafeSystem.Admin
             dataGridLogs.Rows.Clear();
             int i = 0;
             conn.Open();
-            cm = new SqlCommand("Select * from tblActivityLogs where action IN ('Updated Discount', 'Activated Discount', 'Deactivated Discount')", conn);
+            cm = new SqlCommand("Select * from tblActivityLogs where action IN ('Updated Discount', 'Activated Discount', 'Deactivated Discount') order by sdate desc", conn);
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
@@ -252,6 +261,7 @@ namespace CafeSystem.Admin
                 dataGridLogs.Columns["Column6"].Visible = false;
                 dataGridLogs.Columns["Column8"].Visible = true;
                 dataGridLogs.Columns["Column9"].Visible = true;
+                dataGridLogs.Columns["Column9"].HeaderText = "Archived/Activated Data";
                 dataGridLogs.Columns["Column4"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridLogs.Columns["Column10"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridLogs.Columns["Column5"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -265,7 +275,7 @@ namespace CafeSystem.Admin
             dataGridLogs.Rows.Clear();
             int i = 0;
             conn.Open();
-            cm = new SqlCommand("Select * from tblActivityLogs where action = 'Updated Discount'", conn);
+            cm = new SqlCommand("Select * from tblActivityLogs where action = 'Updated Discount' order by sdate desc", conn);
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
@@ -276,6 +286,7 @@ namespace CafeSystem.Admin
                 dataGridLogs.Columns["Column6"].Visible = false;
                 dataGridLogs.Columns["Column8"].Visible = true;
                 dataGridLogs.Columns["Column9"].Visible = false;
+                dataGridLogs.Columns["Column9"].HeaderText = "Archived/Activated Data";
                 dataGridLogs.Columns["Column4"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridLogs.Columns["Column10"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridLogs.Columns["Column5"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -289,7 +300,7 @@ namespace CafeSystem.Admin
             dataGridLogs.Rows.Clear();
             int i = 0;
             conn.Open();
-            cm = new SqlCommand("Select * from tblActivityLogs where action IN ('Activated Discount', 'Deactivated Discount')", conn);
+            cm = new SqlCommand("Select * from tblActivityLogs where action IN ('Activated Discount', 'Deactivated Discount') order by sdate desc", conn);
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
@@ -300,6 +311,7 @@ namespace CafeSystem.Admin
                 dataGridLogs.Columns["Column6"].Visible = false;
                 dataGridLogs.Columns["Column8"].Visible = false;
                 dataGridLogs.Columns["Column9"].Visible = true;
+                dataGridLogs.Columns["Column9"].HeaderText = "Archived/Activated Data";
                 dataGridLogs.Columns["Column4"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridLogs.Columns["Column10"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridLogs.Columns["Column5"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -313,7 +325,7 @@ namespace CafeSystem.Admin
             dataGridLogs.Rows.Clear();
             int i = 0;
             conn.Open();
-            cm = new SqlCommand("Select * from tblActivityLogs where action IN ('Added Account', 'Updated Account', 'Activated Account', 'Deactivated Account')", conn);
+            cm = new SqlCommand("Select * from tblActivityLogs where action IN ('Added Account', 'Updated Account', 'Activated Account', 'Deactivated Account') order by sdate desc", conn);
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
@@ -334,7 +346,7 @@ namespace CafeSystem.Admin
             dataGridLogs.Rows.Clear();
             int i = 0;
             conn.Open();
-            cm = new SqlCommand("Select * from tblActivityLogs where action = 'Added Account'", conn);
+            cm = new SqlCommand("Select * from tblActivityLogs where action = 'Added Account' order by sdate desc", conn);
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
@@ -345,6 +357,7 @@ namespace CafeSystem.Admin
                 dataGridLogs.Columns["Column6"].Visible = true;
                 dataGridLogs.Columns["Column8"].Visible = false;
                 dataGridLogs.Columns["Column9"].Visible = false;
+                dataGridLogs.Columns["Column9"].HeaderText = "Archived/Activated Data";
                 dataGridLogs.Columns["Column4"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridLogs.Columns["Column10"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridLogs.Columns["Column5"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -358,7 +371,7 @@ namespace CafeSystem.Admin
             dataGridLogs.Rows.Clear();
             int i = 0;
             conn.Open();
-            cm = new SqlCommand("Select * from tblActivityLogs where action = 'Updated Account'", conn);
+            cm = new SqlCommand("Select * from tblActivityLogs where action = 'Updated Account' order by sdate desc", conn);
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
@@ -369,6 +382,7 @@ namespace CafeSystem.Admin
                 dataGridLogs.Columns["Column6"].Visible = false;
                 dataGridLogs.Columns["Column8"].Visible = true;
                 dataGridLogs.Columns["Column9"].Visible = false;
+                dataGridLogs.Columns["Column9"].HeaderText = "Archived/Activated Data";
                 dataGridLogs.Columns["Column4"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridLogs.Columns["Column10"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridLogs.Columns["Column5"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -382,7 +396,7 @@ namespace CafeSystem.Admin
             dataGridLogs.Rows.Clear();
             int i = 0;
             conn.Open();
-            cm = new SqlCommand("Select * from tblActivityLogs where action IN ('Activated Account', 'Deactivated Account')", conn);
+            cm = new SqlCommand("Select * from tblActivityLogs where action IN ('Activated Account', 'Deactivated Account') order by sdate desc", conn);
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
@@ -393,6 +407,7 @@ namespace CafeSystem.Admin
                 dataGridLogs.Columns["Column6"].Visible = false;
                 dataGridLogs.Columns["Column8"].Visible = false;
                 dataGridLogs.Columns["Column9"].Visible = true;
+                dataGridLogs.Columns["Column9"].HeaderText = "Archived/Activated Data";
                 dataGridLogs.Columns["Column4"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridLogs.Columns["Column10"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridLogs.Columns["Column5"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -406,7 +421,7 @@ namespace CafeSystem.Admin
             dataGridLogs.Rows.Clear();
             int i = 0;
             conn.Open();
-            cm = new SqlCommand("Select * from tblActivityLogs where action IN ('Log In', 'Log Out')", conn);
+            cm = new SqlCommand("Select * from tblActivityLogs where action IN ('Log In', 'Log Out') order by sdate desc", conn);
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
@@ -417,6 +432,7 @@ namespace CafeSystem.Admin
                 dataGridLogs.Columns["Column6"].Visible = false;
                 dataGridLogs.Columns["Column8"].Visible = false;
                 dataGridLogs.Columns["Column9"].Visible = false;
+                dataGridLogs.Columns["Column9"].HeaderText = "Archived/Activated Data";
                 dataGridLogs.Columns["Column4"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridLogs.Columns["Column10"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridLogs.Columns["Column5"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -430,7 +446,7 @@ namespace CafeSystem.Admin
             dataGridLogs.Rows.Clear();           
             int i = 0;
             conn.Open();
-            cm = new SqlCommand("Select * from tblActivityLogs where action = 'Log In'", conn);
+            cm = new SqlCommand("Select * from tblActivityLogs where action = 'Log In' order by sdate desc", conn);
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
@@ -441,6 +457,7 @@ namespace CafeSystem.Admin
                 dataGridLogs.Columns["Column6"].Visible = false;
                 dataGridLogs.Columns["Column8"].Visible = false;
                 dataGridLogs.Columns["Column9"].Visible = false;
+                dataGridLogs.Columns["Column9"].HeaderText = "Archived/Activated Data";
                 dataGridLogs.Columns["Column4"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridLogs.Columns["Column10"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridLogs.Columns["Column5"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -453,7 +470,7 @@ namespace CafeSystem.Admin
             dataGridLogs.Rows.Clear();
             int i = 0;
             conn.Open();
-            cm = new SqlCommand("Select * from tblActivityLogs where action = 'Log Out'", conn);
+            cm = new SqlCommand("Select * from tblActivityLogs where action = 'Log Out' order by sdate desc", conn);
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
@@ -464,6 +481,32 @@ namespace CafeSystem.Admin
                 dataGridLogs.Columns["Column6"].Visible = false;
                 dataGridLogs.Columns["Column8"].Visible = false;
                 dataGridLogs.Columns["Column9"].Visible = false;
+                dataGridLogs.Columns["Column9"].HeaderText = "Archived/Activated Data";
+                dataGridLogs.Columns["Column4"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridLogs.Columns["Column10"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridLogs.Columns["Column5"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
+            conn.Close();
+            dr.Close();
+        }
+
+        public void LoadAllDeletedTransaction()
+        {
+            dataGridLogs.Rows.Clear();
+            int i = 0;
+            conn.Open();
+            cm = new SqlCommand("Select * from tblActivityLogs where action = 'Deleted Transactions' order by sdate desc", conn);
+            dr = cm.ExecuteReader();
+            while (dr.Read())
+            {
+                i++;
+                dataGridLogs.Rows.Add(i, dr["id"].ToString(), dr["username"].ToString(), dr["name"].ToString(), dr["role"].ToString(), dr["action"].ToString(), dr["add_data"].ToString(), dr["update_data"].ToString(), dr["delete_data"].ToString(), dr["sdate"].ToString());
+                dataGridLogs.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+                dataGridLogs.Rows[dataGridLogs.Rows.Count - 1].Cells[5].Style.ForeColor = Color.FromArgb(238, 105, 105);
+                dataGridLogs.Columns["Column6"].Visible = false;
+                dataGridLogs.Columns["Column8"].Visible = false;
+                dataGridLogs.Columns["Column9"].Visible = true;
+                dataGridLogs.Columns["Column9"].HeaderText = "Deleted Transaction(s)";
                 dataGridLogs.Columns["Column4"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridLogs.Columns["Column10"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridLogs.Columns["Column5"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -523,6 +566,12 @@ namespace CafeSystem.Admin
                 comboAction.Items.Add("All Records");
                 comboAction.Items.Add("Log In");
                 comboAction.Items.Add("Log Out");
+            }
+            if (comboFilterLogs.SelectedIndex == 6)
+            {
+                comboAction.Items.Clear();
+                comboAction.Enabled = false;
+                LoadAllDeletedTransaction();
             }
 
         }

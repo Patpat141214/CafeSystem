@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using static System.Windows.Forms.AxHost;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 using System.Xml.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace CafeSystem.Admin
 {
@@ -72,6 +73,9 @@ namespace CafeSystem.Admin
         {
             try
             {
+                string _username = txtUser.Text.Trim();
+                int _userId = int.Parse(id);
+
                 if(string.IsNullOrWhiteSpace(txtName.Text) || string.IsNullOrWhiteSpace(txtPass.Text))
                 {
                     MessageBox.Show("Required Empty Field", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -86,8 +90,15 @@ namespace CafeSystem.Admin
                 }
 
                 conn.Open();
-                cm = new SqlCommand("select count (*) from tbluser where username = @usn", conn);
-                cm.Parameters.AddWithValue("@usn", txtUser.Text.Trim());
+                
+                if(_userId > 0)
+                {
+                    // Check if username exists for a different user
+                    cm = new SqlCommand("SELECT COUNT(*) FROM tbluser WHERE username = @usn AND id != @uid", conn);
+                    cm.Parameters.AddWithValue("@usn", _username);
+                    cm.Parameters.AddWithValue("@uid", _userId);
+                }
+               
                 int count1 = (int)cm.ExecuteScalar();
                 if (count1 > 0)
                 {

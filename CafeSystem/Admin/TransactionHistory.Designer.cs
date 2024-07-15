@@ -43,6 +43,9 @@
             this.filterBySold = new Guna.UI.WinForms.GunaComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dataGridTransact = new Guna.UI.WinForms.GunaDataGridView();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.endDate = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.startDate = new System.Windows.Forms.DateTimePicker();
@@ -64,9 +67,7 @@
             this.lblDiscountAmount = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lblTotalSold = new System.Windows.Forms.Label();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.btnDeleteTransactions = new Guna.UI.WinForms.GunaAdvenceButton();
             this.gunaPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTransact)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSold)).BeginInit();
@@ -145,7 +146,7 @@
             "WEEKLY SALES",
             "MONTHLY SALES",
             "ANNUAL SALES"});
-            this.filterBySold.Location = new System.Drawing.Point(1123, 88);
+            this.filterBySold.Location = new System.Drawing.Point(1072, 88);
             this.filterBySold.Name = "filterBySold";
             this.filterBySold.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.filterBySold.OnHoverItemForeColor = System.Drawing.Color.White;
@@ -159,7 +160,7 @@
             this.label5.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label5.Location = new System.Drawing.Point(1017, 93);
+            this.label5.Location = new System.Drawing.Point(966, 93);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(110, 22);
@@ -218,7 +219,7 @@
             this.dataGridTransact.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridTransact.RowHeadersVisible = false;
             this.dataGridTransact.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridTransact.Size = new System.Drawing.Size(380, 812);
+            this.dataGridTransact.Size = new System.Drawing.Size(380, 756);
             this.dataGridTransact.TabIndex = 49;
             this.dataGridTransact.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.Guna;
             this.dataGridTransact.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -244,6 +245,32 @@
             this.dataGridTransact.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dataGridTransact.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridTransact_CellContentClick);
             this.dataGridTransact.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridTransact_CellDoubleClick);
+            // 
+            // Column7
+            // 
+            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column7.HeaderText = "#";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column7.Width = 43;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Transaction#";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Delete
+            // 
+            this.Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Delete.HeaderText = "";
+            this.Delete.Image = ((System.Drawing.Image)(resources.GetObject("Delete.Image")));
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Delete.Width = 5;
             // 
             // endDate
             // 
@@ -477,11 +504,11 @@
             "WEEKLY SALES",
             "MONTHLY SALES",
             "ANNUAL SALES"});
-            this.filterByCashier.Location = new System.Drawing.Point(1388, 88);
+            this.filterByCashier.Location = new System.Drawing.Point(1342, 88);
             this.filterByCashier.Name = "filterByCashier";
             this.filterByCashier.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.filterByCashier.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.filterByCashier.Size = new System.Drawing.Size(193, 31);
+            this.filterByCashier.Size = new System.Drawing.Size(239, 31);
             this.filterByCashier.TabIndex = 54;
             this.filterByCashier.SelectedIndexChanged += new System.EventHandler(this.filterByCashier_SelectedIndexChanged);
             // 
@@ -491,7 +518,7 @@
             this.label1.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(1332, 91);
+            this.label1.Location = new System.Drawing.Point(1285, 91);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 22);
@@ -566,31 +593,39 @@
             this.lblTotalSold.Text = "₱0.00";
             this.lblTotalSold.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // Column7
+            // btnDeleteTransactions
             // 
-            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column7.HeaderText = "#";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column7.Width = 43;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Transaction#";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // Delete
-            // 
-            this.Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Delete.HeaderText = "";
-            this.Delete.Image = ((System.Drawing.Image)(resources.GetObject("Delete.Image")));
-            this.Delete.Name = "Delete";
-            this.Delete.ReadOnly = true;
-            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Delete.Width = 5;
+            this.btnDeleteTransactions.AnimationHoverSpeed = 0.07F;
+            this.btnDeleteTransactions.AnimationSpeed = 0.03F;
+            this.btnDeleteTransactions.BackColor = System.Drawing.Color.Transparent;
+            this.btnDeleteTransactions.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
+            this.btnDeleteTransactions.BorderColor = System.Drawing.Color.Black;
+            this.btnDeleteTransactions.CheckedBaseColor = System.Drawing.Color.Gray;
+            this.btnDeleteTransactions.CheckedBorderColor = System.Drawing.Color.Black;
+            this.btnDeleteTransactions.CheckedForeColor = System.Drawing.Color.White;
+            this.btnDeleteTransactions.CheckedImage = null;
+            this.btnDeleteTransactions.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.btnDeleteTransactions.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDeleteTransactions.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnDeleteTransactions.FocusedColor = System.Drawing.Color.Empty;
+            this.btnDeleteTransactions.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteTransactions.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteTransactions.Image = null;
+            this.btnDeleteTransactions.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnDeleteTransactions.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(158)))), ((int)(((byte)(135)))));
+            this.btnDeleteTransactions.Location = new System.Drawing.Point(6, 892);
+            this.btnDeleteTransactions.Name = "btnDeleteTransactions";
+            this.btnDeleteTransactions.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(183)))), ((int)(((byte)(165)))));
+            this.btnDeleteTransactions.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.btnDeleteTransactions.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnDeleteTransactions.OnHoverImage = null;
+            this.btnDeleteTransactions.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(158)))), ((int)(((byte)(135)))));
+            this.btnDeleteTransactions.OnPressedColor = System.Drawing.Color.Black;
+            this.btnDeleteTransactions.Size = new System.Drawing.Size(380, 50);
+            this.btnDeleteTransactions.TabIndex = 60;
+            this.btnDeleteTransactions.Text = "Delete All Transactions";
+            this.btnDeleteTransactions.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnDeleteTransactions.Click += new System.EventHandler(this.btnDeleteTransactions_Click);
             // 
             // TransactionHistory
             // 
@@ -598,6 +633,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1631, 1061);
             this.ControlBox = false;
+            this.Controls.Add(this.btnDeleteTransactions);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblDiscountAmount);
             this.Controls.Add(this.label6);
@@ -663,5 +699,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewImageColumn Delete;
+        private Guna.UI.WinForms.GunaAdvenceButton btnDeleteTransactions;
     }
 }

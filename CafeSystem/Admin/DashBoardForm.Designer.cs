@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gunaPanel1 = new Guna.UI.WinForms.GunaPanel();
             this.gunaLabel4 = new Guna.UI.WinForms.GunaLabel();
             this.gunaElipsePanel1 = new Guna.UI.WinForms.GunaElipsePanel();
@@ -61,6 +61,7 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label4 = new System.Windows.Forms.Label();
             this.gunaPanel1.SuspendLayout();
             this.gunaElipsePanel1.SuspendLayout();
             this.gunaElipsePanel4.SuspendLayout();
@@ -159,12 +160,12 @@
             this.label1.Font = new System.Drawing.Font("Consolas", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(12, 23);
+            this.label1.Location = new System.Drawing.Point(3, 23);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(299, 32);
+            this.label1.Size = new System.Drawing.Size(314, 32);
             this.label1.TabIndex = 52;
-            this.label1.Text = "TODAY\'S TRANSACTION";
+            this.label1.Text = "TODAY\'S TRANSACTIONS";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // gunaElipsePanel5
@@ -208,17 +209,17 @@
             // CategoryChart
             // 
             this.CategoryChart.BackColor = System.Drawing.SystemColors.Control;
-            chartArea1.BackColor = System.Drawing.SystemColors.Control;
-            chartArea1.Name = "ChartArea1";
-            chartArea1.Position.Auto = false;
-            chartArea1.Position.Height = 80F;
-            chartArea1.Position.Width = 80.20454F;
-            chartArea1.Position.X = 3F;
-            chartArea1.Position.Y = 10F;
-            this.CategoryChart.ChartAreas.Add(chartArea1);
-            legend1.BackColor = System.Drawing.SystemColors.Control;
-            legend1.Name = "Legend1";
-            this.CategoryChart.Legends.Add(legend1);
+            chartArea3.BackColor = System.Drawing.SystemColors.Control;
+            chartArea3.Name = "ChartArea1";
+            chartArea3.Position.Auto = false;
+            chartArea3.Position.Height = 80F;
+            chartArea3.Position.Width = 80.20454F;
+            chartArea3.Position.X = 3F;
+            chartArea3.Position.Y = 10F;
+            this.CategoryChart.ChartAreas.Add(chartArea3);
+            legend3.BackColor = System.Drawing.SystemColors.Control;
+            legend3.Name = "Legend1";
+            this.CategoryChart.Legends.Add(legend3);
             this.CategoryChart.Location = new System.Drawing.Point(1055, 116);
             this.CategoryChart.Name = "CategoryChart";
             this.CategoryChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
@@ -228,51 +229,51 @@
         System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(209)))), ((int)(((byte)(248))))),
         System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(234)))), ((int)(((byte)(183))))),
         System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))))};
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series1.Color = System.Drawing.Color.White;
-            series1.LabelBackColor = System.Drawing.Color.White;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.CategoryChart.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series3.Color = System.Drawing.Color.White;
+            series3.LabelBackColor = System.Drawing.Color.White;
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.CategoryChart.Series.Add(series3);
             this.CategoryChart.Size = new System.Drawing.Size(529, 361);
             this.CategoryChart.TabIndex = 48;
             this.CategoryChart.Text = "chart1";
-            title1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title1.Name = "Title1";
-            title1.Position.Auto = false;
-            title1.Position.Height = 4.467012F;
-            title1.Position.Width = 78F;
-            title1.Position.X = 3F;
-            title1.Position.Y = 3F;
-            title1.Text = "TOP 5 SELLING CATEGORIES BY QUANTITY";
-            title1.TextStyle = System.Windows.Forms.DataVisualization.Charting.TextStyle.Shadow;
-            this.CategoryChart.Titles.Add(title1);
+            title2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title2.Name = "Title1";
+            title2.Position.Auto = false;
+            title2.Position.Height = 4.467012F;
+            title2.Position.Width = 78F;
+            title2.Position.X = 3F;
+            title2.Position.Y = 3F;
+            title2.Text = "TOP 5 SELLING CATEGORIES BY QUANTITY";
+            title2.TextStyle = System.Windows.Forms.DataVisualization.Charting.TextStyle.Shadow;
+            this.CategoryChart.Titles.Add(title2);
             // 
             // ChartSales
             // 
             this.ChartSales.BackColor = System.Drawing.SystemColors.Control;
             this.ChartSales.BorderlineColor = System.Drawing.Color.Black;
-            chartArea2.BackColor = System.Drawing.SystemColors.Control;
-            chartArea2.Name = "ChartArea2";
-            chartArea2.Position.Auto = false;
-            chartArea2.Position.Height = 80F;
-            chartArea2.Position.Width = 80.20454F;
-            chartArea2.Position.X = 3F;
-            chartArea2.Position.Y = 10F;
-            this.ChartSales.ChartAreas.Add(chartArea2);
-            legend2.BackColor = System.Drawing.SystemColors.Control;
-            legend2.Name = "Legend2";
-            this.ChartSales.Legends.Add(legend2);
+            chartArea4.BackColor = System.Drawing.SystemColors.Control;
+            chartArea4.Name = "ChartArea2";
+            chartArea4.Position.Auto = false;
+            chartArea4.Position.Height = 80F;
+            chartArea4.Position.Width = 80.20454F;
+            chartArea4.Position.X = 3F;
+            chartArea4.Position.Y = 10F;
+            this.ChartSales.ChartAreas.Add(chartArea4);
+            legend4.BackColor = System.Drawing.SystemColors.Control;
+            legend4.Name = "Legend2";
+            this.ChartSales.Legends.Add(legend4);
             this.ChartSales.Location = new System.Drawing.Point(23, 568);
             this.ChartSales.Name = "ChartSales";
             this.ChartSales.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
-            series2.ChartArea = "ChartArea2";
-            series2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
-            series2.LabelBackColor = System.Drawing.Color.White;
-            series2.Legend = "Legend2";
-            series2.Name = "Series2";
-            this.ChartSales.Series.Add(series2);
+            series4.ChartArea = "ChartArea2";
+            series4.Color = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
+            series4.LabelBackColor = System.Drawing.Color.White;
+            series4.Legend = "Legend2";
+            series4.Name = "Sales";
+            this.ChartSales.Series.Add(series4);
             this.ChartSales.Size = new System.Drawing.Size(1596, 481);
             this.ChartSales.TabIndex = 49;
             this.ChartSales.Text = "ChartSales";
@@ -346,21 +347,21 @@
             this.topSellingProductsGrid.AllowUserToDeleteRows = false;
             this.topSellingProductsGrid.AllowUserToResizeColumns = false;
             this.topSellingProductsGrid.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.topSellingProductsGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            this.topSellingProductsGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.topSellingProductsGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.topSellingProductsGrid.BackgroundColor = System.Drawing.SystemColors.Control;
             this.topSellingProductsGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.topSellingProductsGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.topSellingProductsGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(158)))), ((int)(((byte)(135)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(158)))), ((int)(((byte)(135)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.topSellingProductsGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(158)))), ((int)(((byte)(135)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(158)))), ((int)(((byte)(135)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.topSellingProductsGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.topSellingProductsGrid.ColumnHeadersHeight = 26;
             this.topSellingProductsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.topSellingProductsGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -368,31 +369,31 @@
             this.Column2,
             this.Column1,
             this.Column3});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.topSellingProductsGrid.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.topSellingProductsGrid.DefaultCellStyle = dataGridViewCellStyle7;
             this.topSellingProductsGrid.EnableHeadersVisualStyles = false;
             this.topSellingProductsGrid.GridColor = System.Drawing.Color.White;
-            this.topSellingProductsGrid.Location = new System.Drawing.Point(23, 302);
+            this.topSellingProductsGrid.Location = new System.Drawing.Point(23, 350);
             this.topSellingProductsGrid.MultiSelect = false;
             this.topSellingProductsGrid.Name = "topSellingProductsGrid";
             this.topSellingProductsGrid.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(68)))), ((int)(((byte)(75)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.topSellingProductsGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(68)))), ((int)(((byte)(75)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.topSellingProductsGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.topSellingProductsGrid.RowHeadersVisible = false;
             this.topSellingProductsGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.topSellingProductsGrid.Size = new System.Drawing.Size(999, 197);
+            this.topSellingProductsGrid.Size = new System.Drawing.Size(999, 149);
             this.topSellingProductsGrid.TabIndex = 58;
             this.topSellingProductsGrid.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.Guna;
             this.topSellingProductsGrid.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -452,11 +453,26 @@
             this.Column3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Column3.Width = 95;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Consolas", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label4.Location = new System.Drawing.Point(405, 315);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(344, 32);
+            this.label4.TabIndex = 59;
+            this.label4.Text = "TOP 5 SELLING PRODUCTS";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // DashBoardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1631, 1061);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.topSellingProductsGrid);
             this.Controls.Add(this.startDate);
             this.Controls.Add(this.label6);
@@ -513,5 +529,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        public System.Windows.Forms.Label label4;
     }
 }

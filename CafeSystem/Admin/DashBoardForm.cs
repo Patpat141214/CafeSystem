@@ -26,6 +26,7 @@ namespace CafeSystem.Admin
             conn = new SqlConnection(dbcon.myConnection());
             startDate.MaxDate = DateTime.Now;
             topSellingProductsGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            filterBySold.SelectedIndex = 0;
         }
 
         public void loadTop5SellingProductsByCategory()
@@ -112,10 +113,10 @@ ORDER BY totalqty DESC";
                     row["total_sales_with_discounts"] = 0;
                     dt.Rows.Add(row);
                 }
-                Debug.WriteLine(start.ToString());
-                Debug.WriteLine(end.ToString());
+
                 ChartSales.DataSource = ds.Tables["WeeklySales1"];
-                Series serie1 = ChartSales.Series["Series2"];
+                //ChartSales.Series.Add("Sales");
+                Series serie1 = ChartSales.Series["Sales"];
                 serie1.ChartType = SeriesChartType.Bar;
                 serie1.LabelBackColor = Color.Transparent;
 
@@ -185,7 +186,7 @@ ORDER BY totalqty DESC";
                     //Debug.WriteLine(start.ToString());
                     //Debug.WriteLine(end.ToString());
                     ChartSales.DataSource = ds.Tables["MonthlySales"];
-                    Series serie1 = ChartSales.Series["Series2"];
+                    Series serie1 = ChartSales.Series["Sales"];
                     serie1.ChartType = SeriesChartType.Bar;
                     serie1.LabelBackColor = Color.Transparent;
 
@@ -262,7 +263,7 @@ ORDER BY totalqty DESC";
                     Debug.WriteLine(start.ToString());
                     Debug.WriteLine(end.ToString());
                     ChartSales.DataSource = ds.Tables["YearlySales"];
-                    Series serie1 = ChartSales.Series["Series2"];
+                    Series serie1 = ChartSales.Series["Sales"];
                     serie1.ChartType = SeriesChartType.Bar;
                     serie1.LabelBackColor = Color.Transparent;
 
@@ -275,7 +276,7 @@ ORDER BY totalqty DESC";
                     chart.Series[0].IsValueShownAsLabel = true;
 
                     Title chartTitle = new Title();
-                    chartTitle.Text = "Yearly Sales";
+                    chartTitle.Text = "Annual Sales";
                     chartTitle.Font = new Font("Arial", 14, FontStyle.Bold);
                     chartTitle.ForeColor = Color.Black;
                     chart.Titles.Clear();

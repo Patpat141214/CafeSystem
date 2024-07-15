@@ -181,7 +181,7 @@ namespace CafeSystem
 
         private void btnSalesHistory_Click(object sender, EventArgs e)
         {
-            TransactionHistory tran = new TransactionHistory();
+            TransactionHistory tran = new TransactionHistory(this);
             tran.TopLevel = false;
             panel1.Controls.Add(tran);
             tran.BringToFront();
@@ -206,7 +206,7 @@ namespace CafeSystem
             conn.Close();
             ManageDiscount manage = new ManageDiscount(discountPercen, this);
             manage.txtPercentage.Text = discountPercen.ToString() + "%";
-            manage.txtCurrentStatus.Text = "Current Status: " + status; 
+            manage.txtCurrentStatus.Text = "Status: " + status; 
             manage.ShowDialog();
 
         }
@@ -218,6 +218,14 @@ namespace CafeSystem
             panel1.Controls.Add(log);
             log.BringToFront();
             log.LoadLogs();
+            if (txtLevel.Text != "Super Administrator")
+            {
+                log.btnDeleteNavigation.Visible = false;
+            }
+            else
+            {
+                log.btnDeleteNavigation.Visible = true;
+            }
             log.Show();
         }
 

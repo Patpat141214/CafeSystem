@@ -156,6 +156,9 @@ namespace CafeSystem.CashierLevel
                     cashier.getTrans();
                     MessageBox.Show("Payment success!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Dispose();
+                    cashier.txtCustomerName.Clear();
+                    cashier.txtCustomerName.Focus();
+
   
 
 
