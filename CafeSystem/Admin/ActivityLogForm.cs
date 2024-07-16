@@ -17,15 +17,16 @@ namespace CafeSystem.Admin
         SqlCommand cm = new SqlCommand();
         DBConnection dbcon = new DBConnection();
         SqlDataReader dr;
+        LandingPage land;
         private readonly string search = "search here";
-        public ActivityLogForm()
+        public ActivityLogForm(LandingPage land1)
         {
             InitializeComponent();
             conn = new SqlConnection(dbcon.myConnection());
             dataGridLogs.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             comboFilterLogs.SelectedIndex = 0;
             txtSearch.Text = search;
-
+            land = land1;
         }
 
         public void LoadLogs()
@@ -45,7 +46,7 @@ namespace CafeSystem.Admin
                 dataGridLogs.Columns["Column6"].Visible = true;
                 dataGridLogs.Columns["Column8"].Visible = true;
                 dataGridLogs.Columns["Column9"].Visible = true;
-                dataGridLogs.Columns["Column9"].HeaderText = "Archived/Activated/Deleted Data";
+                dataGridLogs.Columns["Column9"].HeaderText = "Archived/Activated/Deactivated/Deleted Data";
             }
             conn.Close();
             dr.Close();
@@ -261,7 +262,7 @@ namespace CafeSystem.Admin
                 dataGridLogs.Columns["Column6"].Visible = false;
                 dataGridLogs.Columns["Column8"].Visible = true;
                 dataGridLogs.Columns["Column9"].Visible = true;
-                dataGridLogs.Columns["Column9"].HeaderText = "Archived/Activated Data";
+                dataGridLogs.Columns["Column9"].HeaderText = "Deactivated/Activated Data";
                 dataGridLogs.Columns["Column4"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridLogs.Columns["Column10"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridLogs.Columns["Column5"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -311,7 +312,7 @@ namespace CafeSystem.Admin
                 dataGridLogs.Columns["Column6"].Visible = false;
                 dataGridLogs.Columns["Column8"].Visible = false;
                 dataGridLogs.Columns["Column9"].Visible = true;
-                dataGridLogs.Columns["Column9"].HeaderText = "Archived/Activated Data";
+                dataGridLogs.Columns["Column9"].HeaderText = "Deactivated/Activated Data";
                 dataGridLogs.Columns["Column4"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridLogs.Columns["Column10"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridLogs.Columns["Column5"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -515,19 +516,43 @@ namespace CafeSystem.Admin
             dr.Close();
         }
 
+        public void LoadAllDeletedHistory()
+        {
+            dataGridLogs.Rows.Clear();
+            int i = 0;
+            conn.Open();
+            cm = new SqlCommand("Select * from tblActivityLogs where action IN ('Deleted All Activity Logs', 'Deleted All Category Logs', 'Deleted All Product Logs', 'Deleted All Manage Discount Logs', 'Deleted All Account Maintenance Logs', 'Deleted All Login/Logout Logs', 'Deleted All Transactions Logs') order by sdate desc", conn);
+            dr = cm.ExecuteReader();
+            while (dr.Read())
+            {
+                i++;
+                dataGridLogs.Rows.Add(i, dr["id"].ToString(), dr["username"].ToString(), dr["name"].ToString(), dr["role"].ToString(), dr["action"].ToString(), dr["add_data"].ToString(), dr["update_data"].ToString(), dr["delete_data"].ToString(), dr["sdate"].ToString());
+                dataGridLogs.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+                dataGridLogs.Rows[dataGridLogs.Rows.Count - 1].Cells[5].Style.ForeColor = Color.FromArgb(238, 105, 105);
+                dataGridLogs.Columns["Column6"].Visible = false;
+                dataGridLogs.Columns["Column8"].Visible = false;
+                dataGridLogs.Columns["Column9"].Visible = true;
+                dataGridLogs.Columns["Column9"].HeaderText = "Deleted Activity Logs";
+                dataGridLogs.Columns["Column4"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridLogs.Columns["Column10"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridLogs.Columns["Column5"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
+            conn.Close();
+            dr.Close();
+        }
+
         private void comboFilterLogs_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboFilterLogs.SelectedIndex == 0)
             {
                 LoadLogs();
                 comboAction.Items.Clear();
-                comboAction.Enabled = false;
-                comboAction.Text = null;
+                comboAction.Visible = false;
             }
             if (comboFilterLogs.SelectedIndex == 1)
             {
                 comboAction.Items.Clear();
-                comboAction.Enabled = true;
+                comboAction.Visible = true;
                 comboAction.Items.Add("All Records");
                 comboAction.Items.Add("Added Category");
                 comboAction.Items.Add("Updated Category");
@@ -536,7 +561,7 @@ namespace CafeSystem.Admin
             if (comboFilterLogs.SelectedIndex == 2)
             {
                 comboAction.Items.Clear();
-                comboAction.Enabled = true;
+                comboAction.Visible = true;
                 comboAction.Items.Add("All Records");
                 comboAction.Items.Add("Added Product");
                 comboAction.Items.Add("Updated Product");
@@ -545,7 +570,7 @@ namespace CafeSystem.Admin
             if (comboFilterLogs.SelectedIndex == 3)
             {
                 comboAction.Items.Clear();
-                comboAction.Enabled = true;
+                comboAction.Visible = true;
                 comboAction.Items.Add("All Records");
                 comboAction.Items.Add("Updated Discount");
                 comboAction.Items.Add("Archived/Activated Discount");
@@ -553,7 +578,7 @@ namespace CafeSystem.Admin
             if (comboFilterLogs.SelectedIndex == 4)
             {
                 comboAction.Items.Clear();
-                comboAction.Enabled = true;
+                comboAction.Visible = true;
                 comboAction.Items.Add("All Records");
                 comboAction.Items.Add("Added Account");
                 comboAction.Items.Add("Updated Account");
@@ -562,7 +587,7 @@ namespace CafeSystem.Admin
             if (comboFilterLogs.SelectedIndex == 5)
             {
                 comboAction.Items.Clear();
-                comboAction.Enabled = true;
+                comboAction.Visible = true;
                 comboAction.Items.Add("All Records");
                 comboAction.Items.Add("Log In");
                 comboAction.Items.Add("Log Out");
@@ -570,8 +595,14 @@ namespace CafeSystem.Admin
             if (comboFilterLogs.SelectedIndex == 6)
             {
                 comboAction.Items.Clear();
-                comboAction.Enabled = false;
                 LoadAllDeletedTransaction();
+                comboAction.Visible = false;
+            }
+            if (comboFilterLogs.SelectedIndex == 7)
+            {
+                comboAction.Items.Clear();
+                comboAction.Visible = false;
+                LoadAllDeletedHistory();
             }
 
         }
@@ -729,6 +760,24 @@ namespace CafeSystem.Admin
                 e.CellStyle.SelectionForeColor = cellForeColor;
 
             }
+        }
+
+        public void refreshAllActivities()
+        {
+            comboFilterLogs.SelectedIndex = 0;
+            comboAction.Items.Clear();
+            comboAction.Visible = false;
+            LoadLogs();
+        }
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            refreshAllActivities();
+        }
+
+        private void btnDeleteNavigation_Click(object sender, EventArgs e)
+        {
+            DeleteHistory del = new DeleteHistory(this,land);
+            del.ShowDialog();
         }
     }  
 }

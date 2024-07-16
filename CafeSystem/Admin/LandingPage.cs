@@ -213,7 +213,7 @@ namespace CafeSystem
 
         private void btnLogActivity_Click(object sender, EventArgs e)
         {
-            ActivityLogForm log = new ActivityLogForm();
+            ActivityLogForm log = new ActivityLogForm(this);
             log.TopLevel = false;
             panel1.Controls.Add(log);
             log.BringToFront();

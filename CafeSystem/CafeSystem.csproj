@@ -138,6 +138,12 @@
     <Compile Include="Admin\DashBoardForm.Designer.cs">
       <DependentUpon>DashBoardForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\DeleteHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\DeleteHistory.Designer.cs">
+      <DependentUpon>DeleteHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\EditCategory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -294,6 +300,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\DashBoardForm.resx">
       <DependentUpon>DashBoardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\DeleteHistory.resx">
+      <DependentUpon>DeleteHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\EditCategory.resx">
       <DependentUpon>EditCategory.cs</DependentUpon>
