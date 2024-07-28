@@ -101,6 +101,7 @@ namespace CafeSystem.Admin
         {
             try
             {
+                int _userId = int.Parse(txtId.Text);
                 if (string.IsNullOrWhiteSpace(txtDesc.Text) || (string.IsNullOrWhiteSpace(txtPrice.Text) || (txtPrice.Text == "₱0.00")))
                 {
                     MessageBox.Show("Required Empty Field", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -138,7 +139,23 @@ namespace CafeSystem.Admin
                     }
                     dr.Close();
 
-                   
+                    if (_userId > 0)
+                    {
+                        // Check if username exists for a different user
+                        cm = new SqlCommand("SELECT COUNT(*) FROM tblProduct WHERE description = @usn AND id != @uid", conn);
+                        cm.Parameters.AddWithValue("@usn", txtDesc.Text.Trim());
+                        cm.Parameters.AddWithValue("@uid", _userId);
+                    }
+
+                    int count1 = (int)cm.ExecuteScalar();
+                    if (count1 > 0)
+                    {
+                        MessageBox.Show("Product already existing!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtDesc.Focus();
+                        conn.Close();
+                        return;
+                    }
+
                     cm = new SqlCommand("Insert into tblActivityLogs (username, name, action, add_data, update_data, delete_data, role, sdate)values(@username, @name, @action, @add_data, @update_data, @delete_data, @role, @sdate)", conn);
                     cm.Parameters.AddWithValue("@username", land.txtUser.Text);
                     cm.Parameters.AddWithValue("@name", land.txtName.Text);

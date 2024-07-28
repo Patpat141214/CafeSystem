@@ -368,10 +368,10 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
-            <Top>1.59252in</Top>
-            <Left>0.00004in</Left>
+            <Top>1.84252in</Top>
+            <Left>0.00815in</Left>
             <Height>0.79514in</Height>
-            <Width>2.27531in</Width>
+            <Width>2.27532in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -398,8 +398,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>pDiscountedOrNotTotal</rd:DefaultName>
-            <Top>2.96403in</Top>
-            <Left>0.01046in</Left>
+            <Top>3.21403in</Top>
+            <Left>0.01857in</Left>
             <Height>0.2118in</Height>
             <Width>2.273in</Width>
             <ZIndex>1</ZIndex>
@@ -433,8 +433,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>pCustomerCash</rd:DefaultName>
-            <Top>3.32862in</Top>
-            <Left>0.01046in</Left>
+            <Top>3.57862in</Top>
+            <Left>0.01857in</Left>
             <Height>0.2118in</Height>
             <Width>2.273in</Width>
             <ZIndex>2</ZIndex>
@@ -449,8 +449,8 @@
             </Style>
           </Textbox>
           <Line Name="Line1">
-            <Top>3.24528in</Top>
-            <Left>0.01046in</Left>
+            <Top>3.49528in</Top>
+            <Left>0.01857in</Left>
             <Height>0in</Height>
             <Width>2.273in</Width>
             <ZIndex>3</ZIndex>
@@ -480,8 +480,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>pCustomerChange</rd:DefaultName>
-            <Top>3.60986in</Top>
-            <Left>0.01046in</Left>
+            <Top>3.85986in</Top>
+            <Left>0.01857in</Left>
             <Height>0.2118in</Height>
             <Width>2.273in</Width>
             <ZIndex>4</ZIndex>
@@ -514,8 +514,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox23</rd:DefaultName>
-            <Top>3.89111in</Top>
-            <Left>0.00004in</Left>
+            <Top>4.14111in</Top>
+            <Left>0.00815in</Left>
             <Height>0.23958in</Height>
             <Width>2.28342in</Width>
             <ZIndex>5</ZIndex>
@@ -549,8 +549,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>pTotal</rd:DefaultName>
-            <Top>2.4571in</Top>
-            <Left>0.01046in</Left>
+            <Top>2.7071in</Top>
+            <Left>0.01857in</Left>
             <Height>0.2118in</Height>
             <Width>2.273in</Width>
             <ZIndex>6</ZIndex>
@@ -584,8 +584,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>pDiscount</rd:DefaultName>
-            <Top>2.71057in</Top>
-            <Left>0.01046in</Left>
+            <Top>2.96057in</Top>
+            <Left>0.01857in</Left>
             <Height>0.2118in</Height>
             <Width>2.273in</Width>
             <ZIndex>7</ZIndex>
@@ -619,7 +619,7 @@
             </Paragraphs>
             <rd:DefaultName>pStoreName</rd:DefaultName>
             <Top>0.06944in</Top>
-            <Left>0.01044in</Left>
+            <Left>0.01855in</Left>
             <Height>0.221in</Height>
             <Width>2.27302in</Width>
             <ZIndex>8</ZIndex>
@@ -653,7 +653,7 @@
             </Paragraphs>
             <rd:DefaultName>pStoreAddress</rd:DefaultName>
             <Top>0.33211in</Top>
-            <Left>0.01042in</Left>
+            <Left>0.01853in</Left>
             <Height>0.20833in</Height>
             <Width>2.27302in</Width>
             <ZIndex>9</ZIndex>
@@ -688,7 +688,7 @@
             </Paragraphs>
             <rd:DefaultName>pTransactNo</rd:DefaultName>
             <Top>1.06474in</Top>
-            <Left>0.01042in</Left>
+            <Left>0.01853in</Left>
             <Height>0.20833in</Height>
             <Width>2.27302in</Width>
             <ZIndex>10</ZIndex>
@@ -716,11 +716,13 @@
                     </Style>
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox8</rd:DefaultName>
-            <Top>1.31474in</Top>
+            <Top>1.55778in</Top>
             <Height>0.20833in</Height>
             <Width>2.28346in</Width>
             <ZIndex>11</ZIndex>
@@ -755,7 +757,7 @@
             </Paragraphs>
             <rd:DefaultName>pCashier</rd:DefaultName>
             <Top>0.58211in</Top>
-            <Left>0.01046in</Left>
+            <Left>0.01857in</Left>
             <Height>0.19794in</Height>
             <Width>2.26489in</Width>
             <ZIndex>12</ZIndex>
@@ -790,7 +792,7 @@
             </Paragraphs>
             <rd:DefaultName>pCustomer</rd:DefaultName>
             <Top>0.82171in</Top>
-            <Left>0.01046in</Left>
+            <Left>0.01857in</Left>
             <Height>0.20136in</Height>
             <Width>2.26489in</Width>
             <ZIndex>13</ZIndex>
@@ -804,11 +806,46 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
+          <Textbox Name="pOrderType">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Parameters!pOrderType.Value</Value>
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>pOrderType</rd:DefaultName>
+            <Top>1.30778in</Top>
+            <Left>0.01857in</Left>
+            <Height>0.20833in</Height>
+            <Width>2.27302in</Width>
+            <ZIndex>14</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
         </ReportItems>
-        <Height>4.13069in</Height>
+        <Height>4.41194in</Height>
         <Style />
       </Body>
-      <Width>2.28346in</Width>
+      <Width>2.30203in</Width>
       <Page>
         <PageHeight>12in</PageHeight>
         <PageWidth>2.28346in</PageWidth>
@@ -854,6 +891,10 @@
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
     <ReportParameter Name="pCustomerChange">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="pOrderType">
       <DataType>String</DataType>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
@@ -912,6 +953,11 @@
           <ColumnIndex>1</ColumnIndex>
           <RowIndex>2</RowIndex>
           <ParameterName>pCustomerChange</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>2</ColumnIndex>
+          <RowIndex>2</RowIndex>
+          <ParameterName>pOrderType</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>

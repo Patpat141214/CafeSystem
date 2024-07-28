@@ -20,7 +20,7 @@ namespace CafeSystem
     
         public string myConnection()
         {
-            con = "Data Source=PATRICKF\\SQLEXPRESS;Initial Catalog=POS_CAFE_SYSTEM;Integrated Security=True;Encrypt=False";
+            con = "Data Source=WIN-OLQG14FG7DN\\SQLEXPRESS;Initial Catalog=POS_CAFE_SYSTEM;Integrated Security=True;Encrypt=False";
             return con;
         }
 

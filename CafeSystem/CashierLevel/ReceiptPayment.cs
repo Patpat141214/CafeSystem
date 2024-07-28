@@ -101,6 +101,7 @@ namespace CafeSystem.CashierLevel
                 ReportParameter TransactNo = new ReportParameter("pTransactNo", "Invoice #: " + cshier.lblTransu.Text);
                 ReportParameter Cashier = new ReportParameter("pCashier", "Cashier: " + cshier.txtName.Text);
                 ReportParameter CustName = new ReportParameter("pCustomer", "Customer: " + cshier.txtCustomerName.Text);
+                ReportParameter orderType = new ReportParameter("pOrderType", "Type: " + cshier.txtOrderType.Text);
 
                 reportViewer1.LocalReport.SetParameters(Discount);
                 reportViewer1.LocalReport.SetParameters(Total);
@@ -112,6 +113,7 @@ namespace CafeSystem.CashierLevel
                 reportViewer1.LocalReport.SetParameters(TransactNo);
                 reportViewer1.LocalReport.SetParameters(Cashier);
                 reportViewer1.LocalReport.SetParameters(CustName);
+                reportViewer1.LocalReport.SetParameters(orderType);
 
                 rpdatasource = new ReportDataSource("DataSet1", ds.Tables["dtReceipt"]);
                 reportViewer1.LocalReport.DataSources.Add(rpdatasource);
