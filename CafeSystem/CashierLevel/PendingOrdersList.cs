@@ -144,6 +144,7 @@ namespace CafeSystem.CashierLevel
                     cash.btnPayment.Enabled = true;
                     cash.btnApplyDiscount.Enabled = true;
                     cash.btnRemoveDiscount.Enabled = true;
+                    cash.btnMovePending .Enabled = true;
                 }
                 else
                 {
@@ -156,6 +157,7 @@ namespace CafeSystem.CashierLevel
                     cash.btnPayment.Enabled = false;
                     cash.btnApplyDiscount.Enabled = false;
                     cash.btnRemoveDiscount.Enabled = false;
+                    cash.btnMovePending.Enabled = false;
                 }
             }
             catch(Exception ex) 

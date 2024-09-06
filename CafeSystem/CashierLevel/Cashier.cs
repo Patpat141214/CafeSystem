@@ -124,6 +124,7 @@ namespace CafeSystem
                     btnPayment.Enabled = true;
                     btnApplyDiscount.Enabled = true;
                     btnRemoveDiscount.Enabled = true;
+                    btnMovePending.Enabled = true;
 
                 }
                 else
@@ -137,6 +138,7 @@ namespace CafeSystem
                     btnPayment.Enabled = false;
                     btnApplyDiscount.Enabled = false;
                     btnRemoveDiscount.Enabled = false;
+                    btnMovePending.Enabled = false;
 
 
                 }
@@ -778,6 +780,13 @@ namespace CafeSystem
                 MessageBox.Show("No discount applied!", "Discount", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             
+        }
+
+        private void btnMovePending_Click(object sender, EventArgs e)
+        {
+            getTrans();
+            txtCustomerName.Focus();
+            LoadDataToGrid();
         }
     }
 }
